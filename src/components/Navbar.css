@@ -1,0 +1,37 @@
+/* src/components/Navbar.css */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;          /* or whatever looks good */
+    background: #fff;
+    padding: 0 32px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.05);
+    position: sticky;      /* sticks to top on scroll */
+    top: 0;
+    z-index: 100;
+  }
+  
+  .navbar-logo {
+    height: 80px;         /* tweak as needed */
+    width: auto;
+    object-fit: contain;
+  }
+  
+  .navbar-links {
+    display: flex;
+    gap: 32px;
+  }
+  
+  .navbar-link {
+    color: #444;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  
+  .navbar-link:hover {
+    color: #2e7d32; /* olive greenish */
+  }
+  
