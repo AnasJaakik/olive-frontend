@@ -1,22 +1,26 @@
 import React from 'react';
 import './Navbar.css';
 import { assets } from '../assets/assets';
-import { NavLink } from 'react-router-dom';
 
 const Navbar = () => (
   <div className="navbar">
     <img src={assets.logo} alt="Zaytun Logo" className="navbar-logo" />
     <div className="navbar-links">
-      <NavLink to="/" className="navbar-link">Home</NavLink>
-      <NavLink to="/about" className="navbar-link">About</NavLink>
-      <NavLink to="/products/1" className="navbar-link">Products</NavLink>
-      <NavLink to="/cart" className="navbar-link">Cart</NavLink>
-      <NavLink to="/login" className="navbar-link">Login</NavLink>
+      <a href="#home" className="navbar-link">Home</a>
+      <a href="#about" className="navbar-link">About</a>
+      <a href="#products" className="navbar-link">Products</a>
+      <a href="#contact" className="navbar-link">Contact</a>
+      {/* If you want Login/Cart as scroll links, add here; 
+          but best to use separate page/modal for those */}
     </div>
   </div>
 );
 
 export default Navbar;
+
+
+
+
 
 
 

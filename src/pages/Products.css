@@ -1,0 +1,70 @@
+.products-section {
+    padding: 72px 0;
+    text-align: center;
+    background: #f6f7ee;
+  }
+  
+  .products-title {
+    font-size: 2rem;
+    color: #335432;
+    margin-bottom: 32px;
+    font-family: 'Merriweather', serif;
+  }
+  
+  .products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+  }
+  
+  .product-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(30, 60, 10, 0.10);
+    padding: 32px 20px;
+    min-width: 220px;
+    max-width: 260px;
+    text-align: center;
+    transition: transform 0.15s;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-6px) scale(1.02);
+  }
+  
+  .product-name {
+    font-size: 1.2rem;
+    color: #335432;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .product-desc {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+  
+  .product-price {
+    color: #89b04b;
+    font-weight: 600;
+    font-size: 1.13rem;
+    margin-bottom: 14px;
+  }
+  
+  .product-btn {
+    padding: 10px 28px;
+    background: #335432;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s;
+  }
+  .product-btn:hover {
+    background: #89b04b;
+    color: #335432;
+  }
+  
