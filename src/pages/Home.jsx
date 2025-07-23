@@ -1,18 +1,34 @@
-// src/pages/Home.jsx
-import React from 'react';
-import './Home.css'; // We'll add this next
+import React from "react";
+import { assets } from "../assets/assets"; 
+import './Home.css';
+
 
 const Home = () => (
-  <section className="home-hero">
+  <section id="home" className="home-hero">
     <div className="home-hero-content">
-      <h1 className="home-hero-title">Pure Moroccan Olive Oil</h1>
-      <p className="home-hero-desc">
-        Experience the tradition. Handcrafted from ancient groves, cold-pressed for maximum flavor and health.
+      <h1 className="hero-title">Pure Moroccan Olive Oil</h1>
+      <p className="hero-tagline">
+        <em>Harvested by hand. Pressed within the hour. </em>
       </p>
-      <a href="/products" className="home-hero-btn">Shop Now</a>
+      <p className="hero-desc">
+        Handcrafted from ancient Haouzia groves outside Marrakech.<br />
+        Cold-pressed for exceptional flavor, health, and tradition.<br />
+        Taste the story of our land in every golden drop.
+      </p>
+      <a href="#products" className="hero-btn">
+        Shop Now
+      </a>
+      <div className="hero-details">
+        Family owned &bull; Organic &bull; Crafted in Marrakech
+      </div>
+    </div>
+    <div className="home-hero-img">
+      <img src={assets.oliveHero} alt="Olive branch with olives" />
     </div>
   </section>
 );
 
 export default Home;
+
+
 

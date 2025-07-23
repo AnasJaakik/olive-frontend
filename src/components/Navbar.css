@@ -1,37 +1,79 @@
-/* src/components/Navbar.css */
-
 .navbar {
     display: flex;
+    margin: 0;
+    margin-right: -10px;
     align-items: center;
     justify-content: space-between;
-    height: 64px;          /* or whatever looks good */
+    height: 100px;                 /* Make navbar tall, logo will fill it */
     background: #fff;
-    padding: 0 32px;
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.05);
-    position: sticky;      /* sticks to top on scroll */
+    padding: 0 3vw;
+    box-shadow: 0 2px 8px 0 rgba(30, 64, 34, 0.07); /* olive shadow, subtle */
+    position: sticky;
     top: 0;
     z-index: 100;
+    /* Remove margin/border for ultra-clean look */
   }
   
   .navbar-logo {
-    height: 80px;         /* tweak as needed */
+    height: 100%;                  /* LOGO FILLS NAVBAR HEIGHT */
     width: auto;
     object-fit: contain;
+    display: block;
+    margin: 0;
+    padding: 0;
   }
   
   .navbar-links {
     display: flex;
-    gap: 32px;
+    align-items: center;           /* Lock links vertically with logo */
+    gap: 44px;                     /* Big, modern spacing */
   }
   
   .navbar-link {
-    color: #444;
+    color: #253828;                /* deep olive, looks expensive */
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
+    font-family: 'Merriweather', serif;
+    font-weight: 600;
+    font-size: 1.22rem;
+    letter-spacing: 0.01em;
+    background: transparent;
+    border: none;
+    padding: 0 3px;
+    margin: 0;
+    position: relative;
+    transition: color 0.16s cubic-bezier(.4,0,.2,1);
+    display: flex;
+    align-items: center;
+    height: 100%;                  /* fills navbar vertically */
+    cursor: pointer;
   }
   
-  .navbar-link:hover {
-    color: #2e7d32; /* olive greenish */
+  .navbar-link:hover,
+  .navbar-link:focus {
+    color: #7ba03a;                /* fresh olive on hover */
+    border-bottom: 2px solid #a5b94c;
   }
+  
+  @media (max-width: 900px) {
+    .navbar {
+      height: 56px;
+      padding: 0 1vw;
+    }
+    .navbar-logo {
+      height: 90%;
+    }
+    .navbar-links {
+      gap: 18px;
+    }
+    .navbar-link {
+      font-size: 1rem;
+    }
+  }
+  
+  
+  
+
+
+  
+  
   
