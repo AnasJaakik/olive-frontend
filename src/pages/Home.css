@@ -84,6 +84,22 @@
     border-radius: 24px;
     box-shadow: 0 10px 38px 0 rgba(60,80,40,0.12);
   }
+  .hero-slogan {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: #7d876c;
+    font-size: 1.75rem;
+    letter-spacing: 0.18em;
+    margin-bottom: 1.2rem;
+    margin-left: 2px;
+    opacity: 0.84;
+    font-weight: 400;
+    text-align: left; /* or center, if you want */
+  }
+  
+  
+  
   
   /* Responsive for mobile */
   @media (max-width: 900px) {
@@ -106,6 +122,10 @@
     }
     .hero-title {
       font-size: 2.1rem;
+    }
+    .hero-slogan {
+      font-size: 1rem;
+      margin-bottom: 0.9rem;
     }
   }
   

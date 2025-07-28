@@ -6,6 +6,7 @@ import './Home.css';
 const Home = () => (
   <section id="home" className="home-hero">
     <div className="home-hero-content">
+      <span className="hero-slogan">When quality has a face.</span>
       <h1 className="hero-title">Pure Moroccan Olive Oil</h1>
       <p className="hero-tagline">
         <em>Harvested by hand. Pressed within the hour. </em>
