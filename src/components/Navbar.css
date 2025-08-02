@@ -58,6 +58,48 @@
   color: #7ba03a;
   border-bottom: 2px solid #a5b94c;
 }
+.navbar-center {
+  flex: 1.3;
+  text-align: left;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.15rem;
+  font-weight: 800;
+  color: #2a3e25;
+  letter-spacing: 0.12em;
+  user-select: none;
+  pointer-events: none;  /* optional: makes it non-clickable */
+}
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* space between logo and brand */
+}
+
+.navbar-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1;
+}
+
+.brand-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.45rem;
+  font-weight: 800;
+  color: #2a3e25;
+  letter-spacing: 0.11em;
+}
+
+.brand-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.08rem;
+  font-style: italic;
+  color: #a7aa88;
+  letter-spacing: 0.2em;
+  margin-top: 2px;
+  font-weight: 400;
+}
+
 
 @media (max-width: 900px) {
   .navbar {

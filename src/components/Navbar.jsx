@@ -4,7 +4,13 @@ import './Navbar.css';
 
 const Navbar = () => (
   <nav className="navbar">
-    <img src={assets.logo} alt="Logo" className="navbar-logo" />
+    <div className="navbar-left">
+      <img src={assets.logo} alt="Logo" className="navbar-logo" />
+      <div className="navbar-brand">
+        <span className="brand-main">Abdeljalil</span>
+        <span className="brand-sub">Olive Oil</span>
+      </div>
+    </div>
     <div className="navbar-links">
       <a href="#home" className="navbar-link">Home</a>
       <a href="#about" className="navbar-link">About</a>
@@ -15,6 +21,8 @@ const Navbar = () => (
 );
 
 export default Navbar;
+
+
 
 
 

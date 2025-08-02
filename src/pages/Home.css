@@ -1,131 +1,153 @@
 .home-hero {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    background: linear-gradient(90deg, #f7f8f3 65%, #ffffff 100%);
-    padding: 0 0 0 5vw;
-    min-height: 84vh;
-    box-sizing: border-box;
-  }
-  
-  .home-hero-content {
-    flex: 1.2;
-    display: flex;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #f7f8f3 65%, #ffffff 100%);
+  padding: 0 0 0 5vw;
+  min-height: 84vh;
+  box-sizing: border-box;
+}
+
+.home-hero-content {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 650px;
+  z-index: 2;
+  padding-top: 60px;
+  padding-bottom: 48px;
+}
+
+.hero-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #233a23;
+  margin-bottom: 0.3em;
+  letter-spacing: -1px;
+}
+
+.hero-tagline {
+  font-size: 1.25rem;
+  color: #7a917a;
+  margin-bottom: 1.3em;
+}
+
+.hero-desc {
+  font-size: 1.22rem;
+  color: #324d32;
+  margin-bottom: 2em;
+  line-height: 1.5;
+}
+
+.hero-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #6f993e, #b2bf77);
+  color: #fff;
+  font-weight: 700;
+  padding: 18px 40px;
+  width: fit-content;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 4px 24px 0 rgba(137, 168, 62, 0.10);
+  margin-bottom: 1.4em;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.13s;
+}
+.hero-btn:hover {
+  background: linear-gradient(90deg, #b2bf77, #6f993e);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.hero-details {
+  color: #6e816d;
+  font-size: 1.12rem;
+  font-weight: 700;
+  opacity: 0.90;
+  letter-spacing: 0.01em;
+}
+
+.home-hero-img {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+  padding: 40px 4vw 40px 0;
+}
+.home-hero-img img {
+  max-width: 580px;
+  width: 100%;
+  height: 78vh;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 10px 38px 0 rgba(60,80,40,0.12);
+}
+.hero-slogan-row {
+  display: flex;
+  align-items: center;
+  gap: 105px;       /* Space between slogan and logo */
+  margin-bottom: 1.3rem;
+}
+
+.hero-slogan-img {
+  height: 150px;   /* Tweak as you like, looks luxe between 48–80px */
+  width: auto;
+  border-radius: 50%;  /* perfect round if you want */
+  box-shadow: 0 4px 16px 0 rgba(200,200,100,0.05);
+  background: #e2eac7;
+}
+
+.hero-slogan {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: #7d876c;
+  font-size: 1.55rem;
+  letter-spacing: 0.16em;
+  font-weight: 400;
+  opacity: 0.87;
+  margin: 0;
+  /* Remove margin-bottom if it’s here */
+}
+
+
+
+
+
+/* Responsive for mobile */
+@media (max-width: 900px) {
+  .home-hero {
     flex-direction: column;
-    justify-content: center;
-    max-width: 650px;
-    z-index: 2;
-    padding-top: 60px;
-    padding-bottom: 48px;
+    padding: 36px 8vw 0 8vw;
+    min-height: auto;
   }
-  
-  .hero-title {
-    font-size: 3.2rem;
-    font-weight: 800;
-    color: #233a23;
-    margin-bottom: 0.3em;
-    letter-spacing: -1px;
+  .home-hero-content {
+    max-width: 100%;
+    padding: 0 0 20px 0;
   }
-  
-  .hero-tagline {
-    font-size: 1.25rem;
-    color: #7a917a;
-    margin-bottom: 1.3em;
-  }
-  
-  .hero-desc {
-    font-size: 1.22rem;
-    color: #324d32;
-    margin-bottom: 2em;
-    line-height: 1.5;
-  }
-  
-  .hero-btn {
-    display: inline-block;
-    background: linear-gradient(90deg, #6f993e, #b2bf77);
-    color: #fff;
-    font-weight: 700;
-    padding: 18px 40px;
-    width: fit-content;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 30px;
-    box-shadow: 0 4px 24px 0 rgba(137, 168, 62, 0.10);
-    margin-bottom: 1.4em;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.13s;
-  }
-  .hero-btn:hover {
-    background: linear-gradient(90deg, #b2bf77, #6f993e);
-    transform: translateY(-2px) scale(1.03);
-  }
-  
-  .hero-details {
-    color: #6e816d;
-    font-size: 1.12rem;
-    font-weight: 700;
-    opacity: 0.90;
-    letter-spacing: 0.01em;
-  }
-  
   .home-hero-img {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    min-width: 0;
-    padding: 40px 4vw 40px 0;
+    padding: 0 0 40px 0;
+    justify-content: center;
   }
   .home-hero-img img {
-    max-width: 580px;
-    width: 100%;
-    height: 78vh;
-    object-fit: cover;
-    border-radius: 24px;
-    box-shadow: 0 10px 38px 0 rgba(60,80,40,0.12);
+    height: 230px;
+    max-width: 95vw;
+  }
+  .hero-title {
+    font-size: 2.1rem;
   }
   .hero-slogan {
-    display: block;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    color: #7d876c;
-    font-size: 1.75rem;
-    letter-spacing: 0.18em;
-    margin-bottom: 1.2rem;
-    margin-left: 2px;
-    opacity: 0.84;
-    font-weight: 400;
-    text-align: left; /* or center, if you want */
+    font-size: 1rem;
+    margin-bottom: 0.9rem;
   }
-  
-  
-  
-  
-  /* Responsive for mobile */
-  @media (max-width: 900px) {
-    .home-hero {
-      flex-direction: column;
-      padding: 36px 8vw 0 8vw;
-      min-height: auto;
-    }
-    .home-hero-content {
-      max-width: 100%;
-      padding: 0 0 20px 0;
-    }
-    .home-hero-img {
-      padding: 0 0 40px 0;
-      justify-content: center;
-    }
-    .home-hero-img img {
-      height: 230px;
-      max-width: 95vw;
-    }
-    .hero-title {
-      font-size: 2.1rem;
-    }
-    .hero-slogan {
-      font-size: 1rem;
-      margin-bottom: 0.9rem;
-    }
-  }
+}
+
+
+
+
+
+
+
+
   
