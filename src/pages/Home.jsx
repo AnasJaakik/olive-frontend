@@ -11,7 +11,7 @@ const Home = () => (
         <span className="hero-slogan">When quality has a face.</span>
         <img src={faceLogo} alt="Abdeljalil face logo" className="hero-slogan-img" />
       </div>
-      <h1 className="hero-title">Pure Moroccan Olive Oil</h1>
+      <h1 className="hero-title">Extra virgin Moroccan Olive Oil</h1>
       <p className="hero-tagline">
         <em>Harvested by hand. Pressed within the hour. </em>
       </p>
@@ -28,7 +28,7 @@ const Home = () => (
       </div>
     </div>
     <div className="home-hero-img">
-      <img src={assets.oliveHero} alt="Olive branch with olives" />
+      <img src={assets.riad} alt="Olive branch with olives" />
     </div>
   </section>
 );

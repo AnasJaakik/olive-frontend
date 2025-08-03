@@ -92,7 +92,7 @@
 }
 
 .hero-slogan-img {
-  height: 150px;   /* Tweak as you like, looks luxe between 48–80px */
+  height: 180px;   /* Tweak as you like, looks luxe between 48–80px */
   width: auto;
   border-radius: 50%;  /* perfect round if you want */
   box-shadow: 0 4px 16px 0 rgba(200,200,100,0.05);

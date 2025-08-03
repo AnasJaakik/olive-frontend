@@ -1,3 +1,5 @@
+
+
 .navbar {
   display: flex;
   align-items: center;
@@ -7,7 +9,7 @@
   height: 100px;
   background: #fff;
   padding: 0 3vw;
-  box-shadow: 0 2px 8px 0 rgba(30, 64, 34, 0.07);
+  box-shadow: 0 2px 8px rgba(30, 64, 34, 0.07);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -37,7 +39,7 @@
 .navbar-link {
   color: #253828;
   text-decoration: none;
-  font-family: 'Merriweather', serif;
+  font-family: 'Playfair Display', serif; /* keeps your link serif */
   font-weight: 600;
   font-size: 1.15rem;
   letter-spacing: 0.01em;
@@ -58,6 +60,7 @@
   color: #7ba03a;
   border-bottom: 2px solid #a5b94c;
 }
+
 .navbar-center {
   flex: 1.3;
   text-align: left;
@@ -67,8 +70,9 @@
   color: #2a3e25;
   letter-spacing: 0.12em;
   user-select: none;
-  pointer-events: none;  /* optional: makes it non-clickable */
+  pointer-events: none;
 }
+
 .navbar-left {
   display: flex;
   align-items: center;
@@ -81,24 +85,13 @@
   justify-content: center;
   line-height: 1;
 }
-
-.brand-main {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.45rem;
-  font-weight: 800;
-  color: #2a3e25;
-  letter-spacing: 0.11em;
+.secondary-logo {
+  height: 80px;
+  max-height: 80px;
+  margin-left: 8px;
+  object-fit: contain;
 }
 
-.brand-sub {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.08rem;
-  font-style: italic;
-  color: #a7aa88;
-  letter-spacing: 0.2em;
-  margin-top: 2px;
-  font-weight: 400;
-}
 
 
 @media (max-width: 900px) {
@@ -116,13 +109,11 @@
   .navbar-link {
     font-size: 1rem;
   }
+  .brand-main {
+    font-size: 1.6rem;
+  }
+  .brand-sub {
+    font-size: 0.9rem;
+  }
 }
 
-  
-  
-  
-
-
-  
-  
-  
