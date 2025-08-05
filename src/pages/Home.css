@@ -1,4 +1,5 @@
 /* src/pages/Home.css */
+.hero-details
 .hero-title,
 .hero-tagline,
 .hero-desc {
@@ -30,28 +31,29 @@
 .hero-title {
   font-size: 3.2rem;
   font-weight: 800;
-  color: #233a23;
+  color:  rgb(76, 76, 30);
   margin-bottom: 0.3em;
   letter-spacing: -1px;
 }
 
 .hero-tagline {
   font-size: 1.25rem;
-  color: #7a917a;
+  font-weight: 700;
+  color:  rgb(222, 221 ,141);
   margin-bottom: 1.3em;
 }
 
 .hero-desc {
-  font-size: 1.22rem;
-  color: #324d32;
+  font-size: 1.4rem;
+  color: rgb(76, 76, 30);
   margin-bottom: 2em;
   line-height: 1.5;
 }
 
 
 .hero-details {
-  color: #6e816d;
-  font-size: 1.12rem;
+  color:  rgb(222 ,221 ,141);
+  font-size: 1.4rem;
   font-weight: 700;
   opacity: 0.90;
   letter-spacing: 0.01em;
@@ -77,7 +79,7 @@
   width: auto;
   object-fit: cover;
   border-radius: 24px;
-  box-shadow: 0 10px 38px rgba(60,80,40,0.12);
+  box-shadow: 0 10px 38px  rgb(76, 76, 30);
 }
 
 .hero-slogan-row {
@@ -91,7 +93,7 @@
   height: 180px;
   width: auto;
   border-radius: 50%;
-  box-shadow: 0 4px 16px rgba(200,200,100,0.05);
+  box-shadow: 0 4px 16px  rgb(76, 76, 30);
   background: #e2eac7;
 }
 
@@ -101,7 +103,7 @@
   font-weight: 600;        /* pick 400,600,800 as you like */
   font-size: 1.75rem;
   letter-spacing: 0.08em;
-  color: #233a23;
+  color:  rgb(76, 76, 30);
   text-align: center;
   margin: 0 0 1.5rem;
 }

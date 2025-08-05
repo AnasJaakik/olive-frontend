@@ -58,7 +58,7 @@
 
 .navbar-link:hover,
 .navbar-link:focus {
-  color: #7ba03a;
+  color: rgb(76, 76, 30);
   border-bottom: 2px solid #a5b94c;
 }
 
