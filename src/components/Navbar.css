@@ -40,6 +40,7 @@
   color: #253828;
   text-decoration: none;
   font-family: 'Playfair Display', serif; /* keeps your link serif */
+  font-style: italic;
   font-weight: 600;
   font-size: 1.15rem;
   letter-spacing: 0.01em;

@@ -20,9 +20,7 @@ const Home = () => (
         Cold-pressed for exceptional flavor, health, and tradition.<br />
         Taste the story of our land in every golden drop.
       </p>
-      <a href="#products" className="hero-btn">
-        Shop Now
-      </a>
+      
       <div className="hero-details">
         Family owned &bull; Organic &bull; Crafted in Marrakech
       </div>

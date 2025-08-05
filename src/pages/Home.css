@@ -1,10 +1,18 @@
+/* src/pages/Home.css */
+.hero-title,
+.hero-tagline,
+.hero-desc {
+  font-family: 'Tinos', serif;
+}
+
 .home-hero {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
   background: linear-gradient(90deg, #f7f8f3 65%, #ffffff 100%);
   padding: 0 0 0 5vw;
-  min-height: 84vh;
+  /* Increase height to 105vh minus navbar */
+  height: calc(105vh - 100px);
   box-sizing: border-box;
 }
 
@@ -40,25 +48,6 @@
   line-height: 1.5;
 }
 
-.hero-btn {
-  display: inline-block;
-  background: linear-gradient(90deg, #6f993e, #b2bf77);
-  color: #fff;
-  font-weight: 700;
-  padding: 18px 40px;
-  width: fit-content;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 30px;
-  box-shadow: 0 4px 24px 0 rgba(137, 168, 62, 0.10);
-  margin-bottom: 1.4em;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.13s;
-}
-.hero-btn:hover {
-  background: linear-gradient(90deg, #b2bf77, #6f993e);
-  transform: translateY(-2px) scale(1.03);
-}
 
 .hero-details {
   color: #6e816d;
@@ -68,22 +57,29 @@
   letter-spacing: 0.01em;
 }
 
+/* === Updated image container === */
 .home-hero-img {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   min-width: 0;
-  padding: 40px 4vw 40px 0;
+  /* remove right padding and extend container off-screen */
+  padding: 40px 0 40px 0;
+  margin-right: -0.5vw;            /* push container 5vw past viewport edge */
+  width: calc(100% + 5vw);      /* expand its width accordingly */
+  box-sizing: border-box;
 }
+
+/* make the image span the full height of the hero */
 .home-hero-img img {
-  max-width: 580px;
-  width: 100%;
-  height: 78vh;
+  height: 120%;
+  width: auto;
   object-fit: cover;
   border-radius: 24px;
-  box-shadow: 0 10px 38px 0 rgba(60,80,40,0.12);
+  box-shadow: 0 10px 38px rgba(60,80,40,0.12);
 }
+
 .hero-slogan-row {
   display: flex;
   align-items: center;
@@ -92,27 +88,23 @@
 }
 
 .hero-slogan-img {
-  height: 180px;   /* Tweak as you like, looks luxe between 48–80px */
+  height: 180px;
   width: auto;
-  border-radius: 50%;  /* perfect round if you want */
-  box-shadow: 0 4px 16px 0 rgba(200,200,100,0.05);
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(200,200,100,0.05);
   background: #e2eac7;
 }
 
 .hero-slogan {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  color: #7d876c;
-  font-size: 1.55rem;
-  letter-spacing: 0.16em;
-  font-weight: 400;
-  opacity: 0.87;
-  margin: 0;
-  /* Remove margin-bottom if it’s here */
+  font-family: 'Playfair Display', serif;
+  font-style: italic;      /* ← ensure italic */
+  font-weight: 600;        /* pick 400,600,800 as you like */
+  font-size: 1.75rem;
+  letter-spacing: 0.08em;
+  color: #233a23;
+  text-align: center;
+  margin: 0 0 1.5rem;
 }
-
-
-
 
 
 /* Responsive for mobile */
@@ -120,14 +112,16 @@
   .home-hero {
     flex-direction: column;
     padding: 36px 8vw 0 8vw;
-    min-height: auto;
+    height: auto;
   }
   .home-hero-content {
     max-width: 100%;
-    padding: 0 0 20px 0;
+    padding-bottom: 20px;
   }
   .home-hero-img {
     padding: 0 0 40px 0;
+    margin-right: 0;             /* reset on mobile */
+    width: 100%;
     justify-content: center;
   }
   .home-hero-img img {
@@ -142,6 +136,8 @@
     margin-bottom: 0.9rem;
   }
 }
+
+
 
 
 
