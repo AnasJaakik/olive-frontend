@@ -1,5 +1,5 @@
 /* ===========================
-   Home.css — unified background + Tinos below hero
+   Home.css — mobile-friendly
    =========================== */
 
 /* Global background */
@@ -7,7 +7,7 @@ html, body {
   background: #fff;
 }
 
-/* ---------- HERO (luxe) ---------- */
+/* ---------- HERO (luxe + fluid type) ---------- */
 .hero-title,
 .hero-tagline,
 .hero-desc,
@@ -18,9 +18,10 @@ html, body {
   align-items: stretch;
   justify-content: space-between;
   background: #fff;
-  padding-left: 5vw;
+  padding-left: clamp(16px, 5vw, 5vw);
   height: calc(105vh - 100px); /* navbar ~100px */
   box-sizing: border-box;
+  gap: 24px;
 }
 
 .home-hero-content {
@@ -28,44 +29,44 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 650px;
-  padding: 60px 0 48px;
+  max-width: 680px;
+  padding: 48px 0 40px;
 }
 
-.hero-slogan-row { margin-bottom: 1.3rem; }
+.hero-slogan-row { margin-bottom: 0.8rem; }
 .hero-slogan {
-  font-family: 'Playfair Display', serif; /* keep hero slogan fancy */
+  font-family: 'Playfair Display', serif;
   font-style: italic;
   font-weight: 600;
-  font-size: 1.75rem;
-  letter-spacing: .08em;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  letter-spacing: .06em;
   color: #4c4c1e;
 }
 
 .hero-title {
-  font-size: 3.2rem;
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 800;
   color: #4c4c1e;
-  margin: .3em 0;
-  letter-spacing: -1px;
+  margin: .3em 0 .2em;
+  letter-spacing: -0.5px;
 }
 
 .hero-tagline {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2.3vw, 1.25rem);
   font-weight: 700;
   color: #dedb8d;
-  margin-bottom: 1.3em;
+  margin-bottom: 0.9em;
 }
 
 .hero-desc {
-  font-size: 1.4rem;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
   color: #4c4c1e;
-  line-height: 1.5;
-  margin-bottom: 2em;
+  line-height: 1.55;
+  margin-bottom: 1.2em;
 }
 
 .hero-details {
-  font-size: 1.4rem;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
   font-weight: 700;
   color: #dedb8d;
   opacity: .9;
@@ -77,49 +78,51 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 40px 0;
+  padding: 28px 0;
   margin-right: -0.5vw;
   width: calc(100% + 5vw);
 }
 .home-hero-img img {
-  height: 113%;
+  height: 110%;
+  width: auto;
+  max-width: none;
   object-fit: cover;
-  border-radius: 24px;
-  box-shadow: 0 10px 38px rgba(76,76,30,.3);
+  border-radius: 18px;
+  box-shadow: 0 10px 38px rgba(76,76,30,.28);
 }
 
 /* ---------- Haouzia Spotlight ---------- */
 .haouzia-section {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(16px, 3vw, 48px);
   align-items: center;
-  padding: 4rem 5vw 2rem;
+  padding: clamp(28px, 5vw, 64px) clamp(16px, 5vw, 5vw) 1.5rem;
   background: #fff;
-  font-family: 'Tinos', serif; /* unify to Tinos below hero */
+  font-family: 'Tinos', serif;
 }
 
 .haouzia-media img {
   width: 100%;
-  height: 420px;
+  height: clamp(240px, 40vw, 420px);
   object-fit: cover;
-  border-radius: 18px;
+  border-radius: 16px;
   box-shadow: 0 16px 40px rgba(0,0,0,.08);
 }
 
-.haouzia-copy { max-width: 600px; }
+.haouzia-copy { max-width: 640px; }
 
 .haouzia-heading {
   color: rgb(76, 76, 30);
-  font-size: 2.2rem;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
   font-weight: 800;
   letter-spacing: .02em;
-  margin: 0 0 .8rem;
+  margin: 0 0 .6rem;
 }
 
 .haouzia-blurb {
   color: rgb(76, 76, 30);
-  font-size: 1.12rem;
+  font-size: clamp(0.98rem, 2.2vw, 1.05rem);
   line-height: 1.65;
   opacity: .95;
 }
@@ -128,17 +131,15 @@ html, body {
 .phases-section {
   display: grid;
   grid-template-columns: 1fr 360px; /* left content, right fixed width */
-  gap: 3rem;
+  gap: clamp(20px, 3vw, 48px);
   align-items: start;
-  padding: 4rem 5vw;
+  padding: clamp(28px, 5vw, 64px) clamp(16px, 5vw, 5vw);
   background: #fff;
-  font-family: 'Tinos', serif; /* unify to Tinos below hero */
+  font-family: 'Tinos', serif;
 }
 
-/* LEFT COLUMN (phases) */
 .phases-left { min-width: 0; }
 
-/* All phases text in Tinos + olive color */
 .phases-heading,
 .phase-title,
 .phase-desc,
@@ -147,24 +148,24 @@ html, body {
 }
 
 .phases-heading {
-  font-size: 2.4rem;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 800;
   letter-spacing: .02em;
-  margin: 0 0 1.6rem;
+  margin: 0 0 1.1rem;
 }
 
 /* Grid of image cards (including Harvest) */
 .phases-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: clamp(12px, 2vw, 20px);
   grid-auto-rows: auto; /* allow taller cards */
 }
 
 .phase-card {
   display: flex; flex-direction: column;
   background: #fff;
-  border-radius: 18px;
+  border-radius: 16px;
   box-shadow: 0 10px 24px rgba(0,0,0,.05);
   overflow: hidden;
   transition: transform .15s ease, box-shadow .15s ease;
@@ -178,18 +179,18 @@ html, body {
 .phase-media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
 .phase-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* Show more image inside the Harvest card (7th) */
+/* Show more of the Harvest image (7th card) */
 .phases-grid .phase-card:nth-child(7) .phase-media {
-  aspect-ratio: 4 / 5;              /* taller frame to reveal more of Harvest */
+  aspect-ratio: 4 / 5; /* taller frame */
 }
 .phases-grid .phase-card:nth-child(7) .phase-media img {
-  object-position: center 35%;       /* lift crop slightly */
+  object-position: center 35%; /* lift crop a touch */
 }
 
 /* Timeframe badge */
 .phase-badge {
-  position: absolute; left: 12px; bottom: 12px;
-  background: rgba(255,255,255,.85);
+  position: absolute; left: 10px; bottom: 10px;
+  background: rgba(255,255,255,.88);
   backdrop-filter: blur(4px);
   font-weight: 700;
   padding: 6px 10px; border-radius: 10px; font-size: .9rem;
@@ -198,19 +199,19 @@ html, body {
 
 .phase-title {
   font-weight: 700;
-  font-size: 1.06rem;
+  font-size: clamp(1rem, 2.2vw, 1.06rem);
   margin: 12px 14px 4px;
 }
 
 .phase-desc {
-  font-size: 1rem;
+  font-size: clamp(0.95rem, 2vw, 1rem);
   line-height: 1.55;
   margin: 0 14px 16px;
 }
 
 /* CTA under phases */
 .story-cta {
-  margin-top: 28px;
+  margin-top: 22px;
   display: flex;
   justify-content: center;
 }
@@ -218,7 +219,7 @@ html, body {
   display: inline-block;
   font-family: 'Tinos', serif;
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: clamp(1rem, 2.2vw, 1.05rem);
   padding: 14px 28px;
   border-radius: 999px;
   text-decoration: none;
@@ -227,38 +228,27 @@ html, body {
   box-shadow: 0 10px 24px rgba(111,153,62,.18);
   transition: transform .12s ease, box-shadow .15s ease, filter .15s ease;
 }
-.story-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 30px rgba(111,153,62,.22);
-  filter: brightness(1.03);
-}
-.story-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 8px 18px rgba(111,153,62,.18);
-}
-.story-btn:focus-visible {
-  outline: 3px solid rgba(111,153,62,.35);
-  outline-offset: 3px;
-}
+.story-btn:hover { transform: translateY(-1px); box-shadow: 0 14px 30px rgba(111,153,62,.22); filter: brightness(1.03); }
+.story-btn:active { transform: translateY(0); box-shadow: 0 8px 18px rgba(111,153,62,.18); }
+.story-btn:focus-visible { outline: 3px solid rgba(111,153,62,.35); outline-offset: 3px; }
 
 /* RIGHT COLUMN (sticky countdown) */
 .phases-right {
   position: sticky;
-  top: 100px;  /* sits under your ~100px navbar */
+  top: 100px;  /* sits under ~100px navbar */
   height: fit-content;
 }
 
-/* Countdown card */
 .countdown-card {
   background: #ffffff;
-  border-radius: 20px;
-  padding: 28px 26px 24px;
+  border-radius: 18px;
+  padding: clamp(18px, 3vw, 28px);
   box-shadow: 0 22px 44px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.6);
   text-align: center;
 }
 
 .countdown-eyebrow {
-  font-size: .9rem;
+  font-size: clamp(0.75rem, 1.8vw, 0.9rem);
   letter-spacing: .12em;
   text-transform: uppercase;
   color: #7a866e;
@@ -266,8 +256,8 @@ html, body {
 }
 
 .countdown-number {
-  font-family: 'Tinos', serif; /* match hero title font */
-  font-size: 4rem;
+  font-family: 'Tinos', serif;
+  font-size: clamp(2.4rem, 7vw, 4rem);
   font-weight: 800;
   color: #233a23;
   line-height: 1;
@@ -276,11 +266,13 @@ html, body {
 .countdown-sub {
   color: #6e7966;
   margin-top: 6px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .countdown-date {
   color: #2b3a25;
   margin-top: 2px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 /* Progress bar */
@@ -288,7 +280,7 @@ html, body {
   height: 8px;
   background: #e9eddc;
   border-radius: 999px;
-  margin: 16px 0 8px;
+  margin: 14px 0 8px;
   overflow: hidden;
 }
 .progress-fill {
@@ -299,52 +291,60 @@ html, body {
   transition: width .6s ease;
 }
 .progress-label {
-  font-size: .9rem;
+  font-size: clamp(0.85rem, 1.9vw, 0.95rem);
   color: #7a866e;
 }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1200px) {
-  .phases-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 1100px) {
+  .phases-section {
+    grid-template-columns: 1fr 320px;
+  }
 }
 
 @media (max-width: 900px) {
   .home-hero {
     flex-direction: column;
-    padding: 36px 8vw 0;
+    padding: 24px clamp(16px, 6vw, 8vw) 0;
     height: auto;
+    gap: 12px;
   }
-  .home-hero-content { max-width: 100%; padding-bottom: 20px; }
-  .home-hero-img { padding: 0 0 40px; margin-right: 0; width: 100%; justify-content: center; }
-  .home-hero-img img { height: 230px; max-width: 95vw; }
-  .hero-title { font-size: 2.1rem; }
-  .hero-slogan { font-size: 1rem; }
+  .home-hero-content { max-width: 100%; padding-bottom: 10px; }
+  .home-hero-img { padding: 10px 0 24px; margin-right: 0; width: 100%; justify-content: center; }
+  .home-hero-img img { height: auto; width: 95vw; max-width: 680px; border-radius: 14px; }
 
   .haouzia-section {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 2.5rem 5vw 1rem;
+    gap: 16px;
+    padding: 24px clamp(16px, 6vw, 8vw) 8px;
   }
-  .haouzia-media img { height: 260px; }
+  .haouzia-media img { height: clamp(220px, 48vw, 320px); border-radius: 14px; }
 
   .phases-section {
     grid-template-columns: 1fr; /* stack */
-    gap: 2rem;
+    gap: 18px;
+    padding: 28px clamp(16px, 6vw, 8vw);
   }
   .phases-right { position: static; } /* disable sticky on mobile */
-  .phases-grid { grid-template-columns: 1fr; }
+
+  .phases-grid {
+    grid-template-columns: 1fr; /* single col on phones */
+    gap: 14px;
+  }
 
   /* reset Harvest card crop on small screens */
-  .phases-grid .phase-card:nth-child(7) .phase-media {
-    aspect-ratio: 4 / 3;
-  }
-  .phases-grid .phase-card:nth-child(7) .phase-media img {
-    object-position: center;
-  }
+  .phases-grid .phase-card:nth-child(7) .phase-media { aspect-ratio: 4 / 3; }
+  .phases-grid .phase-card:nth-child(7) .phase-media img { object-position: center; }
 
   .story-cta { justify-content: stretch; }
-  .story-btn { width: 100%; text-align: center; }
+  .story-btn { width: 100%; text-align: center; padding: 16px 20px; }
 }
+
+/* Reduce motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .phase-card, .progress-fill, .story-btn { transition: none; }
+}
+
 
 
 

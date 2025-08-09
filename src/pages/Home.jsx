@@ -38,12 +38,12 @@ function CountdownCard() {
   }, []);
 
   return (
-    <aside className="countdown-card">
+    <aside className="countdown-card" aria-label="Countdown to harvest">
       <div className="countdown-eyebrow">Season status</div>
-      <div className="countdown-number">{daysLeft}</div>
+      <div className="countdown-number" aria-live="polite">{daysLeft}</div>
       <div className="countdown-sub">days to harvest</div>
       <div className="countdown-date">November 1</div>
-      <div className="progress">
+      <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(percentDone)}>
         <div className="progress-fill" style={{ width: `${percentDone}%` }} />
       </div>
       <div className="progress-label">
@@ -78,14 +78,26 @@ export default function Home() {
         </div>
 
         <div className="home-hero-img">
-          <img src={assets.riad} alt="Riad / grove scene" />
+          {/* hero image stays eager so it shows immediately */}
+          <img
+            src={assets.riad}
+            alt="Riad and olive grove scene"
+            decoding="async"
+            sizes="(max-width: 900px) 95vw, 50vw"
+          />
         </div>
       </section>
 
       {/* HAOUZIA SPOTLIGHT */}
       <section className="haouzia-section">
         <div className="haouzia-media">
-          <img src={assets.haouzia} alt="Haouzia olive tree in Marrakech" />
+          <img
+            src={assets.haouzia}
+            alt="Haouzia olive tree in Marrakech"
+            loading="lazy"
+            decoding="async"
+            sizes="(max-width: 900px) 95vw, 50vw"
+          />
         </div>
         <div className="haouzia-copy">
           <h2 className="haouzia-heading">Discover Haouzia — Marrakech’s Native Olive</h2>
@@ -107,7 +119,13 @@ export default function Home() {
             {phases.map((p) => (
               <article key={p.key} className="phase-card">
                 <div className="phase-media">
-                  <img src={p.img} alt={p.title} />
+                  <img
+                    src={p.img}
+                    alt={p.title}
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 1200px) 48vw, (max-width: 900px) 95vw, 28vw"
+                  />
                   <div className="phase-badge">{p.timeframe}</div>
                 </div>
                 <h3 className="phase-title">{p.title}</h3>
@@ -118,7 +136,9 @@ export default function Home() {
 
           {/* CTA: Read Our Story */}
           <div className="story-cta">
-            <Link to="/about" className="story-btn">Read Our Story</Link>
+            <Link to="/about" className="story-btn" aria-label="Read our story on the About page">
+              Read Our Story
+            </Link>
           </div>
         </div>
 
@@ -129,6 +149,7 @@ export default function Home() {
     </>
   );
 }
+
 
 
 
