@@ -1,19 +1,25 @@
-/* src/pages/Home.css */
-.hero-details
+/* ===========================
+   Home.css — unified background + Tinos below hero
+   =========================== */
+
+/* Global background */
+html, body {
+  background: #fff;
+}
+
+/* ---------- HERO (luxe) ---------- */
 .hero-title,
 .hero-tagline,
-.hero-desc {
-  font-family: 'Tinos', serif;
-}
+.hero-desc,
+.hero-details { font-family: 'Tinos', serif; }
 
 .home-hero {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  background: linear-gradient(90deg, #f7f8f3 65%, #ffffff 100%);
-  padding: 0 0 0 5vw;
-  /* Increase height to 105vh minus navbar */
-  height: calc(105vh - 100px);
+  background: #fff;
+  padding-left: 5vw;
+  height: calc(105vh - 100px); /* navbar ~100px */
   box-sizing: border-box;
 }
 
@@ -23,121 +29,341 @@
   flex-direction: column;
   justify-content: center;
   max-width: 650px;
-  z-index: 2;
-  padding-top: 60px;
-  padding-bottom: 48px;
+  padding: 60px 0 48px;
+}
+
+.hero-slogan-row { margin-bottom: 1.3rem; }
+.hero-slogan {
+  font-family: 'Playfair Display', serif; /* keep hero slogan fancy */
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.75rem;
+  letter-spacing: .08em;
+  color: #4c4c1e;
 }
 
 .hero-title {
   font-size: 3.2rem;
   font-weight: 800;
-  color:  rgb(76, 76, 30);
-  margin-bottom: 0.3em;
+  color: #4c4c1e;
+  margin: .3em 0;
   letter-spacing: -1px;
 }
 
 .hero-tagline {
   font-size: 1.25rem;
   font-weight: 700;
-  color:  rgb(222, 221 ,141);
+  color: #dedb8d;
   margin-bottom: 1.3em;
 }
 
 .hero-desc {
   font-size: 1.4rem;
-  color: rgb(76, 76, 30);
-  margin-bottom: 2em;
+  color: #4c4c1e;
   line-height: 1.5;
+  margin-bottom: 2em;
 }
-
 
 .hero-details {
-  color:  rgb(222 ,221 ,141);
   font-size: 1.4rem;
   font-weight: 700;
-  opacity: 0.90;
-  letter-spacing: 0.01em;
+  color: #dedb8d;
+  opacity: .9;
+  letter-spacing: .01em;
 }
 
-/* === Updated image container === */
 .home-hero-img {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  min-width: 0;
-  /* remove right padding and extend container off-screen */
-  padding: 40px 0 40px 0;
-  margin-right: -0.5vw;            /* push container 5vw past viewport edge */
-  width: calc(100% + 5vw);      /* expand its width accordingly */
-  box-sizing: border-box;
+  padding: 40px 0;
+  margin-right: -0.5vw;
+  width: calc(100% + 5vw);
 }
-
-/* make the image span the full height of the hero */
 .home-hero-img img {
-  height: 120%;
-  width: auto;
+  height: 113%;
   object-fit: cover;
   border-radius: 24px;
-  box-shadow: 0 10px 38px  rgb(76, 76, 30);
+  box-shadow: 0 10px 38px rgba(76,76,30,.3);
 }
 
-.hero-slogan-row {
-  display: flex;
+/* ---------- Haouzia Spotlight ---------- */
+.haouzia-section {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
   align-items: center;
-  gap: 105px;       /* Space between slogan and logo */
-  margin-bottom: 1.3rem;
+  padding: 4rem 5vw 2rem;
+  background: #fff;
+  font-family: 'Tinos', serif; /* unify to Tinos below hero */
 }
 
-.hero-slogan-img {
-  height: 180px;
-  width: auto;
-  border-radius: 50%;
-  box-shadow: 0 4px 16px  rgb(76, 76, 30);
-  background: #e2eac7;
+.haouzia-media img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.08);
 }
 
-.hero-slogan {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;      /* ← ensure italic */
-  font-weight: 600;        /* pick 400,600,800 as you like */
-  font-size: 1.75rem;
-  letter-spacing: 0.08em;
-  color:  rgb(76, 76, 30);
+.haouzia-copy { max-width: 600px; }
+
+.haouzia-heading {
+  color: rgb(76, 76, 30);
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+  margin: 0 0 .8rem;
+}
+
+.haouzia-blurb {
+  color: rgb(76, 76, 30);
+  font-size: 1.12rem;
+  line-height: 1.65;
+  opacity: .95;
+}
+
+/* ---------- PHASES + COUNTDOWN (sticky right) ---------- */
+.phases-section {
+  display: grid;
+  grid-template-columns: 1fr 360px; /* left content, right fixed width */
+  gap: 3rem;
+  align-items: start;
+  padding: 4rem 5vw;
+  background: #fff;
+  font-family: 'Tinos', serif; /* unify to Tinos below hero */
+}
+
+/* LEFT COLUMN (phases) */
+.phases-left { min-width: 0; }
+
+/* All phases text in Tinos + olive color */
+.phases-heading,
+.phase-title,
+.phase-desc,
+.phase-badge {
+  color: rgb(76, 76, 30);
+}
+
+.phases-heading {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+  margin: 0 0 1.6rem;
+}
+
+/* Grid of image cards (including Harvest) */
+.phases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  grid-auto-rows: auto; /* allow taller cards */
+}
+
+.phase-card {
+  display: flex; flex-direction: column;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.05);
+  overflow: hidden;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.phase-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 38px rgba(0,0,0,.10);
+}
+
+/* Media */
+.phase-media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+.phase-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Show more image inside the Harvest card (7th) */
+.phases-grid .phase-card:nth-child(7) .phase-media {
+  aspect-ratio: 4 / 5;              /* taller frame to reveal more of Harvest */
+}
+.phases-grid .phase-card:nth-child(7) .phase-media img {
+  object-position: center 35%;       /* lift crop slightly */
+}
+
+/* Timeframe badge */
+.phase-badge {
+  position: absolute; left: 12px; bottom: 12px;
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(4px);
+  font-weight: 700;
+  padding: 6px 10px; border-radius: 10px; font-size: .9rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,.08);
+}
+
+.phase-title {
+  font-weight: 700;
+  font-size: 1.06rem;
+  margin: 12px 14px 4px;
+}
+
+.phase-desc {
+  font-size: 1rem;
+  line-height: 1.55;
+  margin: 0 14px 16px;
+}
+
+/* CTA under phases */
+.story-cta {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+.story-btn {
+  display: inline-block;
+  font-family: 'Tinos', serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(90deg, #6f993e, #b2bf77);
+  box-shadow: 0 10px 24px rgba(111,153,62,.18);
+  transition: transform .12s ease, box-shadow .15s ease, filter .15s ease;
+}
+.story-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(111,153,62,.22);
+  filter: brightness(1.03);
+}
+.story-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(111,153,62,.18);
+}
+.story-btn:focus-visible {
+  outline: 3px solid rgba(111,153,62,.35);
+  outline-offset: 3px;
+}
+
+/* RIGHT COLUMN (sticky countdown) */
+.phases-right {
+  position: sticky;
+  top: 100px;  /* sits under your ~100px navbar */
+  height: fit-content;
+}
+
+/* Countdown card */
+.countdown-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px 26px 24px;
+  box-shadow: 0 22px 44px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.6);
   text-align: center;
-  margin: 0 0 1.5rem;
 }
 
+.countdown-eyebrow {
+  font-size: .9rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #7a866e;
+  margin-bottom: 6px;
+}
 
-/* Responsive for mobile */
+.countdown-number {
+  font-family: 'Tinos', serif; /* match hero title font */
+  font-size: 4rem;
+  font-weight: 800;
+  color: #233a23;
+  line-height: 1;
+}
+
+.countdown-sub {
+  color: #6e7966;
+  margin-top: 6px;
+}
+
+.countdown-date {
+  color: #2b3a25;
+  margin-top: 2px;
+}
+
+/* Progress bar */
+.progress {
+  height: 8px;
+  background: #e9eddc;
+  border-radius: 999px;
+  margin: 16px 0 8px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6f993e, #b2bf77);
+  width: 0;
+  border-radius: 999px;
+  transition: width .6s ease;
+}
+.progress-label {
+  font-size: .9rem;
+  color: #7a866e;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1200px) {
+  .phases-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (max-width: 900px) {
   .home-hero {
     flex-direction: column;
-    padding: 36px 8vw 0 8vw;
+    padding: 36px 8vw 0;
     height: auto;
   }
-  .home-hero-content {
-    max-width: 100%;
-    padding-bottom: 20px;
+  .home-hero-content { max-width: 100%; padding-bottom: 20px; }
+  .home-hero-img { padding: 0 0 40px; margin-right: 0; width: 100%; justify-content: center; }
+  .home-hero-img img { height: 230px; max-width: 95vw; }
+  .hero-title { font-size: 2.1rem; }
+  .hero-slogan { font-size: 1rem; }
+
+  .haouzia-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2.5rem 5vw 1rem;
   }
-  .home-hero-img {
-    padding: 0 0 40px 0;
-    margin-right: 0;             /* reset on mobile */
-    width: 100%;
-    justify-content: center;
+  .haouzia-media img { height: 260px; }
+
+  .phases-section {
+    grid-template-columns: 1fr; /* stack */
+    gap: 2rem;
   }
-  .home-hero-img img {
-    height: 230px;
-    max-width: 95vw;
+  .phases-right { position: static; } /* disable sticky on mobile */
+  .phases-grid { grid-template-columns: 1fr; }
+
+  /* reset Harvest card crop on small screens */
+  .phases-grid .phase-card:nth-child(7) .phase-media {
+    aspect-ratio: 4 / 3;
   }
-  .hero-title {
-    font-size: 2.1rem;
+  .phases-grid .phase-card:nth-child(7) .phase-media img {
+    object-position: center;
   }
-  .hero-slogan {
-    font-size: 1rem;
-    margin-bottom: 0.9rem;
-  }
+
+  .story-cta { justify-content: stretch; }
+  .story-btn { width: 100%; text-align: center; }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
