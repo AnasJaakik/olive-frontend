@@ -5,11 +5,11 @@ import { assets } from "../assets/assets";
 import { useI18n } from "../i18n/i18nContext";
 import "./Home.css";
 
-// Small helper: pick the right image for a phase key
+// map phase key -> correct asset name
 const imgFor = (key) => {
-  if (key === "pithardening") return assets.pit;
-  if (key === "oilaccumulation") return assets.oilaccu;
-  if (key === "fruitset") return assets.fruitset;
+  if (key === "pithardening")   return assets.pit;
+  if (key === "oilaccumulation")return assets.oilaccu;
+  if (key === "fruitset")       return assets.fruitset;
   return assets[key]; // dormancy, flowering, maturation, harvest
 };
 
@@ -42,13 +42,7 @@ function CountdownCard() {
       <div className="countdown-number" aria-live="polite">{daysLeft}</div>
       <div className="countdown-sub">{t("countdown.sub")}</div>
       <div className="countdown-date">{t("countdown.date")}</div>
-      <div
-        className="progress"
-        role="progressbar"
-        aria-valuemin={0}
-        aria-valuemax={100}
-        aria-valuenow={Math.round(percentDone)}
-      >
+      <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(percentDone)}>
         <div className="progress-fill" style={{ width: `${percentDone}%` }} />
       </div>
       <div className="progress-label">
@@ -60,7 +54,7 @@ function CountdownCard() {
 
 export default function Home() {
   const { t, bundle } = useI18n();
-  const items = bundle.phases.items; // localized phases array
+  const items = bundle.phases.items; // localized phases
 
   return (
     <>
@@ -75,11 +69,10 @@ export default function Home() {
           <p className="hero-tagline">
             <em>{t("hero.tagline")}</em>
           </p>
-          <p className="hero-desc">
-            {t("hero.d1")}<br />
-            {t("hero.d2")}<br />
-            {t("hero.d3")}
-          </p>
+
+          {/* NEW: single paragraph from i18n */}
+          <p className="hero-desc">{t("hero.desc")}</p>
+
           <div className="hero-details">{t("hero.details")}</div>
         </div>
 
@@ -151,6 +144,7 @@ export default function Home() {
     </>
   );
 }
+
 
 
 

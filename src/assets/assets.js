@@ -24,18 +24,24 @@ import oilaccu from './oilaccu.png';
 import maturation from './maturation.png';
 import harvest from './harvest.png';
 
+// Footer/wordmark logo — make sure the file name & casing match exactly
+import mainlogo from './mainlogo.png';
+
 export const assets = {
+  // core
   logo,
   oliveHero,
   face,
   logo2,
   riad,
 
+  // team
   abdeljalil,
   anas,
   lea,
   marouane,
 
+  // misc
   life,
   haouzia,
 
@@ -47,7 +53,16 @@ export const assets = {
   oilaccu,
   maturation,
   harvest,
+
+  // footer / wordmark
+  mainlogo,           // used by Footer: assets.mainlogo
+  footerLogo: mainlogo, // extra alias (optional)
+  wordmark: mainlogo,   // extra alias (optional)
 };
+
+// Optional direct named export if you ever want to import just the footer logo
+export const footerLogo = mainlogo;
+
 
 
 

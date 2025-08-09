@@ -1,99 +1,168 @@
-/* src/pages/About.css */
+/* ===========================
+   About v3 — ultra-slick, all Tinos
+   =========================== */
 
-.about {
-  padding: 6rem 8vw;
-  background-color: #faf9f5;
-  color: #233a23;
-  font-family: 'Playfair Display', serif;
-}
+   .about-v3 {
+    --olive: rgb(76,76,30);
+    --olive-soft: rgba(76,76,30,.08);
+    --sage: #e9eddc;
+    --gold1: #b2bf77;
+    --gold2: #6f993e;
+  
+    background: #fff;
+    color: var(--olive);
+    font-family: 'Tinos', serif;
+    padding: clamp(28px, 5vw, 64px) clamp(16px, 6vw, 80px);
+  }
+  
+  /* ---------- Hero ---------- */
+  .av3-title {
+    font-weight: 800;
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    letter-spacing: .02em;
+    margin: 0 0 .35rem;
+  }
+  
+  .av3-lead {
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    line-height: 1.7;
+    max-width: 820px;
+    opacity: .95;
+    margin: 0;
+  }
+  
+  .av3-rule {
+    width: 180px;
+    height: 2px;
+    margin-top: 18px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--gold2), var(--gold1));
+  }
+  
+  /* ---------- Value badges ---------- */
+  .av3-badges {
+    list-style: none;
+    padding: 0;
+    margin: clamp(14px, 2vw, 20px) 0 clamp(18px, 3vw, 28px);
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .av3-badges li {
+    font-weight: 700;
+    letter-spacing: .05em;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--sage);
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0,0,0,.04);
+  }
+  
+  /* ---------- Snap-scrolling rail ---------- */
+  .av3-rail {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(280px, 340px);
+    gap: clamp(14px, 2.2vw, 20px);
+    overflow-x: auto;
+    padding: 8px 2px 8px 2px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .av3-rail::-webkit-scrollbar { height: 10px; }
+  .av3-rail::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--gold2), var(--gold1));
+    border-radius: 999px;
+  }
+  
+  /* Card */
+  .bio-card {
+    scroll-snap-align: start;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 14px 30px rgba(0,0,0,.07), inset 0 0 0 1px var(--sage);
+    outline: none;
+    transition: transform .16s ease, box-shadow .2s ease;
+  }
+  .bio-card:focus-within,
+  .bio-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 42px rgba(0,0,0,.10), inset 0 0 0 1px #e3e9d2;
+  }
+  
+  /* Portrait frame */
+  .bio-media {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 10px;
+    background: #f7f8f3;
+    box-shadow: inset 0 0 0 1px #eef2e2;
+  }
+  .bio-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.02);
+  }
+  
+  /* Name/role plaque */
+  .bio-caption {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: rgba(255,255,255,.92);
+    border: 1px solid rgba(178,191,119,.35);
+    box-shadow: 0 6px 16px rgba(0,0,0,.10);
+    padding: 8px 10px;
+    border-radius: 12px;
+  }
+  .bio-name { font-weight: 800; font-size: 1.05rem; }
+  .bio-role { font-weight: 700; font-size: .92rem; opacity: .9; }
+  
+  /* Expandable story (no JS) */
+  .bio-details {
+    margin: 6px 12px 14px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: inset 0 0 0 1px var(--sage);
+    overflow: hidden;
+  }
+  .bio-details > summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 12px 14px;
+    font-weight: 800;
+    letter-spacing: .03em;
+    user-select: none;
+  }
+  .bio-details > summary::-webkit-details-marker { display: none; }
+  
+  .bio-details[open] > summary {
+    background: linear-gradient(90deg, rgba(178,191,119,.12), rgba(111,153,62,.12));
+  }
+  
+  .bio-details p {
+    padding: 0 14px 14px;
+    margin: 0;
+    line-height: 1.7;
+    font-size: 1.02rem;
+  }
+  
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .av3-rail {
+      grid-auto-columns: 82vw; /* roomy cards on phones */
+      padding-bottom: 14px;
+    }
+  }
+  
+  
 
-.about-heading {
-  text-align: center;
-  font-size: 3.2rem;
-  font-weight: 800;
-  margin-bottom: 4rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.team-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4rem;
-  justify-content: center;
-  margin-bottom: 5rem;
-}
-
-.team-member {
-  text-align: center;
-  flex: 0 0 12rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.team-member:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
-.team-photo {
-  width: 100%;
-  max-width: 240px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #fff;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
-  transition: transform 0.3s ease;
-}
-.team-member:hover .team-photo {
-  transform: scale(1.05);
-}
-
-.member-info h4 {
-  font-size: 1.4rem;
-  margin-bottom: 0.25rem;
-  font-weight: 700;
-}
-.member-role {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1rem;
-  color: #7b8269;
-  letter-spacing: 0.05em;
-}
-
-.story {
-  max-width: 900px;
-  margin: 0 auto;
-  background: #fff;
-  padding: 3rem 4rem;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.story-heading {
-  font-size: 2.4rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  text-align: center;
-  letter-spacing: 0.05em;
-}
-
-.story h3 {
-  font-size: 1.6rem;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-}
-
-.story p {
-  font-size: 1rem;
-  line-height: 1.75;
-  margin-bottom: 1.5rem;
-  color: #4a5232;
-}
 
 
 
