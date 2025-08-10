@@ -63,7 +63,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom line (kept from your original) */}
-      <div className="footer-copy">© {year} Zaytun Olive Oil. All rights reserved.</div>
+      <div className="footer-copy">© {year} Abdeljalil Olive Oil. All rights reserved.</div>
       <div className="footer-tagline">Family-owned, Moroccan olive oil, crafted with love.</div>
     </footer>
   );

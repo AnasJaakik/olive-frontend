@@ -79,7 +79,7 @@ html, body {
   align-items: center;
   justify-content: flex-end;
   padding: 28px 0;
-  margin-right: -0.5vw;
+  margin-right: -1.2vw;
   width: calc(100% + 5vw);
 }
 .home-hero-img img {
