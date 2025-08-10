@@ -1,70 +1,201 @@
-.products-section {
-    padding: 72px 0;
-    text-align: center;
-    background: #f6f7ee;
-  }
-  
-  .products-title {
-    font-size: 2rem;
-    color: #335432;
-    margin-bottom: 32px;
-    font-family: 'Merriweather', serif;
-  }
-  
-  .products-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    justify-content: center;
-  }
-  
-  .product-card {
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 4px 24px rgba(30, 60, 10, 0.10);
-    padding: 32px 20px;
-    min-width: 220px;
-    max-width: 260px;
-    text-align: center;
-    transition: transform 0.15s;
-  }
-  
-  .product-card:hover {
-    transform: translateY(-6px) scale(1.02);
-  }
-  
-  .product-name {
-    font-size: 1.2rem;
-    color: #335432;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .product-desc {
-    color: #555;
-    font-size: 1rem;
-    margin-bottom: 16px;
-  }
-  
-  .product-price {
-    color: #89b04b;
-    font-weight: 600;
-    font-size: 1.13rem;
-    margin-bottom: 14px;
-  }
-  
-  .product-btn {
-    padding: 10px 28px;
-    background: #335432;
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.18s;
-  }
-  .product-btn:hover {
-    background: #89b04b;
-    color: #335432;
-  }
-  
+/* Products v2 — Tinos + rgb(76,76,30) */
+.products-v2 {
+  --olive: rgb(76,76,30);
+  --olive-20: rgba(76,76,30,.20);
+  --olive-12: rgba(76,76,30,.12);
+  --olive-08: rgba(76,76,30,.08);
+
+  background: #fff;
+  color: var(--olive);
+  font-family: 'Tinos', serif;
+  padding: clamp(28px, 5vw, 64px) clamp(16px, 6vw, 80px);
+}
+
+/* Hero */
+.pv2-eyebrow {
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: .85rem;
+  opacity: .9;
+}
+.pv2-title {
+  font-weight: 800;
+  font-size: clamp(2rem, 4.6vw, 3rem);
+  margin: 6px 0 6px;
+  letter-spacing: .02em;
+}
+.pv2-lead {
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  opacity: .95;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Showcase layout */
+.pv2-showcase {
+  display: grid;
+  grid-template-columns: 1.05fr 1.2fr;
+  gap: clamp(16px, 3vw, 36px);
+  align-items: center;
+  margin-top: clamp(20px, 3.5vw, 40px);
+}
+
+/* Bottle pedestal */
+.pv2-pedestal {
+  position: relative;
+  border-radius: 20px;
+  padding: clamp(16px, 2vw, 20px);
+  box-shadow: 0 16px 36px var(--olive-08), inset 0 0 0 1px var(--olive-12);
+  background:
+    radial-gradient(120% 70% at 50% 0%, rgba(76,76,30,.06), transparent 60%),
+    #fff;
+  min-height: 520px;
+  display: grid;
+  place-items: center;
+}
+.pv2-halo {
+  position: absolute;
+  inset: 14% 10% auto 10%;
+  height: 40%;
+  filter: blur(22px);
+  background: radial-gradient(ellipse at center, var(--olive-12), transparent 70%);
+  pointer-events: none;
+}
+.pv2-bottle img {
+  display: block;
+  max-width: min(420px, 80%);
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px var(--olive-12));
+}
+
+/* Invite-only ribbon */
+.pv2-ribbon {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 8px 12px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-size: .8rem;
+  color: #fff;
+  background: var(--olive);
+  border-radius: 10px;
+  box-shadow: 0 10px 24px var(--olive-08);
+}
+
+/* Info panel */
+.pv2-panel {
+  border-radius: 20px;
+  padding: clamp(16px, 2vw, 22px);
+  box-shadow: 0 16px 36px var(--olive-08), inset 0 0 0 1px var(--olive-12);
+  background: #fff;
+}
+.pv2-name {
+  font-weight: 800;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin: 0 0 10px;
+}
+
+.pv2-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 14px;
+}
+.pv2-highlights li {
+  border: 1px solid var(--olive-12);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  background: #fff;
+}
+
+/* Disabled ordering status */
+.pv2-status {
+  border-radius: 999px;
+  padding: 12px 14px;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: #fff;
+  background: var(--olive);
+  margin: 6px 0 14px;
+  opacity: .95;
+}
+
+/* Invite block */
+.pv2-invite {
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: inset 0 0 0 1px var(--olive-12);
+  background: #fff;
+}
+.pv2-invite-title {
+  font-weight: 800;
+  font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+  margin: 0 0 4px;
+}
+.pv2-invite-copy {
+  margin: 0 0 10px;
+  line-height: 1.65;
+  opacity: .95;
+}
+
+.pv2-form { display: grid; gap: 12px; }
+.pv2-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.pv2-field { display: grid; gap: 6px; }
+.pv2-field > span { font-weight: 700; opacity: .95; }
+.pv2-field input,
+.pv2-field textarea {
+  border: 1px solid var(--olive-12);
+  border-radius: 12px;
+  padding: 12px 12px;
+  font-family: 'Tinos', serif;
+  font-size: 1rem;
+  outline: none;
+}
+.pv2-field input:focus,
+.pv2-field textarea:focus {
+  box-shadow: 0 0 0 3px var(--olive-20);
+  border-color: var(--olive);
+}
+
+.pv2-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.pv2-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 18px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: #fff;
+  background: var(--olive);
+  cursor: pointer;
+  transition: transform .12s ease, filter .12s ease;
+}
+.pv2-btn:hover { transform: translateY(-1px); filter: brightness(1.03); }
+.pv2-tiny { font-size: .92rem; opacity: .8; }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .pv2-showcase { grid-template-columns: 1fr; }
+  .pv2-pedestal { min-height: 440px; }
+  .pv2-highlights { grid-template-columns: 1fr; }
+  .pv2-row { grid-template-columns: 1fr; }
+}
+
