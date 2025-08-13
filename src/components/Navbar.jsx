@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { assets } from '../assets/assets';
-import { useI18n } from '../i18n/i18nContext';
+import { useI18n } from '../i18n/I18nContext';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -40,10 +40,11 @@ const Navbar = () => {
 
       <div className="navbar-links">
         <Link to="/" className="navbar-link">{t('nav.home')}</Link>
-        <Link to="/about" className="navbar-link">{t('nav.about')}</Link>
         <Link to="/products" className="navbar-link">{t('nav.products')}</Link>
-        <Link to="/process" className="navbar-link">{t('nav.process')}</Link>
-        <Link to="/contact" className="navbar-link">{t('nav.contact')}</Link>
+        <Link to="/about" className="navbar-link">{t('nav.about')}</Link>
+       
+        
+       
 
         <button
           type="button"

@@ -38,13 +38,13 @@ html, body {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-weight: 600;
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-size: clamp(0.5rem, 2.5vw, 2rem);
   letter-spacing: .06em;
   color: #4c4c1e;
 }
 
 .hero-title {
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   color: #4c4c1e;
   margin: .3em 0 .2em;
@@ -78,17 +78,17 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 28px 0;
+  padding: 20px 0;
   margin-right: -1.2vw;
   width: calc(100% + 5vw);
 }
 .home-hero-img img {
-  height: 110%;
+  height: 125%;
   width: auto;
   max-width: none;
   object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 10px 38px rgba(76,76,30,.28);
+  border-radius: 2px;
+  
 }
 
 /* ---------- Haouzia Spotlight ---------- */

@@ -1,20 +1,9 @@
-// src/pages/Home.jsx
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
-import { useI18n } from "../i18n/i18nContext";
 import "./Home.css";
 
-// map phase key -> correct asset name
-const imgFor = (key) => {
-  if (key === "pithardening")   return assets.pit;
-  if (key === "oilaccumulation")return assets.oilaccu;
-  if (key === "fruitset")       return assets.fruitset;
-  return assets[key]; // dormancy, flowering, maturation, harvest
-};
-
+// --------- Countdown (Nov 1 harvest) ----------
 function CountdownCard() {
-  const { t } = useI18n();
   const [daysLeft, setDaysLeft] = useState(0);
   const [percentDone, setPercentDone] = useState(0);
 
@@ -31,109 +20,126 @@ function CountdownCard() {
       setDaysLeft(Math.ceil((nextHarvest - now) / (1000 * 60 * 60 * 24)));
       setPercentDone(Math.min(100, Math.max(0, (passed / total) * 100)));
     };
+
     calc();
     const id = setInterval(calc, 60 * 60 * 1000); // hourly
     return () => clearInterval(id);
   }, []);
 
   return (
-    <aside className="countdown-card" aria-label={t("countdown.eyebrow")}>
-      <div className="countdown-eyebrow">{t("countdown.eyebrow")}</div>
-      <div className="countdown-number" aria-live="polite">{daysLeft}</div>
-      <div className="countdown-sub">{t("countdown.sub")}</div>
-      <div className="countdown-date">{t("countdown.date")}</div>
-      <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(percentDone)}>
+    <aside className="countdown-card">
+      <div className="countdown-eyebrow">Season status</div>
+      <div className="countdown-number">{daysLeft}</div>
+      <div className="countdown-sub">days to harvest</div>
+      <div className="countdown-date">November 1</div>
+      <div className="progress">
         <div className="progress-fill" style={{ width: `${percentDone}%` }} />
       </div>
       <div className="progress-label">
-        {Math.round(percentDone)}{t("countdown.elapsed")}
+        {Math.round(percentDone)}% of the season elapsed
       </div>
     </aside>
   );
 }
 
-export default function Home() {
-  const { t, bundle } = useI18n();
-  const items = bundle.phases.items; // localized phases
+// --------- Phases (images only) ----------
+const phases = [
+  {
+    key: "dormancy",
+    title: "Dormancy",
+    timeframe: "Nov – mid-Feb",
+    desc: "Trees rest and store energy for the season ahead.",
+    img: assets.dormancy,
+  },
+  {
+    key: "flowering",
+    title: "Bud Swelling & Flowering",
+    timeframe: "mid-Feb – Apr",
+    desc: "Delicate blossoms set the stage for fruit.",
+    img: assets.flowering,
+  },
+  {
+    key: "fruitset",
+    title: "Fruit Set",
+    timeframe: "May – Jun",
+    desc: "Pollinated flowers become tiny olives.",
+    img: assets.fruitset,
+  },
+  {
+    key: "pithardening",
+    title: "Pit Hardening",
+    timeframe: "Jul",
+    desc: "The stone forms, defining the olive’s structure.",
+    img: assets.pit,
+  },
+  {
+    key: "oilaccumulation",
+    title: "Oil Accumulation",
+    timeframe: "Aug",
+    desc: "Oil content rises; flavors deepen and round out.",
+    img: assets.oilaccu,
+  },
+  {
+    key: "maturation",
+    title: "Maturation",
+    timeframe: "Sep – Oct",
+    desc: "Color shifts; aromas develop right before harvest.",
+    img: assets.maturation,
+  },
+  {
+    key: "harvest",
+    title: "Harvest",
+    timeframe: "Nov 1",
+    desc: "Hand-picked at peak ripeness and pressed within the hour.",
+    img: assets.harvest,
+  },
+];
 
+export default function Home() {
   return (
     <>
       {/* HERO */}
       <section id="home" className="home-hero">
         <div className="home-hero-content">
           <div className="hero-slogan-row">
-            <span className="hero-slogan">{t("hero.slogan")}</span>
+            <span className="hero-slogan">When quality has a face.</span>
           </div>
 
-          <h1 className="hero-title">{t("hero.title")}</h1>
+          <h1 className="hero-title">Extra virgin Moroccan Olive Oil</h1>
           <p className="hero-tagline">
-            <em>{t("hero.tagline")}</em>
+            <em>Harvested by hand. Pressed within the hour.</em>
           </p>
-
-          {/* NEW: single paragraph from i18n */}
-          <p className="hero-desc">{t("hero.desc")}</p>
-
-          <div className="hero-details">{t("hero.details")}</div>
+          <p className="hero-desc">
+            An authentic taste of Morocco. Hand picked by our family, our
+            Haouzia olives are pressed fresh at their peak harvest once a year,
+            bringing you an exclusive, seasonal extra virgin olive oil unlike any other.
+          </p>
+          <div className="hero-details">
+            Family owned • Organic • Crafted in Marrakech
+          </div>
         </div>
 
         <div className="home-hero-img">
-          <img
-            src={assets.riad}
-            alt="Riad and olive grove scene"
-            decoding="async"
-            sizes="(max-width: 900px) 95vw, 50vw"
-          />
-        </div>
-      </section>
-
-      {/* HAOUZIA SPOTLIGHT */}
-      <section className="haouzia-section">
-        <div className="haouzia-media">
-          <img
-            src={assets.haouzia}
-            alt="Haouzia olive tree in Marrakech"
-            loading="lazy"
-            decoding="async"
-            sizes="(max-width: 900px) 95vw, 50vw"
-          />
-        </div>
-        <div className="haouzia-copy">
-          <h2 className="haouzia-heading">{t("haouzia.heading")}</h2>
-          <p className="haouzia-blurb">
-            {t("haouzia.blurb1")} <strong>{t("haouzia.blurbStrong")}</strong> {t("haouzia.blurb2")}
-          </p>
+          <img src={assets.riad} alt="Riad / grove scene" />
         </div>
       </section>
 
       {/* PHASES (left) + COUNTDOWN (right) */}
       <section className="phases-section">
         <div className="phases-left">
-          <h2 className="phases-heading">{t("phases.heading")}</h2>
+          <h2 className="phases-heading">Discover how a drop becomes gold</h2>
 
           <div className="phases-grid">
-            {items.map((p) => (
+            {phases.map((p) => (
               <article key={p.key} className="phase-card">
                 <div className="phase-media">
-                  <img
-                    src={imgFor(p.key)}
-                    alt={p.title}
-                    loading="lazy"
-                    decoding="async"
-                    sizes="(max-width: 1200px) 48vw, (max-width: 900px) 95vw, 28vw"
-                  />
+                  <img src={p.img} alt={p.title} />
                   <div className="phase-badge">{p.timeframe}</div>
                 </div>
                 <h3 className="phase-title">{p.title}</h3>
                 <p className="phase-desc">{p.desc}</p>
               </article>
             ))}
-          </div>
-
-          {/* CTA: Read Our Story */}
-          <div className="story-cta">
-            <Link to="/about" className="story-btn">
-              {t("cta.story")}
-            </Link>
           </div>
         </div>
 
@@ -144,6 +150,7 @@ export default function Home() {
     </>
   );
 }
+
 
 
 

@@ -5,16 +5,16 @@ export const dict = {
 
     hero: {
       slogan: "When quality has a face.",
-      title: "Extra virgin Moroccan Olive Oil",
-      tagline: "Harvested by hand. Pressed within the hour.",
+      title: "Moroccan Extra Virgin Olive Oil",
+     
       // NEW single-paragraph description:
       desc:
-        "An authentic taste of Morocco. Hand picked by our family, our haouzia olives are pressed fresh at their peak harvest once a year, bringing you an exclusive, seasonal extra virgin olive oil unlike any other",
+        "An authentic taste of Morocco. Hand-picked by our family, our haouzia olives are pressed fresh at their peak harvest once a year, bringing you an exclusive, seasonal extra virgin olive oil unlike any other.",
       // kept for backwards-compatibility (not used anymore):
       d1: "Handcrafted from ancient Haouzia groves outside Marrakech.",
       d2: "Cold-pressed for exceptional flavor, health, and tradition.",
       d3: "Taste the story of our land in every golden drop.",
-      details: "Family owned • Organic • Crafted in Marrakech"
+      
     },
 
     haouzia: {
