@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Footer.css';
 import { FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { assets } from '../assets/assets';
-import { useI18n } from '../i18n/I18nContext';
+import { useI18n } from '../i18n/i18nContext';
 
 const Footer = () => {
   const { t } = useI18n();
