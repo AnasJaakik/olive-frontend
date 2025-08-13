@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { assets } from '../assets/assets';
-import { useI18n } from '../i18n/I18nContext';
+import { useI18n } from '../i18n/i18nContext';
 import './Navbar.css';
 
 const Navbar = () => {
