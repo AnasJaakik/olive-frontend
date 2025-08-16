@@ -48,12 +48,12 @@ const Footer = () => {
   <span className="footer-sep">•</span>
   <Link to="/terms" className="footer-link">{t('footer.terms')}</Link>
   <span className="footer-sep">•</span> {/* NEW */}
-  <Link to="/contact" className="footer-link">{t('footer.contact')}</Link> {/* NEW */}
+  <Link to="/Contact" className="footer-link">{t('Contact')}</Link> {/* NEW */}
 </nav>
 
 
       {/* Bottom lines */}
-      <div className="footer-copy">© {year} Zaytun Olive Oil. All rights reserved.</div>
+      <div className="footer-copy">© {year} Abdeljalil Olive Oil. All rights reserved.</div>
       <div className="footer-tagline">Family-owned, Moroccan olive oil, crafted with love.</div>
     </footer>
   );
