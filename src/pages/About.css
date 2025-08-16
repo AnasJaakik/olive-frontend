@@ -1,173 +1,115 @@
-/* Simple, clean About — all Tinos */
-
-.about-simple {
-  --olive: rgb(76,76,30);
-  --sage: #e9eddc;
-
+.about-page {
   background: #fff;
-  color: var(--olive);
+  color: rgb(43, 58, 37);
   font-family: 'Tinos', serif;
-  padding: clamp(28px, 5vw, 64px) clamp(16px, 6vw, 80px);
 }
 
-/* Header */
-.about-head { margin-bottom: clamp(18px, 3vw, 28px); }
-.about-title {
-  font-weight: 800;
-  font-size: clamp(2rem, 4.2vw, 3rem);
-  margin: 0 0 .25rem;
-  letter-spacing: .02em;
-}
-.about-intro {
-  font-size: clamp(1rem, 2.2vw, 1.15rem);
-  line-height: 1.7;
-  opacity: .95;
-  max-width: 860px;
-  margin: 0;
-}
-
-/* Team grid */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(14px, 2.4vw, 24px);
-  margin-top: clamp(18px, 3vw, 28px);
-}
-
-.member-card {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.06), inset 0 0 0 1px var(--sage);
-  padding: clamp(12px, 1.6vw, 16px);
-}
-
-.member-media {
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-  border-radius: 14px;
-  background: #f7f8f3;
-  box-shadow: inset 0 0 0 1px #eef2e2;
-  margin-bottom: 10px;
-}
-.member-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.member-name {
-  font-weight: 800;
-  font-size: clamp(1.1rem, 2.4vw, 1.35rem);
-  margin: 6px 0 2px;
-}
-.member-role {
-  font-weight: 700;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-  font-size: .82rem;
-  opacity: .9;
-  margin-bottom: 6px;
-}
-.member-note {
-  font-weight: 700;
-  opacity: .85;
-  margin: 0 0 6px;
-}
-.member-story {
-  line-height: 1.7;
-  font-size: 1rem;
-  margin: 0;
-}
-
-/* === New luxe editorial story block === */
-.team-story {
-  margin-top: clamp(24px, 4vw, 48px);
-  border-radius: 18px;
-  background: #fff;
-  box-shadow: 0 16px 36px rgba(0,0,0,.06), inset 0 0 0 1px var(--sage);
-  padding: clamp(18px, 2.6vw, 30px) clamp(18px, 3.5vw, 42px);
+/* ---------- Panorama Hero ---------- */
+.about-hero {
   position: relative;
+  width: 100%;
   overflow: hidden;
 }
 
-/* Slim olive side rule */
-.team-story::before {
-  content: "";
-  position: absolute;
-  top: 0; bottom: 0; left: 0;
-  width: 6px;
-  background: linear-gradient(180deg, rgba(76,76,30,.95), rgba(76,76,30,.35));
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
+.about-hero-img {
+  width: 100%;
+  height: auto;          /* keep full aspect ratio */
+  display: block;
+  object-fit: contain;   /* ensure the full image shows */
+  object-position: center;
+  filter: saturate(1.02) contrast(1.02);
 }
 
-.story-title {
+
+
+.about-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.0) 50%, rgba(0,0,0,0.22));
+  pointer-events: none;
+}
+
+.about-hero-title {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(16px, 6vw, 40px);
+  transform: translateX(-50%);
+  color: #fff;
+  text-align: center;
   font-weight: 800;
   letter-spacing: .01em;
-  font-size: clamp(1.35rem, 2.8vw, 1.9rem);
-  margin: 0 0 .4rem;
-  color: rgb(76,76,30);
+  line-height: 1.2;
+  font-size: clamp(1.4rem, 3.4vw, 2.4rem);
+  padding: 8px 14px;
+  text-shadow: 0 14px 40px rgba(0,0,0,.3);
 }
 
-/* Lede line treatment + refined body */
-.story-text {
-  color: rgb(76,76,30);
-  opacity: .98;
-  font-size: clamp(1.02rem, 1.25vw, 1.18rem);
-  line-height: 1.9;
-  max-width: 1000px;
-  margin: 0;
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
-  white-space: pre-wrap; /* keep your manual line breaks */
+/* ---------- Body with side rails ---------- */
+.about-body {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 760px) 1fr; /* left rail / content / right rail */
+  gap: clamp(14px, 3vw, 32px);
+  align-items: start;
+  padding: clamp(24px, 6vw, 56px) clamp(16px, 6vw, 6vw);
 }
 
-/* Elegant first line & drop cap */
-.story-text::first-line {
-  letter-spacing: .02em;
-  font-weight: 700;
+/* Side image rails */
+.about-rail {
+  display: grid;
+  gap: clamp(12px, 2vw, 18px);
+  position: sticky;
+  top: 90px;             /* sits under typical navbar */
+  align-self: start;
+  height: max-content;
 }
-.story-text::first-letter {
-  float: left;
+
+.about-rail-card {}
+.about-ph {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #e9eddc, #f7f8f3);
+  box-shadow: 0 12px 28px rgba(0,0,0,.06);
+  display: grid; place-items: center;
+  color: #7a866e;
+  font-style: italic;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+}
+.about-ph.tall {
+  aspect-ratio: 3 / 5;
+}
+
+/* Main content */
+.about-content h2 {
   font-weight: 800;
-  font-size: 3.2rem;
-  line-height: .85;
-  margin: .18rem .6rem 0 0;
-  color: rgb(76,76,30);
+  font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+  margin: 0 0 .5rem;
+  color: rgb(76, 76, 30);
+}
+.about-content p {
+  margin: 0 0 1.05rem;
+  line-height: 1.68;
 }
 
-/* Subtle top hairline under the title */
-.team-story .story-title + .story-text {
-  position: relative;
-  padding-top: 12px;
-}
-.team-story .story-title + .story-text::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, rgba(76,76,30,.28), rgba(76,76,30,.08));
-}
-
-/* Optional: widen measure on very large screens */
-@media (min-width: 1200px) {
-  .story-text { max-width: 1100px; }
-}
-
-/* Responsive */
+/* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
-  .team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .about-body {
+    grid-template-columns: 1fr minmax(0, 1fr) 1fr; /* rails narrow automatically */
+  }
 }
-@media (max-width: 800px) {
-  .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+@media (max-width: 900px) {
+  .about-body {
+    grid-template-columns: 1fr; /* stack on phones */
+  }
+  .about-rail {
+    position: static;
+    grid-template-columns: 1fr 1fr;
+    top: auto;
+    order: 2; /* images after content */
+  }
+  .about-content { order: 1; }
 }
-@media (max-width: 520px) {
-  .team-grid { grid-template-columns: 1fr; }
-  .story-text::first-letter { font-size: 2.6rem; margin-right: .5rem; }
-}
+
 
 
 

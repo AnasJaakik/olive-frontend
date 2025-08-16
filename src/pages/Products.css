@@ -1,201 +1,162 @@
-/* Products v2 — Tinos + rgb(76,76,30) */
-.products-v2 {
-  --olive: rgb(76,76,30);
-  --olive-20: rgba(76,76,30,.20);
-  --olive-12: rgba(76,76,30,.12);
-  --olive-08: rgba(76,76,30,.08);
-
+.product-detail {
   background: #fff;
-  color: var(--olive);
   font-family: 'Tinos', serif;
-  padding: clamp(28px, 5vw, 64px) clamp(16px, 6vw, 80px);
+  color: #2b3a25;
+  padding: 40px 5vw;
 }
 
-/* Hero */
-.pv2-eyebrow {
-  font-weight: 800;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  font-size: .85rem;
-  opacity: .9;
-}
-.pv2-title {
-  font-weight: 800;
-  font-size: clamp(2rem, 4.6vw, 3rem);
-  margin: 6px 0 6px;
-  letter-spacing: .02em;
-}
-.pv2-lead {
-  font-size: clamp(1rem, 2.2vw, 1.15rem);
-  opacity: .95;
-  line-height: 1.65;
-  margin: 0;
+/* Hero layout */
+.pd-hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 40px;
 }
 
-/* Showcase layout */
-.pv2-showcase {
-  display: grid;
-  grid-template-columns: 1.05fr 1.2fr;
-  gap: clamp(16px, 3vw, 36px);
+/* LEFT: bottle + nutrition */
+.pd-left {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-top: clamp(20px, 3.5vw, 40px);
+  gap: 24px;
 }
-
-/* Bottle pedestal */
-.pv2-pedestal {
-  position: relative;
-  border-radius: 20px;
-  padding: clamp(16px, 2vw, 20px);
-  box-shadow: 0 16px 36px var(--olive-08), inset 0 0 0 1px var(--olive-12);
-  background:
-    radial-gradient(120% 70% at 50% 0%, rgba(76,76,30,.06), transparent 60%),
-    #fff;
-  min-height: 520px;
-  display: grid;
-  place-items: center;
-}
-.pv2-halo {
-  position: absolute;
-  inset: 14% 10% auto 10%;
-  height: 40%;
-  filter: blur(22px);
-  background: radial-gradient(ellipse at center, var(--olive-12), transparent 70%);
-  pointer-events: none;
-}
-.pv2-bottle img {
-  display: block;
-  max-width: min(420px, 80%);
+.pd-bottle {
   width: 100%;
-  height: auto;
+  max-width: 380px;
+  height: 600px;               /* Tall placeholder */
   object-fit: contain;
-  filter: drop-shadow(0 20px 30px var(--olive-12));
+}
+.pd-nutrition {
+  width: 260px;                /* Wider */
+  height: 180px;               /* Taller */
+  object-fit: contain;
 }
 
-/* Invite-only ribbon */
-.pv2-ribbon {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  padding: 8px 12px;
+/* RIGHT: sticky column (no inner scrolling) */
+.pd-right {
+  flex: 2;
+  min-width: 280px;
+  position: sticky;
+  top: 100px;                  /* adjust if your navbar is taller/shorter */
+  align-self: flex-start;
+  /* IMPORTANT: remove internal scroll so sticky behaves intuitively */
+  max-height: none;
+  overflow: visible;
+  padding-right: 0;
+}
+
+/* Title/price now naturally stay visible because the whole column sticks */
+.pd-title {
+  font-size: clamp(1.6rem, 3.6vw, 2rem);
   font-weight: 800;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  font-size: .8rem;
-  color: #fff;
-  background: var(--olive);
-  border-radius: 10px;
-  box-shadow: 0 10px 24px var(--olive-08);
+  margin-bottom: 8px;
 }
-
-/* Info panel */
-.pv2-panel {
-  border-radius: 20px;
-  padding: clamp(16px, 2vw, 22px);
-  box-shadow: 0 16px 36px var(--olive-08), inset 0 0 0 1px var(--olive-12);
-  background: #fff;
-}
-.pv2-name {
-  font-weight: 800;
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  margin: 0 0 10px;
-}
-
-.pv2-highlights {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 14px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px 14px;
-}
-.pv2-highlights li {
-  border: 1px solid var(--olive-12);
-  border-radius: 12px;
-  padding: 10px 12px;
+.pd-price {
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
   font-weight: 700;
-  letter-spacing: .01em;
-  background: #fff;
+  margin-bottom: 4px;
+}
+.pd-size {
+  font-size: clamp(0.95rem, 2vw, 1rem);
+  color: #6e7966;
+  margin-bottom: 20px;
+}
+.pd-desc p {
+  margin-bottom: 14px;
+  line-height: 1.6;
 }
 
-/* Disabled ordering status */
-.pv2-status {
-  border-radius: 999px;
-  padding: 12px 14px;
-  text-align: center;
-  font-weight: 800;
-  letter-spacing: .04em;
+/* Order + Toggle buttons */
+.pd-order {
+  margin-top: 8px;
+  margin-right: 12px;
+  padding: 14px 26px;
+  border: none;
+  background: linear-gradient(90deg, #8db600, #b9c861);
   color: #fff;
-  background: var(--olive);
-  margin: 6px 0 14px;
-  opacity: .95;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.pd-order:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.07);
+}
+.pd-toggle {
+  margin-top: 12px;
+  padding: 12px 20px;
+  border: none;
+  background: linear-gradient(90deg, #6f993e, #b2bf77);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+.pd-toggle:hover {
+  filter: brightness(1.05);
 }
 
-/* Invite block */
-.pv2-invite {
-  border-radius: 16px;
-  padding: 12px;
-  box-shadow: inset 0 0 0 1px var(--olive-12);
-  background: #fff;
+/* Process section */
+.pd-process {
+  margin-top: 40px;
 }
-.pv2-invite-title {
+.pd-process h2 {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
   font-weight: 800;
-  font-size: clamp(1.1rem, 2.4vw, 1.35rem);
-  margin: 0 0 4px;
-}
-.pv2-invite-copy {
-  margin: 0 0 10px;
-  line-height: 1.65;
-  opacity: .95;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-.pv2-form { display: grid; gap: 12px; }
-.pv2-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-.pv2-field { display: grid; gap: 6px; }
-.pv2-field > span { font-weight: 700; opacity: .95; }
-.pv2-field input,
-.pv2-field textarea {
-  border: 1px solid var(--olive-12);
-  border-radius: 12px;
-  padding: 12px 12px;
-  font-family: 'Tinos', serif;
-  font-size: 1rem;
-  outline: none;
-}
-.pv2-field input:focus,
-.pv2-field textarea:focus {
-  box-shadow: 0 0 0 3px var(--olive-20);
-  border-color: var(--olive);
-}
-
-.pv2-actions {
+.pd-step {
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 40px;
 }
-.pv2-btn {
-  border: none;
-  border-radius: 999px;
-  padding: 14px 18px;
-  font-weight: 800;
-  letter-spacing: .04em;
-  color: #fff;
-  background: var(--olive);
-  cursor: pointer;
-  transition: transform .12s ease, filter .12s ease;
+.pd-step img {
+  width: 340px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
-.pv2-btn:hover { transform: translateY(-1px); filter: brightness(1.03); }
-.pv2-tiny { font-size: .92rem; opacity: .8; }
+.pd-step div {
+  flex: 1;
+}
+.pd-step h3 {
+  font-size: clamp(1rem, 2.6vw, 1.2rem);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.pd-step p {
+  line-height: 1.6;
+}
+.pd-step.left { flex-direction: row; }
+.pd-step.right { flex-direction: row-reverse; }
 
-/* Responsive */
-@media (max-width: 960px) {
-  .pv2-showcase { grid-template-columns: 1fr; }
-  .pv2-pedestal { min-height: 440px; }
-  .pv2-highlights { grid-template-columns: 1fr; }
-  .pv2-row { grid-template-columns: 1fr; }
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .pd-hero { flex-direction: column; }
+  .pd-right {
+    position: static;          /* disable sticky on small screens */
+    top: auto;
+  }
+  .pd-step {
+    flex-direction: column !important;
+    text-align: center;
+  }
+  .pd-step img {
+    width: 100%;
+    height: auto;
+  }
 }
+
+
+
+
 
