@@ -1,12 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Footer.css';
-import { FaInstagram, FaEnvelope } from 'react-icons/fa';
-import { assets } from '../assets/assets';
-import { useI18n } from '../i18n/i18nContext';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Footer.css";
+import { FaInstagram, FaEnvelope } from "react-icons/fa";
+import { assets } from "../assets/assets";
 
 const Footer = () => {
-  const { t } = useI18n();
   const year = new Date().getFullYear();
 
   return (
@@ -41,16 +39,15 @@ const Footer = () => {
         </div>
       </div>
 
-      <nav className="footer-legal-row" aria-label={t('footer.legalNav')}>
-  <Link to="/impressum" className="footer-link">{t('footer.impressum')}</Link>
-  <span className="footer-sep">•</span>
-  <Link to="/privacy" className="footer-link">{t('footer.privacy')}</Link>
-  <span className="footer-sep">•</span>
-  <Link to="/terms" className="footer-link">{t('footer.terms')}</Link>
-  <span className="footer-sep">•</span> {/* NEW */}
-  <Link to="/Contact" className="footer-link">{t('Contact')}</Link> {/* NEW */}
-</nav>
-
+      <nav className="footer-legal-row" aria-label="Legal navigation">
+        <Link to="/impressum" className="footer-link">Impressum</Link>
+        <span className="footer-sep">•</span>
+        <Link to="/privacy" className="footer-link">Privacy</Link>
+        <span className="footer-sep">•</span>
+        <Link to="/terms" className="footer-link">Terms</Link>
+        <span className="footer-sep">•</span>
+        <Link to="/contact" className="footer-link">Contact</Link>
+      </nav>
 
       {/* Bottom lines */}
       <div className="footer-copy">© {year} Abdeljalil Olive Oil. All rights reserved.</div>
@@ -60,8 +57,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
-
-
-

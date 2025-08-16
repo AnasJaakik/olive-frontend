@@ -3,14 +3,13 @@ import { assets } from "../assets/assets";
 import "./Home.css";
 import { motion } from "framer-motion";
 
-// ---------- Helpers ----------
+/* ---------- Helpers ---------- */
 function getNextHarvest(now = new Date()) {
-  const thisYearHarvest = new Date(now.getFullYear(), 10, 1, 0, 0, 0);
+  const thisYearHarvest = new Date(now.getFullYear(), 10, 1, 0, 0, 0); // Nov 1
   return now < thisYearHarvest
     ? thisYearHarvest
     : new Date(now.getFullYear() + 1, 10, 1, 0, 0, 0);
 }
-
 function diffParts(to, from = new Date()) {
   let delta = Math.max(0, to - from);
   const sec = Math.floor(delta / 1000) % 60;
@@ -19,7 +18,6 @@ function diffParts(to, from = new Date()) {
   const days = Math.floor(delta / (1000 * 60 * 60 * 24));
   return { days, hours: hour, minutes: min, seconds: sec, ms: delta };
 }
-
 function seasonProgress(now = new Date()) {
   const next = getNextHarvest(now);
   const prev = new Date(next.getFullYear() - 1, 10, 1, 0, 0, 0);
@@ -27,9 +25,8 @@ function seasonProgress(now = new Date()) {
   const passed = now - prev;
   return Math.min(100, Math.max(0, (passed / total) * 100));
 }
-
 function getOliveStage(date = new Date()) {
-  const m = date.getMonth();
+  const m = date.getMonth(); // 0=Jan
   const d = date.getDate();
   if ((m === 10 && d >= 1) || m === 11 || m <= 0 || (m === 1 && d < 15)) {
     return "Dormancy — trees are resting.";
@@ -48,7 +45,7 @@ function getOliveStage(date = new Date()) {
   }
 }
 
-// ---------- Countdown ----------
+/* ---------- Big Countdown ---------- */
 function BigCountdown() {
   const target = useMemo(() => getNextHarvest(), []);
   const [parts, setParts] = useState(() => diffParts(target));
@@ -113,7 +110,67 @@ function BigCountdown() {
   );
 }
 
-// ---------- Home ----------
+/* ---------- Teaser ---------- */
+function Teaser() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <motion.section
+      className="teaser-section"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
+      {/* LEFT: product image */}
+      <motion.div
+        className="teaser-left"
+        initial={{ scale: 0.96, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+        viewport={{ once: true }}
+      >
+        <div className="teaser-img-placeholder">Product Image</div>
+      </motion.div>
+
+      {/* RIGHT: text */}
+      <div className="teaser-right">
+        <h2 className="teaser-heading">Abdeljalil Olive Oil</h2>
+
+        <button
+          type="button"
+          className="teaser-disclosure"
+          aria-expanded={open}
+          aria-controls="teaser-panel"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span className="teaser-disclosure-arrow" aria-hidden="true" />
+          <span>Short Description</span>
+        </button>
+
+        <div id="teaser-panel" className={`teaser-panel ${open ? "open" : ""}`}>
+          <p className="teaser-text">
+            Crafted from 100% Haouzia olives, native to the historic Haouz
+            region, our extra virgin olive oil delivers a powerful and balanced
+            flavour that sets it apart from other Mediterranean oils. Cultivated
+            on family-owned farms, the area’s sunny and warm climate contributes
+            to the olives’ unique characteristics.
+          </p>
+          <p className="teaser-text">
+            Our oil offers an intense green fruitiness with distinct notes of
+            artichoke, green almond, and fresh tomato, followed by a pleasant,
+            peppery finish. It is a testament to a rich agricultural tradition,
+            bringing a fresh and complex taste to your table.
+          </p>
+        </div>
+
+        <a href="/products" className="teaser-btn">Learn more</a>
+      </div>
+    </motion.section>
+  );
+}
+
+/* ---------- Page ---------- */
 export default function Home() {
   return (
     <>
@@ -147,41 +204,11 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* BIG COUNTDOWN */}
+      {/* COUNTDOWN */}
       <BigCountdown />
 
-      {/* TEASER SECTION */}
-      <motion.section
-        className="teaser-section"
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true }}
-      >
-        <div className="teaser-left">
-          <h2 className="teaser-heading">Discover our harvest</h2>
-          <p className="teaser-text">
-            Each drop carries the story of our family’s groves in Marrakech.
-            A seasonal treasure, pressed fresh to preserve its golden soul.
-          </p>
-          <a href="#products" className="teaser-btn">Explore Products</a>
-        </div>
-        <motion.div
-          className="teaser-right"
-          initial={{ scale: 0.96, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-          viewport={{ once: true }}
-        >
-          <div className="teaser-img-placeholder">Product Image</div>
-        </motion.div>
-      </motion.section>
+      {/* TEASER */}
+      <Teaser />
     </>
   );
 }
-
-
-
-
-
-
