@@ -1,18 +1,18 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { assets } from "../assets/assets";
 import "./Home.css";
-import { motion } from "framer-motion";  // NEW
+import { motion } from "framer-motion";
 
-// ---------- Helpers (same as before) ----------
+// ---------- Helpers ----------
 function getNextHarvest(now = new Date()) {
-  const thisYearHarvest = new Date(now.getFullYear(), 10, 1, 0, 0, 0); 
+  const thisYearHarvest = new Date(now.getFullYear(), 10, 1, 0, 0, 0);
   return now < thisYearHarvest
     ? thisYearHarvest
     : new Date(now.getFullYear() + 1, 10, 1, 0, 0, 0);
 }
 
 function diffParts(to, from = new Date()) {
-  let delta = Math.max(0, to - from); 
+  let delta = Math.max(0, to - from);
   const sec = Math.floor(delta / 1000) % 60;
   const min = Math.floor(delta / (1000 * 60)) % 60;
   const hour = Math.floor(delta / (1000 * 60 * 60)) % 24;
@@ -29,7 +29,7 @@ function seasonProgress(now = new Date()) {
 }
 
 function getOliveStage(date = new Date()) {
-  const m = date.getMonth(); 
+  const m = date.getMonth();
   const d = date.getDate();
   if ((m === 10 && d >= 1) || m === 11 || m <= 0 || (m === 1 && d < 15)) {
     return "Dormancy — trees are resting.";
@@ -48,7 +48,7 @@ function getOliveStage(date = new Date()) {
   }
 }
 
-// ---------- Big Countdown ----------
+// ---------- Countdown ----------
 function BigCountdown() {
   const target = useMemo(() => getNextHarvest(), []);
   const [parts, setParts] = useState(() => diffParts(target));
@@ -69,7 +69,7 @@ function BigCountdown() {
   const pad = (n) => String(n).padStart(2, "0");
 
   return (
-    <motion.section 
+    <motion.section
       className="countdown-hero"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -79,20 +79,36 @@ function BigCountdown() {
       <div className="cd-eyebrow">Countdown to Harvest</div>
 
       <div className="cd-wrap" role="timer">
-        <div className="cd-seg"><div className="cd-num">{parts.days}</div><div className="cd-label">days</div></div>
+        <div className="cd-seg">
+          <div className="cd-num">{parts.days}</div>
+          <div className="cd-label">days</div>
+        </div>
         <div className="cd-sep">:</div>
-        <div className="cd-seg"><div className="cd-num">{pad(parts.hours)}</div><div className="cd-label">hours</div></div>
+        <div className="cd-seg">
+          <div className="cd-num">{pad(parts.hours)}</div>
+          <div className="cd-label">hours</div>
+        </div>
         <div className="cd-sep">:</div>
-        <div className="cd-seg"><div className="cd-num">{pad(parts.minutes)}</div><div className="cd-label">minutes</div></div>
+        <div className="cd-seg">
+          <div className="cd-num">{pad(parts.minutes)}</div>
+          <div className="cd-label">minutes</div>
+        </div>
         <div className="cd-sep">:</div>
-        <div className="cd-seg"><div className="cd-num">{pad(parts.seconds)}</div><div className="cd-label">seconds</div></div>
+        <div className="cd-seg">
+          <div className="cd-num">{pad(parts.seconds)}</div>
+          <div className="cd-label">seconds</div>
+        </div>
       </div>
 
       <div className="cd-sub">Next harvest: November 1</div>
       <div className="cd-stage">{stage}</div>
 
-      <div className="cd-progress"><div className="cd-progress-fill" style={{ width: `${pct}%` }} /></div>
-      <div className="cd-progress-label">{Math.round(pct)}% of the season elapsed</div>
+      <div className="cd-progress">
+        <div className="cd-progress-fill" style={{ width: `${pct}%` }} />
+      </div>
+      <div className="cd-progress-label">
+        {Math.round(pct)}% of the season elapsed
+      </div>
     </motion.section>
   );
 }
@@ -103,11 +119,11 @@ export default function Home() {
     <>
       {/* HERO */}
       <section id="home" className="home-hero">
-        <motion.div 
+        <motion.div
           className="home-hero-content"
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 0, x: -32 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
         >
           <div className="hero-slogan-row">
             <span className="hero-slogan">When quality has a face.</span>
@@ -116,15 +132,16 @@ export default function Home() {
           <p className="hero-desc">
             An authentic taste of Morocco. Hand-picked by our family, our
             Haouzia olives are pressed fresh at their peak harvest once a year,
-            bringing you an exclusive, seasonal extra virgin olive oil unlike any other.
+            bringing you an exclusive, seasonal extra virgin olive oil unlike any
+            other.
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="home-hero-img"
-          initial={{ opacity: 0, x: 40 }}
+          initial={{ opacity: 0, x: 32 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 0.9, ease: "easeOut", delay: 0.15 }}
         >
           <img src={assets.riad} alt="Riad / grove scene" />
         </motion.div>
@@ -134,11 +151,11 @@ export default function Home() {
       <BigCountdown />
 
       {/* TEASER SECTION */}
-      <motion.section 
+      <motion.section
         className="teaser-section"
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
         <div className="teaser-left">
@@ -149,11 +166,11 @@ export default function Home() {
           </p>
           <a href="#products" className="teaser-btn">Explore Products</a>
         </div>
-        <motion.div 
+        <motion.div
           className="teaser-right"
-          initial={{ scale: 0.9, opacity: 0 }}
+          initial={{ scale: 0.96, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
           viewport={{ once: true }}
         >
           <div className="teaser-img-placeholder">Product Image</div>
@@ -162,6 +179,8 @@ export default function Home() {
     </>
   );
 }
+
+
 
 
 
