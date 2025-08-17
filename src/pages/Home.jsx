@@ -29,19 +29,19 @@ function getOliveStage(date = new Date()) {
   const m = date.getMonth(); // 0=Jan
   const d = date.getDate();
   if ((m === 10 && d >= 1) || m === 11 || m <= 0 || (m === 1 && d < 15)) {
-    return "Dormancy — trees are resting.";
+    return "Current status: Dormancy — trees are resting.";
   } else if ((m === 1 && d >= 15) || m === 2 || m === 3) {
-    return "Bud swelling & flowering — blossoms are forming.";
+    return "Current status: Bud swelling & flowering — blossoms are forming.";
   } else if (m === 4 || m === 5) {
-    return "Fruit set — tiny olives are developing.";
+    return "Current status: Fruit set — tiny olives are developing.";
   } else if (m === 6) {
-    return "Pit hardening — stones are forming inside the olives.";
+    return "Current status: Pit hardening — stones are forming inside the olives.";
   } else if (m === 7) {
-    return "Oil accumulation — oil content is increasing.";
+    return "Current status: Oil accumulation — oil content is increasing.";
   } else if (m === 8) {
-    return "Maturation — flavors and aromas are developing.";
+    return "Current status: Maturation — flavors and aromas are developing.";
   } else {
-    return "Harvest time — hand-picking at peak ripeness.";
+    return "Current status: Harvest time — hand-picking at peak ripeness.";
   }
 }
 

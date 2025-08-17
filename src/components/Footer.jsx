@@ -42,9 +42,9 @@ const Footer = () => {
       <nav className="footer-legal-row" aria-label="Legal navigation">
         <Link to="/impressum" className="footer-link">Impressum</Link>
         <span className="footer-sep">•</span>
-        <Link to="/privacy" className="footer-link">Privacy</Link>
+        <Link to="/privacy" className="footer-link">Privacy-policy</Link>
         <span className="footer-sep">•</span>
-        <Link to="/terms" className="footer-link">Terms</Link>
+        <Link to="/terms" className="footer-link">Terms & conditions</Link>
         <span className="footer-sep">•</span>
         <Link to="/contact" className="footer-link">Contact</Link>
       </nav>
