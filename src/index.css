@@ -10,5 +10,36 @@ html {
     scroll-behavior: smooth;
   }
   
+/* Mobile-friendly defaults */
+:root {
+  --page-padding: clamp(12px, 5vw, 32px);
+  --tap-target: 44px; /* min recommended touch size */
+}
+
+/* Prevent sideways scroll caused by off-canvas elements */
+html, body {
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Images never overflow */
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Buttons & links: accessible touch size */
+button, .btn, a.button {
+  min-height: var(--tap-target);
+}
+
+/* iOS safe areas for fixed/sticky bars if needed */
+.safe-bottom {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+
 
  

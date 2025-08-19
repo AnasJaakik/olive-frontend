@@ -30,6 +30,8 @@ export default function CartDrawer() {
                   aria-label="Quantity"
                   value={it.quantity}
                   onChange={(e) => setQty(key, Math.max(1, Number(e.target.value) || 1))}
+                  type="number"               // <-- add this
+                  inputMode="numeric"
                 />
                 <button onClick={() => setQty(key, it.quantity + 1)} aria-label="Increase">+</button>
               </div>

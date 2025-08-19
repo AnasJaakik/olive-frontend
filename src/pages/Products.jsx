@@ -73,7 +73,7 @@ export default function Products() {
           </div>
 
           <div className="pd-actions">
-            <button className="pd-add" onClick={addToCart}>Add to Bag</button>
+            <button className="pd-add" onClick={addToCart}>Add to Cart</button>
             <button className="pd-buy" onClick={() => alert("Buy flow coming soon!")}>Buy Now</button>
           </div>
 

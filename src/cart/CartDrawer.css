@@ -48,4 +48,10 @@
   
   .cart-note { margin-top: 8px; font-size: .9rem; color: #6e7966; }
   .cart-clear { margin-top: 10px; background: none; border: 0; color: #7a866e; cursor: pointer; }
+  @media (max-width: 420px) {
+    .cart-drawer { width: 100vw; }
+    .cart-line-qty button { width: 36px; height: 36px; }
+    .cart-line-qty input { width: 56px; height: 36px; }
+    .cart-checkout { padding: 14px 18px; }
+  }
   
