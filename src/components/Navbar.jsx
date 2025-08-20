@@ -26,9 +26,9 @@ const Navbar = () => {
 
         {/* Desktop links */}
         <div className="navbar-links">
-          <NavLink to="/" className="navbar-link" onClick={closeMobile}>Home</NavLink>
-          <NavLink to="/products" className="navbar-link" onClick={closeMobile}>Products &amp; Process</NavLink>
-          <NavLink to="/about" className="navbar-link" onClick={closeMobile}>About Us</NavLink>
+          <NavLink to="/" className="navbar-link" onClick={closeMobile}>HOME</NavLink>
+          <NavLink to="/products" className="navbar-link" onClick={closeMobile}>PRODUCTS &amp; PROCESS</NavLink>
+          <NavLink to="/about" className="navbar-link" onClick={closeMobile}>ABOUT US</NavLink>
          
 
           <button className="navbar-cart" onClick={() => { open(); closeMobile(); }} aria-label="Open cart">

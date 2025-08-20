@@ -23,7 +23,7 @@
   width: auto;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,.06));
+  
 }
 
 /* (Old site links unused) */
@@ -65,7 +65,7 @@
 
 .footer-link {
   text-decoration: none;
-  color: #2a3e25;
+  color: #000000;
   font-weight: 700;
   letter-spacing: 0.02em;
   padding: 6px 8px;
@@ -81,7 +81,7 @@
 /* Socials */
 .footer-socials { display: flex; align-items: center; gap: 10px; }
 .footer-social {
-  color: #335432;
+  color: #000000;
   display: inline-flex;
   padding: 6px;
   border-radius: 10px;

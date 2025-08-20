@@ -1,22 +1,25 @@
+/* ============ ProductDetail.css (updated) ============ */
+
 .product-detail {
   background: #fff;
   font-family: 'Tinos', serif;
   color: #2b3a25;
-  padding: 40px 5vw;
+  padding: 40px clamp(16px, 5vw, 56px);
 }
 
-/* Top layout */
+/* Top layout: CENTERED GRID so right panel starts mid-screen */
 .pd-hero {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  margin-bottom: 40px;
+  display: grid;
+  /* Left column maxes ~38vw so the right column begins ~mid-screen */
+  grid-template-columns: minmax(280px, 38vw) minmax(360px, 560px);
+  gap: clamp(20px, 4vw, 48px);
+  align-items: start;
+  max-width: 1200px;       /* keeps it elegant on wide screens */
+  margin: 0 auto;          /* center the whole section */
 }
 
 /* LEFT column: images */
 .pd-left {
-  flex: 1;
-  min-width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,8 +28,8 @@
 
 .pd-bottle {
   width: 100%;
-  max-width: 420px;    /* slightly wider */
-  height: 640px;       /* tall placeholder for design sense */
+  max-width: 440px;        /* can grow, but column limits keep it in check */
+  height: 640px;
   object-fit: contain;
   background: #f7f8f3;
   border-radius: 16px;
@@ -34,23 +37,21 @@
 }
 
 .pd-nutrition {
-  width: 320px;        /* bigger */
-  height: 220px;       /* taller */
+  width: 360px;
+  height: 240px;
   object-fit: contain;
   background: #f7f8f3;
   border-radius: 12px;
   box-shadow: 0 10px 24px rgba(0,0,0,.05);
 }
 
-/* RIGHT column: sticky */
+/* RIGHT column: sticky info panel (closer to center now) */
 .pd-right {
-  flex: 2;
-  min-width: 280px;
   position: sticky;
-  top: 100px;          /* align with your navbar height */
-  align-self: flex-start;
-  max-height: none;    /* ensure sticky feels natural */
-  overflow: visible;
+  top: 100px;              /* align with navbar height */
+  align-self: start;
+  /* Nudge slightly left on huge screens (keeps it visually centered) */
+  margin-left: clamp(0px, 1vw, 12px);
 }
 
 /* Title & pricing */
@@ -60,21 +61,32 @@
   margin-bottom: 6px;
   color: rgb(76, 76, 30);
 }
+
 .pd-price {
   font-size: clamp(1.05rem, 2.4vw, 1.3rem);
   font-weight: 700;
   margin-bottom: 4px;
 }
+
 .pd-size {
   font-size: clamp(0.95rem, 2vw, 1rem);
   color: #6e7966;
   margin-bottom: 16px;
 }
-.pd-desc p { margin-bottom: 12px; line-height: 1.6; }
+
+.pd-desc p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
 
 /* Actions */
-.pd-actions { display: flex; gap: 10px; margin-top: 10px; }
-.pd-add, .pd-buy {
+.pd-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.pd-add,
+.pd-buy {
   padding: 12px 20px;
   border: none;
   border-radius: 999px;
@@ -110,7 +122,9 @@
 
 /* Process section */
 .pd-process {
-  margin-top: 40px;
+  margin: 40px auto 0;
+  max-width: 1200px;     /* match hero width for a clean column line */
+  padding: 0;
 }
 .pd-process h2 {
   font-size: clamp(1.2rem, 3vw, 1.6rem);
@@ -140,16 +154,32 @@
   margin-bottom: 8px;
 }
 .pd-step p { line-height: 1.6; }
+
+/* Alternate step alignment */
 .pd-step.left { flex-direction: row; }
 .pd-step.right { flex-direction: row-reverse; }
 
-/* Mobile */
-@media (max-width: 820px) {
-  .pd-hero { flex-direction: column; }
-  .pd-right {
-    position: static;    /* disable sticky on phones for simpler UX */
-    top: auto;
+/* ---------- Mobile adjustments ---------- */
+@media (max-width: 1024px) {
+  /* Allow right column to start even closer to mid on laptops */
+  .pd-hero {
+    grid-template-columns: minmax(260px, 42vw) minmax(340px, 520px);
   }
+}
+
+@media (max-width: 820px) {
+  .pd-hero {
+    grid-template-columns: 1fr;   /* stack */
+    gap: 22px;
+  }
+  .pd-right {
+    position: static;             /* disable sticky on phones */
+    top: auto;
+    margin-left: 0;
+  }
+  .pd-actions { flex-direction: column; }
+  .pd-add, .pd-buy { width: 100%; }
+
   .pd-step {
     flex-direction: column !important;
     text-align: center;
@@ -158,6 +188,7 @@
     width: 100%;
     height: auto;
   }
+
   .pd-bottle { max-width: 100%; height: 520px; }
   .pd-nutrition { width: 100%; max-width: 380px; height: 200px; }
 }
@@ -166,9 +197,3 @@
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
-
-
-
-
-
-

@@ -12,7 +12,7 @@ export default function Impressum() {
       <p>Germany</p>
 
       <p><strong>Email:</strong> [your-email@example.com]</p>
-      <p><strong>VAT ID no.:</strong> DE…</p>
+      <p><strong>VAT ID no.:</strong> DE456116192</p>
       <p>Registered in the commercial register of the Krefeld District Court</p>
       <p>Commercial Register Number HRB 21186</p>
 

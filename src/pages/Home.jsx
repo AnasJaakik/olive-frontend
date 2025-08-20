@@ -185,7 +185,7 @@ export default function Home() {
           <div className="hero-slogan-row">
             <span className="hero-slogan">When quality has a face.</span>
           </div>
-          <h1 className="hero-title">Extra virgin Moroccan Olive Oil</h1>
+          <h1 className="hero-title">Extra Virgin Moroccan Olive Oil</h1>
           <p className="hero-desc">
             An authentic taste of Morocco. Hand-picked by our family, our
             Haouzia olives are pressed fresh at their peak harvest once a year,
