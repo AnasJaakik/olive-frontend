@@ -110,10 +110,8 @@ function BigCountdown() {
   );
 }
 
-/* ---------- Teaser ---------- */
+/* ---------- Teaser (always-visible description + link CTA) ---------- */
 function Teaser() {
-  const [open, setOpen] = useState(false);
-
   return (
     <motion.section
       className="teaser-section"
@@ -137,18 +135,7 @@ function Teaser() {
       <div className="teaser-right">
         <h2 className="teaser-heading">Abdeljalil Olive Oil</h2>
 
-        <button
-          type="button"
-          className="teaser-disclosure"
-          aria-expanded={open}
-          aria-controls="teaser-panel"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className="teaser-disclosure-arrow" aria-hidden="true" />
-          <span>Short Description</span>
-        </button>
-
-        <div id="teaser-panel" className={`teaser-panel ${open ? "open" : ""}`}>
+        <div className="teaser-panel open">
           <p className="teaser-text">
             Crafted from 100% Haouzia olives, native to the historic Haouz
             region, our extra virgin olive oil delivers a powerful and balanced
@@ -164,7 +151,7 @@ function Teaser() {
           </p>
         </div>
 
-        <a href="/products" className="teaser-btn">Learn more</a>
+        <a href="/products" className="teaser-link">Learn more</a>
       </div>
     </motion.section>
   );
@@ -174,8 +161,23 @@ function Teaser() {
 export default function Home() {
   return (
     <>
-      {/* HERO */}
+      {/* HERO with background video */}
       <section id="home" className="home-hero">
+        <video
+          className="home-hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        >
+          {assets.heroVideoWebm && (
+            <source src={assets.heroVideoWebm} type="video/webm" />
+          )}
+          <source src={assets.heroVideoMp4} type="video/mp4" />
+        </video>
+        <div className="home-hero-overlay" />
+
         <motion.div
           className="home-hero-content"
           initial={{ opacity: 0, x: -32 }}
@@ -192,15 +194,6 @@ export default function Home() {
             bringing you an exclusive, seasonal extra virgin olive oil unlike any
             other.
           </p>
-        </motion.div>
-
-        <motion.div
-          className="home-hero-img"
-          initial={{ opacity: 0, x: 32 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut", delay: 0.15 }}
-        >
-          <img src={assets.riad} alt="Riad / grove scene" />
         </motion.div>
       </section>
 

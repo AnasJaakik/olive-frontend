@@ -7,11 +7,24 @@
   display: flex; align-items: center; justify-content: space-between;
   padding: clamp(10px, 2vw, 14px) var(--page-padding);
   font-family: 'Tinos', serif; color: #2b3a25;
+  margin-right: -20px;
+  margin-left: -20px;
 }
 
 .navbar-left { display: flex; align-items: center; gap: 10px; }
-.navbar-logo { height: clamp(28px, 5vw, 42px); width: auto; display: block; }
-.secondary-logo { height: clamp(20px, 4vw, 30px); opacity: .95; }
+/* Main navbar logo */
+.navbar-logo {
+  height: clamp(40px, 7vw, 64px);   /* was 28–42px, now 40–64px */
+  width: auto;
+  display: block;
+}
+
+/* Secondary logo (e.g. sticky or alt brand) */
+.secondary-logo {
+  height: clamp(32px, 6vw, 48px);   /* was 20–30px, now 32–48px */
+  opacity: 0.95;
+}
+
 
 .navbar-links { display: flex; align-items: center; gap: clamp(10px, 2vw, 20px); }
 .navbar-link {

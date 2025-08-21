@@ -26,6 +26,7 @@ import harvest from './harvest.png';
 
 // Footer/wordmark logo — make sure the file name & casing match exactly
 import mainlogo from './mainlogo.png';
+import heroVideoMp4 from "./videos/olivefarm.mp4";
 
 export const assets = {
   // core
@@ -58,6 +59,7 @@ export const assets = {
   mainlogo,           // used by Footer: assets.mainlogo
   footerLogo: mainlogo, // extra alias (optional)
   wordmark: mainlogo,   // extra alias (optional)
+  heroVideoMp4,
 };
 
 // Optional direct named export if you ever want to import just the footer logo

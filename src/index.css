@@ -40,6 +40,19 @@ button, .btn, a.button {
 .safe-top {
   padding-top: env(safe-area-inset-top);
 }
+/* Reset body and html */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Apply to root app container too */
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
 
 
  
