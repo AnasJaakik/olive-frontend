@@ -1,14 +1,34 @@
+:root {
+  --nav-h: 84px; /* tweak to your design */
+}
 .navbar-wrap {
   position: sticky; top: 0; z-index: 60; background: #fff;
   box-shadow: 0 2px 14px rgba(0,0,0,.04);
 }
-
 .navbar {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: clamp(10px, 2vw, 14px) var(--page-padding);
-  font-family: 'Tinos', serif; color: #2b3a25;
-  margin-right: -20px;
-  margin-left: -20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-h);
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #fff;   /* solid white */
+  padding: 0 clamp(16px, 5vw, 5vw);
+}
+  
+ 
+
+
+/* (Your existing logo/link styles go here) */
+
+/* Optional: prevent tiny layout shift when mobile address bar shows/hides */
+@supports (height: 100dvh) {
+  .navbar { contain: layout paint; }
 }
 
 .navbar-left { display: flex; align-items: center; gap: 10px; }

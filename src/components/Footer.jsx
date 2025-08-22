@@ -24,7 +24,7 @@ const Footer = () => {
         <div className="footer-right">
           <div className="footer-socials">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/abdeljaliloliveoil?igsh=YmZxdjBkZzRhcGN4"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
