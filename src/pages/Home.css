@@ -125,15 +125,94 @@
 
 /* ---------- Mobile tweaks ---------- */
 @media (max-width: 900px) {
-  .home-hero { flex-direction: column; min-height: auto; padding: var(--page-padding); }
+  .home-hero { 
+    flex-direction: column; 
+    min-height: 100vh; 
+    padding: var(--page-padding);
+    justify-content: center;
+  }
+  
+  .home-hero-content {
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+    line-height: 1.1;
+  }
+  
+  .hero-desc {
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+    margin-bottom: 24px;
+  }
+  
   .home-hero-img img { width: 96vw; max-width: 680px; border-radius: 10px; }
-  .cd-wrap { gap: clamp(8px, 2.5vw, 14px); padding: 10px 12px; }
-  .cd-seg { min-width: clamp(70px, 26vw, 120px); }
+  
+  .cd-wrap { 
+    gap: clamp(6px, 2vw, 12px); 
+    padding: 12px 8px;
+    flex-wrap: wrap;
+  }
+  
+  .cd-seg { 
+    min-width: clamp(65px, 20vw, 100px);
+    padding: clamp(6px, 1.5vw, 10px);
+  }
+  
+  .cd-num {
+    font-size: clamp(1.2rem, 5vw, 2.2rem);
+  }
+  
+  .cd-label {
+    font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  }
+  
   .cd-sep { transform: translateY(-4px); }
+  
   .teaser-section { grid-template-columns: 1fr; gap: 18px; text-align: center; }
   .teaser-right, .teaser-left { max-width: 100%; }
   .teaser-img-placeholder { margin: 0 auto; max-height: 360px; }
-  .teaser-link { width: 100%; }
+  
+  .teaser-link { 
+    display: block;
+    text-align: center;
+    padding: 12px 24px;
+    background: #e9eddc;
+    border-radius: 8px;
+    margin-top: 16px;
+    text-decoration: none;
+    font-weight: 700;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .countdown-hero {
+    padding: clamp(16px, 4vw, 32px) var(--page-padding) clamp(12px, 3vw, 20px);
+  }
+  
+  .cd-wrap {
+    padding: 8px 4px;
+    gap: 4px;
+  }
+  
+  .cd-seg {
+    min-width: 60px;
+    padding: 8px 4px;
+  }
+  
+  .cd-sep {
+    font-size: clamp(1rem, 3vw, 1.8rem);
+  }
+  
+  .teaser-section {
+    padding: clamp(20px, 5vw, 40px) var(--page-padding);
+  }
+  
+  .teaser-text {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  }
 }
 
 /* Reduce motion */

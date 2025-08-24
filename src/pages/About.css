@@ -100,14 +100,59 @@
 @media (max-width: 900px) {
   .about-body {
     grid-template-columns: 1fr; /* stack on phones */
+    padding: clamp(20px, 5vw, 40px) clamp(12px, 4vw, 20px);
   }
+  
   .about-rail {
     position: static;
     grid-template-columns: 1fr 1fr;
     top: auto;
     order: 2; /* images after content */
+    gap: clamp(8px, 2vw, 12px);
   }
+  
   .about-content { order: 1; }
+  
+  .about-content h2 {
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+  }
+  
+  .about-content p {
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    line-height: 1.7;
+  }
+  
+  .about-hero-title {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    bottom: clamp(12px, 4vw, 24px);
+    padding: 6px 12px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .about-body {
+    padding: 16px 12px;
+  }
+  
+  .about-rail {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .about-ph {
+    aspect-ratio: 4 / 3;
+    font-size: 0.85rem;
+  }
+  
+  .about-ph.tall {
+    aspect-ratio: 4 / 3;
+  }
+  
+  .about-hero-title {
+    font-size: clamp(1rem, 5vw, 1.6rem);
+    line-height: 1.3;
+  }
 }
 
 

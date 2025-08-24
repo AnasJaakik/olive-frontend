@@ -9,8 +9,12 @@ import About from "./pages/About";
 import Products from "./pages/Products";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
+import Checkout from "./pages/Checkout";
+import OrderConfirmation from "./pages/OrderConfirmation";
 import CartDrawer from "./cart/CartDrawer";
 import ScrollToTop from "./components/ScrollToTop";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function PurchaseStatusBanner() {
   const location = useLocation();
@@ -48,6 +52,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/order-confirmation" element={<OrderConfirmation />} />
           <Route
             path="*"
             element={<div style={{ padding: 40 }}>Oops! Nothing here — check your URL.</div>}
@@ -56,6 +62,18 @@ export default function App() {
       </div>
 
       <Footer />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }

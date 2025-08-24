@@ -52,7 +52,7 @@ export default function CartDrawer() {
         {/* Placeholder checkout (no Stripe/PayPal yet) */}
         <button
           className="cart-checkout"
-          onClick={() => alert("Checkout coming soon!")}
+          onClick={() => window.location.href = '/checkout'}
           disabled={items.length === 0}
         >
           Proceed to Checkout

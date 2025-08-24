@@ -66,4 +66,56 @@
     color: #335432;
     text-decoration: underline;
   }
+
+/* Mobile improvements */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 40px 16px 32px;
+  }
+  
+  .contact-form {
+    max-width: 100%;
+    gap: 14px;
+  }
+  
+  .contact-input,
+  .contact-textarea {
+    padding: 14px 16px;
+    font-size: 16px; /* Prevents zoom on iOS */
+    border-radius: 8px;
+  }
+  
+  .contact-btn {
+    padding: 14px 36px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+  }
+  
+  .contact-title {
+    font-size: 1.6rem;
+  }
+  
+  .contact-desc {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+  
+  .contact-info {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 32px 12px 24px;
+  }
+  
+  .contact-title {
+    font-size: 1.4rem;
+  }
+  
+  .contact-form {
+    gap: 12px;
+  }
+}
   

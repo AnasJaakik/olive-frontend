@@ -177,20 +177,78 @@
     top: auto;
     margin-left: 0;
   }
-  .pd-actions { flex-direction: column; }
-  .pd-add, .pd-buy { width: 100%; }
+  
+  .pd-actions { 
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .pd-add, .pd-buy { 
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1.1rem;
+  }
 
   .pd-step {
     flex-direction: column !important;
     text-align: center;
+    gap: 16px;
+    margin-bottom: 32px;
   }
+  
   .pd-step img {
     width: 100%;
+    max-width: 400px;
     height: auto;
+    margin: 0 auto;
   }
 
-  .pd-bottle { max-width: 100%; height: 520px; }
-  .pd-nutrition { width: 100%; max-width: 380px; height: 200px; }
+  .pd-bottle { 
+    max-width: 100%; 
+    height: auto;
+    max-height: 500px;
+  }
+  
+  .pd-nutrition { 
+    width: 100%; 
+    max-width: 350px; 
+    height: auto;
+    max-height: 180px;
+  }
+  
+  .pd-title {
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+  }
+  
+  .pd-desc p {
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    line-height: 1.7;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .product-detail {
+    padding: 20px 16px;
+  }
+  
+  .pd-process h2 {
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    margin-bottom: 24px;
+  }
+  
+  .pd-step {
+    margin-bottom: 28px;
+  }
+  
+  .pd-step h3 {
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+  }
+  
+  .pd-step p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    line-height: 1.6;
+  }
 }
 
 /* Reduce motion */

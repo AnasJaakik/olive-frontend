@@ -87,7 +87,47 @@
 @media (max-width: 900px) {
   .navbar-links { display: none; }
   .navbar-burger { display: inline-flex; }
+  
+  .navbar {
+    padding: 0 clamp(12px, 4vw, 20px);
+  }
+  
+  .navbar-logo {
+    height: clamp(36px, 6vw, 56px);
+  }
+  
+  .secondary-logo {
+    height: clamp(28px, 5vw, 42px);
+  }
 }
+
+/* Extra mobile improvements */
+@media (max-width: 480px) {
+  .navbar {
+    height: 70px;
+    padding: 0 16px;
+  }
+  
+  .navbar-left {
+    gap: 8px;
+  }
+  
+  .mobile-menu {
+    padding: 12px 16px 16px;
+  }
+  
+  .mobile-link {
+    padding: 14px 12px;
+    font-size: 1.1rem;
+  }
+  
+  .mobile-cart {
+    padding: 14px 20px;
+    font-size: 1.1rem;
+    margin-top: 8px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .navbar-burger span, .navbar-cart { transition: none; }
 }

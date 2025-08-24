@@ -50,8 +50,54 @@
   .cart-clear { margin-top: 10px; background: none; border: 0; color: #7a866e; cursor: pointer; }
   @media (max-width: 420px) {
     .cart-drawer { width: 100vw; }
-    .cart-line-qty button { width: 36px; height: 36px; }
-    .cart-line-qty input { width: 56px; height: 36px; }
-    .cart-checkout { padding: 14px 18px; }
+    
+    .cart-header {
+      padding: 16px 20px;
+    }
+    
+    .cart-body {
+      padding: 16px 20px;
+    }
+    
+    .cart-line {
+      padding: 12px 0;
+      gap: 10px 16px;
+    }
+    
+    .cart-line-qty button { 
+      width: 40px; 
+      height: 40px;
+      font-size: 1.2rem;
+      border-radius: 6px;
+    }
+    
+    .cart-line-qty input { 
+      width: 60px; 
+      height: 40px;
+      font-size: 16px;
+      border-radius: 6px;
+    }
+    
+    .cart-checkout { 
+      padding: 16px 20px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+    }
+    
+    .cart-footer {
+      padding: 16px 20px;
+    }
+    
+    .cart-line-title {
+      font-size: 1rem;
+    }
+    
+    .cart-line-sub {
+      font-size: 0.9rem;
+    }
+    
+    .cart-line-price {
+      font-size: 1rem;
+    }
   }
   
