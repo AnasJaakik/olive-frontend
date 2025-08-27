@@ -1,65 +1,71 @@
-/* Luxe, minimal footer — matches site fonts/colors */
+/* Footer.css — neat layout, no negative margins, responsive & a11y */
+
+:root {
+  --footer-pad-x: clamp(16px, 5vw, 56px);
+  --footer-gap: 16px;
+}
+
 .footer {
   background: #fff;
   border-top: 1px solid #e9eddc;
-  padding: 18px 5vw 14px;
   color: rgb(76, 76, 30);
   font-family: 'Tinos', serif;
 }
 
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px var(--footer-pad-x) 20px;
+}
+
+/* Top row */
 .footer-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  gap: var(--footer-gap);
   flex-wrap: wrap;
-  margin-bottom: 6px; /* space before legal row */
+  margin-bottom: 10px;
 }
 
-/* Left logo */
+/* Brand */
 .footer-brand { display: inline-flex; align-items: center; }
 .footer-logo {
-  height: 170px;
+  height: clamp(64px, 12vw, 120px);
   width: auto;
   object-fit: contain;
   display: block;
-  
 }
 
-/* (Old site links unused) */
-.footer-links { display: none; }
-
-/* Right column: socials */
+/* Socials (right) */
 .footer-right {
   display: flex;
   align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
   margin-left: auto;
 }
+.footer-socials { display: flex; align-items: center; gap: 10px; }
+.footer-social {
+  color: #000000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;            /* comfortable tap target */
+  height: 42px;
+  border-radius: 10px;
+  transition: background .15s ease, transform .12s ease;
+}
+.footer-social:hover { background: #f4f7ec; transform: translateY(-1px); }
 
-/* --- CENTERED LEGAL LINKS ROW (above ©) --- */
-/* supports both class names */
-.footer-legal-row,
-.footer-legal-bottom {
+/* Legal row (centered) */
+.footer-legal-row {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
   width: 100%;
-  margin: 2px 0 6px; 
+  margin: 8px 0 8px;
 }
-.footer-legal-row,
-.footer-legal-bottom {
-  margin-top: -105px;   /* negative = stronger pull upward */
-  margin-bottom: 80px;
-}
-
-
-
-
-
 
 .footer-sep { color: #98a38b; }
 
@@ -78,18 +84,7 @@
   transform: translateY(-1px);
 }
 
-/* Socials */
-.footer-socials { display: flex; align-items: center; gap: 10px; }
-.footer-social {
-  color: #000000;
-  display: inline-flex;
-  padding: 6px;
-  border-radius: 10px;
-  transition: background .15s ease, transform .12s ease;
-}
-.footer-social:hover { background: #f4f7ec; transform: translateY(-1px); }
-
-/* Bottom */
+/* Bottom lines */
 .footer-copy {
   margin-top: 6px;
   font-size: 0.95rem;
@@ -103,11 +98,21 @@
   text-align: center;
 }
 
-/* Responsive */
-@media (max-width: 700px) {
-  .footer-inner { flex-direction: column; gap: 10px; align-items: flex-start; }
-  .footer-legal-row { flex-wrap: wrap; row-gap: 8px; }
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .footer-inner {
+    justify-content: center;
+    text-align: center;
+  }
+  .footer-right {
+    margin-left: 0;              /* center the socials on mobile */
+  }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-social, .footer-link { transition: none; }
+}
+
 
 
 

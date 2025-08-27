@@ -1,7 +1,7 @@
+// src/pages/Products.jsx
 import React from "react";
 import "./Products.css";
 import { motion } from "framer-motion";
-import { useCart } from "../cart/CartContext";
 
 const pageVariants = {
   hidden: { opacity: 0 },
@@ -15,21 +15,6 @@ const rightCol = { hidden: { opacity: 0, x: 24 }, visible: { opacity: 1, x: 0, t
 const fadeStep = { hidden: { opacity: 0, y: 22 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } } };
 
 export default function Products() {
-  const { add, open } = useCart();
-
-  const PRODUCT = {
-    id: "abdeljalil-750",
-    title: "Abdeljalil Olive Oil",
-    variant: "750ml",
-    price: 29.0
-    // stripePriceId: "price_xxx" // add later when wiring Stripe
-  };
-
-  const addToCart = () => {
-    add({ ...PRODUCT, quantity: 1 });
-    open();
-  };
-
   return (
     <motion.main className="product-detail" variants={pageVariants} initial="hidden" animate="visible">
       {/* HERO: left images, right sticky info */}
@@ -71,8 +56,14 @@ export default function Products() {
           </div>
 
           <div className="pd-actions">
-            <button className="pd-add" onClick={addToCart}>Add to Cart</button>
-            <button className="pd-buy" onClick={() => alert("Buy flow coming soon!")}>Buy Now</button>
+            <a
+              href="https://sbtta8-69.myshopify.com/?pb=0"
+              className="pd-buy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Buy Now
+            </a>
           </div>
         </motion.aside>
       </section>
@@ -184,4 +175,3 @@ export default function Products() {
     </motion.main>
   );
 }
-

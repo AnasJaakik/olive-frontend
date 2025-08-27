@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Impressum() {
   return (
-    <main style={{ padding: "40px 5vw", fontFamily: "Tinos, serif", color: "#2b3a25" }}>
+    <main style={{ padding: "40px 5vw", fontFamily: "Tinos, serif", color: "#2b3a25" , marginTop:"70px"}}>
       <h1 style={{ fontSize: "1.8rem", fontWeight: "800", marginBottom: "24px" }}>Impressum</h1>
 
       <p><strong>Lea Ebinger UG (haftungsbeschränkt)</strong></p>
