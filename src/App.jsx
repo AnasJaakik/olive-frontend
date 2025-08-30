@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
 import CartDrawer from "./cart/CartDrawer";
 import ScrollToTop from "./components/ScrollToTop";
+import Preorder from "./pages/Preorder";
 
 function PurchaseStatusBanner() {
   const location = useLocation();
@@ -52,6 +53,8 @@ export default function App() {
             path="*"
             element={<div style={{ padding: 40 }}>Oops! Nothing here — check your URL.</div>}
           />
+          <Route path="/preorder" element={<Preorder />} />
+
         </Routes>
       </div>
 

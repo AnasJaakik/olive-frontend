@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PreorderStatus {
+  PENDING_VERIFICATION
+  VERIFIED
+  INVOICED
+  PAID
+  CANCELLED
+}
+
+model Customer {
+  id        String     @id @default(cuid())
+  name      String
+  email     String     @unique
+  createdAt DateTime   @default(now())
+  preorders Preorder[]
+}
+
+model Preorder {
+  id              String          @id @default(cuid())
+  customerId      String
+  bottles         Int
+  lang            String
+  status          PreorderStatus  @default(PENDING_VERIFICATION)
+  verifyTokenHash String?
+  verifyExpiresAt DateTime?
+  createdAt       DateTime        @default(now())
+  invoice         Invoice?
+  customer        Customer        @relation(fields: [customerId], references: [id])
+}
+
+model Invoice {
+  id             String   @id @default(cuid())
+  preorderId     String   @unique
+  number         String   @unique
+  currency       String
+  unitPriceCents Int
+  totalCents     Int
+  paypalLink     String
+  status         String   @default("sent")
+  createdAt      DateTime @default(now())
+  preorder       Preorder @relation(fields: [preorderId], references: [id])
+}
+

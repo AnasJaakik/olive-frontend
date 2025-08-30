@@ -2,6 +2,7 @@
 import React from "react";
 import "./Products.css";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const pageVariants = {
   hidden: { opacity: 0 },
@@ -56,14 +57,10 @@ export default function Products() {
           </div>
 
           <div className="pd-actions">
-            <a
-              href="https://sbtta8-69.myshopify.com/?pb=0"
-              className="pd-buy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            {/* Updated: internal link to /preorder */}
+            <Link to="/preorder" className="pd-buy">
               Buy Now
-            </a>
+            </Link>
           </div>
         </motion.aside>
       </section>
@@ -73,6 +70,17 @@ export default function Products() {
         <motion.h2 variants={fadeStep} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
           Our Process: From Flower to Fresh Press
         </motion.h2>
+
+        {/* Optional extra CTA at the top of Process */}
+        <motion.div
+          className="pd-process-cta"
+          variants={fadeStep}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+         
+        </motion.div>
 
         {/* 1 */}
         <motion.div className="pd-step left" variants={fadeStep} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -171,7 +179,21 @@ export default function Products() {
             </p>
           </div>
         </motion.div>
+
+        {/* Bottom CTA inside Process section */}
+        <motion.div
+          className="pd-process-cta"
+          variants={fadeStep}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <Link to="/preorder" className="pd-buy pd-buy-secondary">
+            Buy Now
+          </Link>
+        </motion.div>
       </section>
     </motion.main>
   );
 }
+
