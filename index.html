@@ -2,13 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#233a23" />
+    <meta name="description" content="Abdeljalil Olive Oil — premium extra virgin olive oil." />
+
+    <!-- Preconnects for faster Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;800&family=Cormorant+Garamond:ital,wght@1,400&family=Playfair+Display:ital,wght@1,400;1,600;1,800&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;800&family=Cormorant+Garamond:ital,wght@1,400&family=Playfair+Display:ital,wght@1,400;1,600;1,800&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- Favicons (put these files in /public) -->
+    <!-- Favicons (place files in /public) -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -18,8 +29,34 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Your app -->
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- MailerLite universal (JS embed) -->
+    <script>
+      (function (w, d, e, u, f, l, n) {
+        w[f] =
+          w[f] ||
+          function () {
+            (w[f].q = w[f].q || []).push(arguments);
+          };
+        l = d.createElement(e);
+        l.async = 1;
+        l.src = u;
+        n = d.getElementsByTagName(e)[0];
+        n.parentNode.insertBefore(l, n);
+      })(
+        window,
+        document,
+        "script",
+        "https://assets.mailerlite.com/js/universal.js",
+        "ml"
+      );
+      ml("account", "YOUR_ACCOUNT_ID"); /* ← replace with your MailerLite account id */
+    </script>
   </body>
 </html>
+
 
 
