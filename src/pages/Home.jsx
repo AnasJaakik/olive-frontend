@@ -26,7 +26,7 @@ function seasonProgress(now = new Date()) {
   return Math.min(100, Math.max(0, (passed / total) * 100));
 }
 function getOliveStage(date = new Date()) {
-  const m = date.getMonth(); // 0=Jan
+  const m = date.getMonth();
   const d = date.getDate();
   if ((m === 10 && d >= 1) || m === 11 || m <= 0 || (m === 1 && d < 15)) {
     return "Current status: Dormancy — trees are resting.";
@@ -74,7 +74,6 @@ function BigCountdown() {
       viewport={{ once: true }}
     >
       <div className="cd-eyebrow">Countdown to Harvest</div>
-
       <div className="cd-wrap" role="timer">
         <div className="cd-seg">
           <div className="cd-num">{parts.days}</div>
@@ -110,7 +109,7 @@ function BigCountdown() {
   );
 }
 
-/* ---------- Teaser (always-visible description + link CTA) ---------- */
+/* ---------- Teaser ---------- */
 function Teaser() {
   return (
     <motion.section
@@ -120,7 +119,6 @@ function Teaser() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
     >
-      {/* LEFT: product image */}
       <motion.div
         className="teaser-left"
         initial={{ scale: 0.96, opacity: 0 }}
@@ -130,27 +128,20 @@ function Teaser() {
       >
         <div className="teaser-img-placeholder">Product Image</div>
       </motion.div>
-
-      {/* RIGHT: text */}
       <div className="teaser-right">
         <h2 className="teaser-heading">Abdeljalil Olive Oil</h2>
-
         <div className="teaser-panel open">
           <p className="teaser-text">
             Crafted from 100% Haouzia olives, native to the historic Haouz
             region, our extra virgin olive oil delivers a powerful and balanced
-            flavour that sets it apart from other Mediterranean oils. Cultivated
-            on family-owned farms, the area’s sunny and warm climate contributes
-            to the olives’ unique characteristics.
+            flavour that sets it apart from other Mediterranean oils.
           </p>
           <p className="teaser-text">
             Our oil offers an intense green fruitiness with distinct notes of
             artichoke, green almond, and fresh tomato, followed by a pleasant,
-            peppery finish. It is a testament to a rich agricultural tradition,
-            bringing a fresh and complex taste to your table.
+            peppery finish.
           </p>
         </div>
-
         <a href="/products" className="teaser-link">Learn more</a>
       </div>
     </motion.section>
@@ -161,27 +152,12 @@ function Teaser() {
 export default function Home() {
   return (
     <>
-      {/* HERO with background video */}
-      <section id="home" className="home-hero">
-        <video
-          className="home-hero-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        >
-          {assets.heroVideoWebm && (
-            <source src={assets.heroVideoWebm} type="video/webm" />
-          )}
-          <source src={assets.heroVideoMp4} type="video/mp4" />
-        </video>
-        <div className="home-hero-overlay" />
-
+      {/* TEXT HERO */}
+      <section className="home-hero-text">
         <motion.div
           className="home-hero-content"
-          initial={{ opacity: 0, x: -32 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
         >
           <div className="hero-slogan-row">
@@ -197,6 +173,23 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* VIDEO BACKDROP */}
+      <section className="home-hero-video-wrap">
+        <video
+          className="home-hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        >
+          {assets.heroVideoWebm && (
+            <source src={assets.heroVideoWebm} type="video/webm" />
+          )}
+          <source src={assets.heroVideoMp4} type="video/mp4" />
+        </video>
+      </section>
+
       {/* COUNTDOWN */}
       <BigCountdown />
 
@@ -205,3 +198,5 @@ export default function Home() {
     </>
   );
 }
+
+
