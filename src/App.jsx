@@ -1,5 +1,4 @@
-
-      // src/App.jsx
+// src/App.jsx
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -9,10 +8,8 @@ import About from "./pages/About";
 import Products from "./pages/Products";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
-import CartDrawer from "./cart/CartDrawer";
-import ScrollToTop from "./components/ScrollToTop";
-import Preorder from "./pages/Preorder";
 
+import ScrollToTop from "./components/ScrollToTop";
 
 function PurchaseStatusBanner() {
   const location = useLocation();
@@ -40,10 +37,12 @@ export default function App() {
     >
       <Navbar />
       <ScrollToTop />
-      <CartDrawer />
       <PurchaseStatusBanner />
 
-      <div style={{ flex: 1 }} className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+      <div
+        style={{ flex: 1 }}
+        className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]"
+      >
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
@@ -52,12 +51,12 @@ export default function App() {
           <Route path="/impressum" element={<Impressum />} />
           <Route
             path="*"
-            element={<div style={{ padding: 40 }}>Oops! Nothing here — check your URL.</div>}
+            element={
+              <div style={{ padding: 40 }}>
+                Oops! Nothing here — check your URL.
+              </div>
+            }
           />
-          
-          
-          <Route path="/preorder" element={<Preorder />} />
-
         </Routes>
       </div>
 
@@ -65,3 +64,4 @@ export default function App() {
     </div>
   );
 }
+

@@ -3,20 +3,27 @@
 .product-detail {
   background: #fff;
   font-family: 'Tinos', serif;
-  color: #2b3a25;
+  color: rgb(76, 76, 30);   /* ✅ Global text color */
   padding: 40px clamp(16px, 5vw, 56px);
+  font-size: larger;
+  
 }
 
 /* Top layout: CENTERED GRID so right panel starts mid-screen */
 .pd-hero {
   display: grid;
-  /* Left column maxes ~38vw so the right column begins ~mid-screen */
   grid-template-columns: minmax(280px, 38vw) minmax(360px, 560px);
   gap: clamp(20px, 4vw, 48px);
   align-items: start;
-  max-width: 1200px;       /* keeps it elegant on wide screens */
-  margin: 0 auto;          /* center the whole section */
+  max-width: 1200px;
+  margin: 0 auto;
+  
 }
+.highlight {
+  font-weight: 800;          /* bold */
+  color: var(--olive-text);  /* or keep default color */
+}
+
 
 /* LEFT column: images */
 .pd-left {
@@ -28,7 +35,7 @@
 
 .pd-bottle {
   width: 100%;
-  max-width: 440px;        /* can grow, but column limits keep it in check */
+  max-width: 440px;
   height: 640px;
   object-fit: contain;
   background: #f7f8f3;
@@ -45,12 +52,11 @@
   box-shadow: 0 10px 24px rgba(0,0,0,.05);
 }
 
-/* RIGHT column: sticky info panel (closer to center now) */
+/* RIGHT column: sticky info panel */
 .pd-right {
   position: sticky;
-  top: 100px;              /* align with navbar height */
+  top: 100px;
   align-self: start;
-  /* Nudge slightly left on huge screens (keeps it visually centered) */
   margin-left: clamp(0px, 1vw, 12px);
 }
 
@@ -66,17 +72,19 @@
   font-size: clamp(1.05rem, 2.4vw, 1.3rem);
   font-weight: 700;
   margin-bottom: 4px;
+  color: rgb(76, 76, 30);  /* ✅ */
 }
 
 .pd-size {
   font-size: clamp(0.95rem, 2vw, 1rem);
-  color: #6e7966;
+  color: rgb(76, 76, 30);  /* ✅ */
   margin-bottom: 16px;
 }
 
 .pd-desc p {
   margin-bottom: 12px;
   line-height: 1.6;
+  color: rgb(76, 76, 30);  /* ✅ */
 }
 
 /* Actions */
@@ -93,18 +101,16 @@
   font-weight: 800;
   cursor: pointer;
   font-size: 1rem;
-}
-.pd-add {
-  background: #e9eddc;
-  color: #2b3a25;
-}
-.pd-add:hover { filter: brightness(0.98); }
-.pd-buy {
-  background: linear-gradient(90deg, #6f993e, #b2bf77);
+
+  background: #6f993e;              /* ✅ solid olive green */
   color: #fff;
   box-shadow: 0 10px 24px rgba(111,153,62,.18);
 }
-.pd-buy:hover { filter: brightness(1.05); }
+
+.pd-buy:hover {
+  filter: brightness(1.05);
+}
+
 
 /* Toggle */
 .pd-toggle {
@@ -123,15 +129,16 @@
 /* Process section */
 .pd-process {
   margin: 40px auto 0;
-  max-width: 1200px;     /* match hero width for a clean column line */
+  max-width: 1200px;
   padding: 0;
+  color: rgb(76, 76, 30);  /* ✅ all process text */
 }
 .pd-process h2 {
   font-size: clamp(1.2rem, 3vw, 1.6rem);
   font-weight: 800;
   margin-bottom: 30px;
   text-align: center;
-  color: rgb(76, 76, 30);
+  color: rgb(76, 76, 30);  /* ✅ */
 }
 
 .pd-step {
@@ -139,11 +146,13 @@
   align-items: center;
   gap: 24px;
   margin-bottom: 40px;
+  color: rgb(76, 76, 30);  /* ✅ */
 }
 .pd-step img {
   width: 340px;
-  height: 240px;
+  height: 280px;
   object-fit: cover;
+  
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
@@ -152,8 +161,9 @@
   font-size: clamp(1rem, 2.6vw, 1.2rem);
   font-weight: 700;
   margin-bottom: 8px;
+  color: rgb(76, 76, 30);  /* ✅ */
 }
-.pd-step p { line-height: 1.6; }
+.pd-step p { line-height: 1.6; color: rgb(76, 76, 30); } /* ✅ */
 
 /* Alternate step alignment */
 .pd-step.left { flex-direction: row; }
@@ -161,7 +171,6 @@
 
 /* ---------- Mobile adjustments ---------- */
 @media (max-width: 1024px) {
-  /* Allow right column to start even closer to mid on laptops */
   .pd-hero {
     grid-template-columns: minmax(260px, 42vw) minmax(340px, 520px);
   }
@@ -169,11 +178,11 @@
 
 @media (max-width: 820px) {
   .pd-hero {
-    grid-template-columns: 1fr;   /* stack */
+    grid-template-columns: 1fr;
     gap: 22px;
   }
   .pd-right {
-    position: static;             /* disable sticky on phones */
+    position: static;
     top: auto;
     margin-left: 0;
   }

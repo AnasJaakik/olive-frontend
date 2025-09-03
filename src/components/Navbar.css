@@ -52,12 +52,14 @@
 /* Logos */
 .navbar-logo { height: clamp(36px, 7vw, 64px); width: auto; display: block; }
 .secondary-logo {
-  height: clamp(22px, 5.5vw, 44px);
-  max-width: min(36vw, 220px);
+  height: clamp(32px, 7vw, 72px);   /* was 22 → 44, now allows up to 72px */
+  max-width: min(40vw, 300px);      /* was 220px, now up to 300px */
   width: auto;
   object-fit: contain;
   opacity: .98;
+  margin-left: 20px;
 }
+
 .navbar-wordmark { display: inline-flex; }
 
 /* Desktop links */

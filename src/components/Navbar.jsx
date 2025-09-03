@@ -72,7 +72,7 @@ const Navbar = () => {
           aria-label="Mobile"
         >
           <NavLink to="/" className="mobile-link tile" onClick={closeMobile}>Home</NavLink>
-          <NavLink to="/products" className="mobile-link tile" onClick={closeMobile}>Products &amp; Process</NavLink>
+          <NavLink to="/products" className="mobile-link tile" onClick={closeMobile}>Product</NavLink>
           <NavLink to="/about" className="mobile-link tile" onClick={closeMobile}>About Us</NavLink>
           <NavLink to="/contact" className="mobile-link tile" onClick={closeMobile}>Contact</NavLink>
         </div>

@@ -2,6 +2,7 @@
 import React from "react";
 import "./Products.css";
 import { motion } from "framer-motion";
+import { assets } from "../assets/assets";
 
 const pageVariants = {
   hidden: { opacity: 0 },
@@ -43,7 +44,7 @@ export default function Products() {
         {/* LEFT: product images */}
         <motion.div className="pd-left" variants={leftCol}>
           <img
-            src="https://via.placeholder.com/380x600.png?text=Bottle+Placeholder"
+            src={assets.product}
             alt="Olive Oil Bottle"
             className="pd-bottle"
           />
@@ -61,20 +62,14 @@ export default function Products() {
           <div className="pd-size">750ml</div>
 
           <div className="pd-desc">
-            <p>
-              Haouzia olive oils are best appreciated when they are not overwhelmed by other ingredients. In Morocco
-              olive oil is typically served with bread for dipping, often in combination with honey.
-            </p>
-            <p>Intense flavours are best appreciated when not overwhelmed by other ingredients or high heat.</p>
-            <p>
-              Typically olive oil in Morocco is used for dipping with bread, on soups or as a finish on cooked dishes
-              like grilled fish to add a layer of fresh flavour.
-            </p>
-            <p>
-              Due to its high polyphenol content and monounsaturated fats our olive oil can also be used to cook, fry
-              and marinate.
-            </p>
-          </div>
+          <p>
+  Our extra virgin olive oil is a true single-origin product from 
+  <span class="highlight"> Morocco</span>.
+  While Moroccan tradition often calls for serving olive oil with warm bread or as a final flourish on soups and other dishes, we encourage you to use our oil in any way you desire. Its complex flavor profile makes it suitable for a wide range of culinary applications.
+  Due to its high concentration of polyphenols and monounsaturated fats, our olive oil is not only ideal for finishing, but it can also be used for cooking, frying, and marinating.
+</p>
+
+         </div>
 
           <div className="pd-actions">
             {/* Stripe Buy Now button */}
@@ -114,7 +109,7 @@ export default function Products() {
           viewport={{ once: true }}
         >
           <img
-            src="https://via.placeholder.com/340x240.png?text=Haouzia+Blossoms"
+            src={assets.flowering}
             alt="Haouzia Blossoms"
           />
           <div>
@@ -138,7 +133,7 @@ export default function Products() {
           viewport={{ once: true }}
         >
           <img
-            src="https://via.placeholder.com/340x240.png?text=Sustainable+Care"
+            src={assets.care}
             alt="Sustainable Care"
           />
           <div>
@@ -161,7 +156,7 @@ export default function Products() {
           viewport={{ once: true }}
         >
           <img
-            src="https://via.placeholder.com/340x240.png?text=Early+Harvest"
+            src={assets.maturation}
             alt="Early Harvest"
           />
           <div>
@@ -265,14 +260,15 @@ export default function Products() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <button onClick={handleBuy} className="pd-buy pd-buy-secondary">
-            Buy Now
-          </button>
+         
         </motion.div>
       </section>
     </motion.main>
   );
 }
+
+
+
 
 
 

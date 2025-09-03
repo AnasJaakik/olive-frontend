@@ -24,9 +24,15 @@ import oilaccu from './oilaccu.png';
 import maturation from './maturation.png';
 import harvest from './harvest.png';
 
-// Footer/wordmark logo — make sure the file name & casing match exactly
+// Footer/wordmark
 import mainlogo from './mainlogo.png';
+
+// Video
 import heroVideoMp4 from "./videos/olivefarm.mp4";
+
+// Product / care
+import care from "./care.png";
+import product from "./product.png";
 
 export const assets = {
   // core
@@ -35,6 +41,8 @@ export const assets = {
   face,
   logo2,
   riad,
+  care,
+  product,   // ✅ product image
 
   // team
   abdeljalil,
@@ -56,14 +64,20 @@ export const assets = {
   harvest,
 
   // footer / wordmark
-  mainlogo,           // used by Footer: assets.mainlogo
-  footerLogo: mainlogo, // extra alias (optional)
-  wordmark: mainlogo,   // extra alias (optional)
+  mainlogo,
+  footerLogo: mainlogo,
+  wordmark: mainlogo,
+
+  // video
   heroVideoMp4,
 };
 
-// Optional direct named export if you ever want to import just the footer logo
+// Optional named exports for convenience
 export const footerLogo = mainlogo;
+export const productImage = product; // ✅ direct export for product
+
+
+
 
 
 
