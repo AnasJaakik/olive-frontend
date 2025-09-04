@@ -44,7 +44,7 @@ const Footer = () => {
                 <FaInstagram size={22} aria-hidden />
               </a>
               <a
-                href="mailto:info@zaytun.com"
+                href="mailto:info@abdeljaliloliveoil.com"
                 aria-label="Email"
                 className="footer-social"
               >

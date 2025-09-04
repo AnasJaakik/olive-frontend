@@ -14,8 +14,8 @@ const Contact = () => (
       <button type="submit" className="contact-btn">Send</button>
     </form>
     <div className="contact-info">
-      <div>Email: <a href="mailto:info@zaytun.com">info@zaytun.com</a></div>
-      <div>Phone: <a href="tel:+212600000000">+212 6 00 00 00 00</a></div>
+      <div>Email: <a href="mailto:info@abdeljaliloliveoil.com">info@abdeljaliloliveoil.com</a></div>
+      
       {/* Add your physical location or WhatsApp if you want */}
     </div>
   </section>

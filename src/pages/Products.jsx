@@ -169,7 +169,7 @@ export default function Products() {
               the oil its peppery bite, bitterness, and long shelf life.
             </p>
             <p>
-              The moment the olives are picked, the clock starts ticking. Within <strong>less than an hour</strong>, we
+              The moment the olives are picked, the clock starts ticking. Within <strong>less than 24 hours</strong>, we
               transport them from tree to mill—no delays, no storage. This is what sets us apart. Every batch is
               <strong> pressed fresh</strong>, in small quantities, ensuring maximum preservation of aroma, antioxidants,
               and nutrients.
@@ -266,25 +266,6 @@ export default function Products() {
     </motion.main>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

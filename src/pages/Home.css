@@ -106,7 +106,7 @@
   z-index: 1;
 }
 
-.cd-phase-title { font-weight: 800; font-size: clamp(1rem, 2vw, 1.25rem); color: var(--olive-text); }
+.cd-phase-title { font-weight: 800; font-size: clamp(0.85rem, 1.5vw, 1.05rem); color: var(--olive-text); }
 .cd-phase-time  { font-size: 0.95rem; font-style: italic; margin: 4px 0 8px; color: var(--olive-text); opacity: .8; }
 .cd-phase-desc  { font-size: 0.95rem; line-height: 1.45; color: var(--olive-text); }
 

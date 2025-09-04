@@ -62,19 +62,41 @@ export default function About() {
             What began as a family tradition—sharing oil with friends—has blossomed into a mission: bringing authentic Haouzia olive oil from Marrakesh to tables around the world, without ever losing the purity and heart that define it.
           </motion.p>
 
-          {/* MINI GALLERY PLACEHOLDER */}
-          <motion.h3 className="gallery-title" custom={7} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            Meet the Team 
+          {/* TEAM IMAGES PLACEHOLDER */}
+          <motion.h3
+            className="gallery-title"
+            custom={7}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            Meet the Team
           </motion.h3>
+
           <div className="about-gallery">
-            <div className="gallery-ph">Add Image</div>
-            <div className="gallery-ph">Add Image</div>
-            <div className="gallery-ph">Add Image</div>
-            <div className="gallery-ph">Add Image</div>
+            <div className="gallery-card">
+              <img src="" alt="Team member 1" className="gallery-img" />
+              
+            </div>
+            <div className="gallery-card">
+              <img src="" alt="Team member 2" className="gallery-img" />
+              
+            </div>
+            <div className="gallery-card">
+              <img src="" alt="Team member 3" className="gallery-img" />
+              
+            </div>
+            <div className="gallery-card">
+              <img src="" alt="Team member 4" className="gallery-img" />
+              
+            </div>
           </div>
         </div>
       </section>
     </main>
   );
 }
+
+
 
