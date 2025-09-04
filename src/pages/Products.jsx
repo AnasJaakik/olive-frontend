@@ -15,9 +15,10 @@ const leftCol = {
   hidden: { opacity: 0, x: -24 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } }
 };
+// 🔧 Right column: remove x-translate to keep sticky reliable
 const rightCol = {
-  hidden: { opacity: 0, x: 24 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut", delay: 0.05 } }
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.7, ease: "easeOut", delay: 0.05 } }
 };
 const fadeStep = {
   hidden: { opacity: 0, y: 22 },
@@ -49,7 +50,7 @@ export default function Products() {
             className="pd-bottle"
           />
           <img
-            src="https://via.placeholder.com/260x180.png?text=Nutritional+Information"
+            src={assets.nutri}
             alt="Nutritional information"
             className="pd-nutrition"
           />
@@ -57,25 +58,26 @@ export default function Products() {
 
         {/* RIGHT: sticky card with details and actions */}
         <motion.aside className="pd-right" variants={rightCol}>
-          <h1 className="pd-title">Abdeljalil Olive Oil</h1>
-          <div className="pd-price">€29.00</div>
-          <div className="pd-size">750ml</div>
+          <div className="pd-right-sticky">
+            <h1 className="pd-title">Abdeljalil Olive Oil</h1>
+            <div className="pd-price">€29.00</div>
+            <div className="pd-size">750ml</div>
 
-          <div className="pd-desc">
-          <p>
-  Our extra virgin olive oil is a true single-origin product from 
-  <span class="highlight"> Morocco</span>.
-  While Moroccan tradition often calls for serving olive oil with warm bread or as a final flourish on soups and other dishes, we encourage you to use our oil in any way you desire. Its complex flavor profile makes it suitable for a wide range of culinary applications.
-  Due to its high concentration of polyphenols and monounsaturated fats, our olive oil is not only ideal for finishing, but it can also be used for cooking, frying, and marinating.
-</p>
+            <div className="pd-desc">
+              <p>
+                Our extra virgin olive oil is a true single-origin product from 
+                <span className="highlight"> Morocco</span>.
+                While Moroccan tradition often calls for serving olive oil with warm bread or as a final flourish on soups and other dishes, we encourage you to use our oil in any way you desire. Its complex flavor profile makes it suitable for a wide range of culinary applications.
+                Due to its high concentration of polyphenols and monounsaturated fats, our olive oil is not only ideal for finishing, but it can also be used for cooking, frying, and marinating.
+              </p>
+            </div>
 
-         </div>
-
-          <div className="pd-actions">
-            {/* Stripe Buy Now button */}
-            <button onClick={handleBuy} className="pd-buy">
-              Buy Now
-            </button>
+            <div className="pd-actions">
+              {/* Stripe Buy Now button */}
+              <button onClick={handleBuy} className="pd-buy">
+                Buy Now
+              </button>
+            </div>
           </div>
         </motion.aside>
       </section>
@@ -259,13 +261,28 @@ export default function Products() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-        >
-         
-        </motion.div>
+        />
       </section>
     </motion.main>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

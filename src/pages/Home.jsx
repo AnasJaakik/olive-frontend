@@ -3,96 +3,175 @@ import { assets } from "../assets/assets";
 import "./Home.css";
 import { motion } from "framer-motion";
 
-/* ---------- Helpers ---------- */
+/* ---------- Season & Phase Helpers (date-accurate) ---------- */
+
+/** Season runs from last Nov 1 (inclusive) to next Nov 1 (exclusive). */
+function getSeasonBounds(now = new Date()) {
+  const year = now.getFullYear();
+  const nov1ThisYear = new Date(year, 10, 1, 0, 0, 0); // Nov = month 10
+  const seasonStart = now >= nov1ThisYear ? nov1ThisYear : new Date(year - 1, 10, 1, 0, 0, 0);
+  const seasonEnd = new Date(seasonStart.getFullYear() + 1, 10, 1, 0, 0, 0); // next Nov 1
+  return { seasonStart, seasonEnd };
+}
+
 function getNextHarvest(now = new Date()) {
-  const thisYearHarvest = new Date(now.getFullYear(), 10, 1, 0, 0, 0); // Nov 1
-  return now < thisYearHarvest
-    ? thisYearHarvest
-    : new Date(now.getFullYear() + 1, 10, 1, 0, 0, 0);
+  const { seasonEnd } = getSeasonBounds(now);
+  return seasonEnd; // Nov 1 of the current/next season
 }
-function diffParts(to, from = new Date()) {
-  const delta = Math.max(0, to - from);
-  const days = Math.floor(delta / (1000 * 60 * 60 * 24));
-  return { days, ms: delta };
+
+/** Build the canonical phase list with real calendar ranges inside the season. */
+function buildPhases(now = new Date()) {
+  const { seasonStart, seasonEnd } = getSeasonBounds(now);
+
+  // Convenience to construct a date in the "season year context"
+  // Season starts at seasonStart (Nov 1). Months Jan–Oct belong to seasonStart.getFullYear()+1
+  const seasonYear = seasonStart.getFullYear();      // e.g., 2024 if season start is Nov 1, 2024
+  const nextYear = seasonYear + 1;
+
+  const d = (y, m, day) => new Date(y, m, day, 0, 0, 0);
+
+  // Phase windows (inclusive of start, exclusive of end), tuned to your labels:
+  // Dormancy:        Nov 1 – Feb 14
+  // Bud & Flower:    Feb 15 – Apr 30
+  // Fruit Set:       May 1 – Jun 30
+  // Pit Hardening:   Jul 1 – Jul 31
+  // Oil Accumulation:Aug 1 – Aug 31
+  // Maturation:      Sep 1 – Oct 31
+  // Harvest:         Nov 1 (single day) → model as Nov 1 – Nov 2(00:00) for a non-zero span
+
+  const phases = [
+    {
+      key: "dormancy",
+      title: "Dormancy",
+      time: "Nov – mid-Feb",
+      desc: "Trees rest and store energy.",
+      start: d(seasonYear, 10, 1),              // Nov 1 (season start)
+      end:   d(nextYear, 1, 15),                // Feb 15
+    },
+    {
+      key: "flowering",
+      title: "Bud & Flower",
+      time: "Mid-Feb – Apr",
+      desc: "Buds swell; delicate blossoms form.",
+      start: d(nextYear, 1, 15),                // Feb 15
+      end:   d(nextYear, 3, 30+1),              // Apr 30 → May 1
+    },
+    {
+      key: "fruitset",
+      title: "Fruit Set",
+      time: "May – Jun",
+      desc: "Tiny olives develop after pollination.",
+      start: d(nextYear, 4, 1),                 // May 1
+      end:   d(nextYear, 6, 1),                 // Jul 1
+    },
+    {
+      key: "pit",
+      title: "Pit Hardening",
+      time: "July",
+      desc: "Stones form inside the olives.",
+      start: d(nextYear, 6, 1),                 // Jul 1
+      end:   d(nextYear, 7, 1),                 // Aug 1
+    },
+    {
+      key: "oilaccu",
+      title: "Oil Accumulation",
+      time: "August",
+      desc: "Oil content rises; flavors intensify.",
+      start: d(nextYear, 7, 1),                 // Aug 1
+      end:   d(nextYear, 8, 1),                 // Sep 1
+    },
+    {
+      key: "maturation",
+      title: "Maturation",
+      time: "Sept – Oct",
+      desc: "Aromas deepen; texture and taste round out.",
+      start: d(nextYear, 8, 1),                 // Sep 1
+      end:   d(nextYear, 10, 1),                // Nov 1
+    },
+    {
+      key: "harvest",
+      title: "Harvest",
+      time: "Nov 1st",
+      desc: "Hand-picked at peak ripeness.",
+      start: d(seasonEnd.getFullYear(), 10, 1), // Nov 1 (season end boundary year)
+      end:   d(seasonEnd.getFullYear(), 10, 2), // Nov 2 to give a tiny span
+    },
+  ];
+
+  return { phases, seasonStart, seasonEnd };
 }
+
+/** % of the way through the entire season (for the big counter progress if needed). */
 function seasonProgress(now = new Date()) {
-  const next = getNextHarvest(now);
-  const prev = new Date(next.getFullYear() - 1, 10, 1, 0, 0, 0);
-  const total = next - prev;
-  const passed = now - prev;
+  const { seasonStart, seasonEnd } = getSeasonBounds(now);
+  const total = seasonEnd - seasonStart;
+  const passed = now - seasonStart;
   return Math.min(100, Math.max(0, (passed / total) * 100));
 }
-function getOliveStage(date = new Date()) {
-  const m = date.getMonth();
-  const d = date.getDate();
-  if ((m === 10 && d >= 1) || m === 11 || m === 0 || (m === 1 && d < 15)) {
-    return "Current status: Dormancy — trees are resting.";
-  } else if ((m === 1 && d >= 15) || m === 2 || m === 3) {
-    return "Current status: Bud swelling & flowering — blossoms are forming.";
-  } else if (m === 4 || m === 5) {
-    return "Current status: Fruit set — tiny olives are developing.";
-  } else if (m === 6) {
-    return "Current status: Pit hardening — stones are forming inside the olives.";
-  } else if (m === 7) {
-    return "Current status: Oil accumulation — oil content is increasing.";
-  } else if (m === 8) {
-    return "Current status: Maturation — flavors and aromas are developing.";
-  } else {
-    return "Current status: Harvest time — hand-picking at peak ripeness.";
+
+/** Which phase index are we currently in, based on real ranges? */
+function getPhaseIndexByRanges(phases, now = new Date()) {
+  const t = +now;
+  for (let i = 0; i < phases.length; i++) {
+    const { start, end } = phases[i];
+    if (t >= +start && t < +end) return i;
   }
+  // If exactly at/after seasonEnd (edge), consider last phase:
+  return phases.length - 1;
 }
-function getPhaseIndex(date = new Date()) {
-  const m = date.getMonth();
-  const d = date.getDate();
-  if ((m === 10 && d >= 1) || m === 11 || m === 0 || (m === 1 && d < 15)) return 0;
-  if ((m === 1 && d >= 15) || m === 2 || m === 3) return 1;
-  if (m === 4 || m === 5) return 2;
-  if (m === 6) return 3;
-  if (m === 7) return 4;
-  if (m === 8) return 5;
-  return 6;
+
+/** Fill % for a specific phase card given the current time. */
+function fillPercentForPhase(phase, now = new Date()) {
+  const { start, end } = phase;
+  const total = +end - +start;
+  if (total <= 0) return 0;
+  if (now >= end) return 100;
+  if (now <= start) return 0;
+  return Math.round(((+now - +start) / total) * 100);
 }
 
 /* ---------- Countdown section ---------- */
 function BigCountdown() {
   const target = useMemo(() => getNextHarvest(), []);
-  const [{ days }, setParts] = useState(() => diffParts(target));
+  const [{ days }, setParts] = useState(() => {
+    const delta = Math.max(0, target - new Date());
+    return { days: Math.floor(delta / (1000 * 60 * 60 * 24)), ms: delta };
+  });
+
   const [pct, setPct] = useState(() => seasonProgress());
-  const [phaseIdx, setPhaseIdx] = useState(() => getPhaseIndex());
-  const [stageText, setStageText] = useState(() => getOliveStage());
+  const [{ phases }, setPhasesData] = useState(() => buildPhases());
+  const [phaseIdx, setPhaseIdx] = useState(() => getPhaseIndexByRanges(phases));
+  const [stageText, setStageText] = useState(() => {
+    const p = phases[phaseIdx]?.title || "";
+    return p ? `Current status: ${p}.` : "Current status: —";
+  });
 
   useEffect(() => {
     const tick = () => {
-      setParts(diffParts(target));
-      setPct(seasonProgress());
-      setPhaseIdx(getPhaseIndex());
-      setStageText(getOliveStage());
+      const now = new Date();
+      const delta = Math.max(0, target - now);
+      setParts({
+        days: Math.floor(delta / (1000 * 60 * 60 * 24)),
+        ms: delta,
+      });
+
+      setPct(seasonProgress(now));
+
+      // Rebuild phases for the current season context (in case we crossed Nov 1)
+      const built = buildPhases(now);
+      setPhasesData(built);
+
+      const idx = getPhaseIndexByRanges(built.phases, now);
+      setPhaseIdx(idx);
+
+      const label = built.phases[idx]?.title || "";
+      setStageText(label ? `Current status: ${label}.` : "Current status: —");
     };
+
     tick();
-    const id = setInterval(tick, 1000 * 60 * 30);
+    const id = setInterval(tick, 1000 * 60 * 30); // every 30 minutes
     return () => clearInterval(id);
   }, [target]);
-
-  const phases = [
-    { key: "dormancy",   title: "Dormancy",         time: "Nov – mid-Feb", desc: "Trees rest and store energy." },
-    { key: "flowering",  title: "Bud & Flower",     time: "Mid-Feb – Apr", desc: "Buds swell; delicate blossoms form." },
-    { key: "fruitset",   title: "Fruit Set",        time: "May – Jun",     desc: "Tiny olives develop after pollination." },
-    { key: "pit",        title: "Pit Hardening",    time: "July",          desc: "Stones form inside the olives." },
-    { key: "oilaccu",    title: "Oil Accumulation", time: "August",        desc: "Oil content rises; flavors intensify." },
-    { key: "maturation", title: "Maturation",       time: "September",     desc: "Aromas deepen; texture and taste round out." },
-    { key: "harvest",    title: "Harvest",          time: "October",       desc: "Hand-picked at peak ripeness." },
-  ];
-
-  // fill calculations for each box
-  const seg = 100 / phases.length;
-  let completed = Math.floor(pct / seg);
-  let partial = (pct - completed * seg) / seg;
-  if (completed >= phases.length) { completed = phases.length - 1; partial = 1; }
-  const fillFor = (i) => {
-    if (i < completed) return 100;
-    if (i === completed) return Math.max(0, Math.min(100, Math.round(partial * 100)));
-    return 0;
-  };
 
   return (
     <motion.section
@@ -128,7 +207,7 @@ function BigCountdown() {
             <div className="cd-mini-track">
               <div
                 className="cd-mini-fill"
-                style={{ width: `${fillFor(i)}%` }}
+                style={{ width: `${fillPercentForPhase(p)}%` }}
               />
             </div>
           </div>
@@ -139,8 +218,6 @@ function BigCountdown() {
 }
 
 /* ---------- Teaser ---------- */
-
-
 function Teaser() {
   return (
     <motion.section
@@ -157,9 +234,8 @@ function Teaser() {
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
         viewport={{ once: true }}
       >
-        {/* Replace placeholder with actual image */}
         <img
-          src={assets.product}   // <-- make sure this exists in your assets
+          src={assets.product}
           alt="Abdeljalil Olive Oil Bottle"
           className="teaser-img"
           loading="lazy"
@@ -179,9 +255,6 @@ function Teaser() {
     </motion.section>
   );
 }
-
-
-
 
 /* ---------- Page ---------- */
 export default function Home() {
@@ -232,6 +305,7 @@ export default function Home() {
     </>
   );
 }
+
 
 
 

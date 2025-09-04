@@ -5,13 +5,11 @@ import { FaInstagram, FaEnvelope } from "react-icons/fa";
 import { assets } from "../assets/assets";
 
 const Footer = () => {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="footer" role="contentinfo">
       <div className="footer-container">
-        {/* Top row: logo + socials */}
         <div className="footer-inner">
+          {/* Logo */}
           <Link to="/" className="footer-brand" aria-label="Home">
             <img
               src={assets.mainlogo || assets.logo}
@@ -22,6 +20,18 @@ const Footer = () => {
             />
           </Link>
 
+          {/* Legal links centered */}
+          <nav className="footer-legal-row" aria-label="Legal navigation">
+            <Link to="/impressum" className="footer-link">Impressum</Link>
+            <span className="footer-sep">•</span>
+            <Link to="/privacy" className="footer-link">Privacy-Policy</Link>
+            <span className="footer-sep">•</span>
+            <Link to="/terms" className="footer-link">Terms &amp; Conditions</Link>
+            <span className="footer-sep">•</span>
+            <Link to="/contact" className="footer-link">FAQ</Link>
+          </nav>
+
+          {/* Socials */}
           <div className="footer-right">
             <div className="footer-socials" aria-label="Social links">
               <a
@@ -43,21 +53,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
-        {/* Legal row */}
-        <nav className="footer-legal-row" aria-label="Legal navigation">
-          <Link to="/impressum" className="footer-link">Impressum</Link>
-          <span className="footer-sep">•</span>
-          <Link to="/privacy" className="footer-link">Privacy-Policy</Link>
-          <span className="footer-sep">•</span>
-          <Link to="/terms" className="footer-link">Terms &amp; Conditions</Link>
-          <span className="footer-sep">•</span>
-          <Link to="/contact" className="footer-link">FAQ</Link>
-        </nav>
-
-        {/* Bottom lines */}
-        <div className="footer-copy">© {year} Abdeljalil Olive Oil. All rights reserved.</div>
-        <div className="footer-tagline">Family-owned, Moroccan olive oil, crafted with love.</div>
       </div>
     </footer>
   );

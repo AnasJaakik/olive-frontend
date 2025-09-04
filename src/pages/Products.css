@@ -6,7 +6,6 @@
   color: rgb(76, 76, 30);   /* ✅ Global text color */
   padding: 40px clamp(16px, 5vw, 56px);
   font-size: larger;
-  
 }
 
 /* Top layout: CENTERED GRID so right panel starts mid-screen */
@@ -17,13 +16,12 @@
   align-items: start;
   max-width: 1200px;
   margin: 0 auto;
-  
 }
+
 .highlight {
   font-weight: 800;          /* bold */
   color: var(--olive-text);  /* or keep default color */
 }
-
 
 /* LEFT column: images */
 .pd-left {
@@ -44,20 +42,26 @@
 }
 
 .pd-nutrition {
-  width: 360px;
-  height: 240px;
+  width: 100%;
+  max-width: 440px;
+  height: 640px;
   object-fit: contain;
   background: #f7f8f3;
   border-radius: 12px;
   box-shadow: 0 10px 24px rgba(0,0,0,.05);
 }
 
-/* RIGHT column: sticky info panel */
+/* RIGHT column is static; inner wrapper becomes sticky */
 .pd-right {
-  position: sticky;
-  top: 100px;
+  position: static;
   align-self: start;
   margin-left: clamp(0px, 1vw, 12px);
+}
+
+/* Sticky wrapper for the whole text (title → buy) */
+.pd-right-sticky {
+  position: sticky;
+  top: 100px; /* adjust to your header height */
 }
 
 /* Title & pricing */
@@ -111,7 +115,6 @@
   filter: brightness(1.05);
 }
 
-
 /* Toggle */
 .pd-toggle {
   margin-top: 14px;
@@ -152,7 +155,6 @@
   width: 340px;
   height: 280px;
   object-fit: cover;
-  
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
@@ -181,10 +183,9 @@
     grid-template-columns: 1fr;
     gap: 22px;
   }
-  .pd-right {
+  .pd-right-sticky {
     position: static;
     top: auto;
-    margin-left: 0;
   }
   .pd-actions { flex-direction: column; }
   .pd-add, .pd-buy { width: 100%; }

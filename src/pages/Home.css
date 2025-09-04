@@ -12,6 +12,7 @@
   text-align: center;
   background: #fff;
   color: var(--olive-text);
+  margin-right: 20px;
 }
 .home-hero-content { max-width: 900px; margin: 0 auto; }
 .hero-slogan-row { margin-bottom: 0.4em; }
@@ -28,7 +29,7 @@
   margin-bottom: 0.4em;
   color: var(--olive-text);
 }
-.hero-desc { font-size: 1.5rem; line-height: 1.6; color: var(--olive-text); width: 1000px; }
+.hero-desc { font-size: 1.5rem; line-height: 1.6; color: var(--olive-text); width: 1000px;  }
 
 /* ---------- VIDEO SECTION ---------- */
 .home-hero-video-wrap { position: relative; width: 100%; height: 100vh; overflow: hidden; }
@@ -219,6 +220,31 @@
 @media (max-width: 720px) {
   .cd-phase-row { overflow-x: auto; border-radius: 14px; }
   .cd-phase-card { min-width: 260px; }
+}
+/* ---------- Mobile text readability (hero only) ---------- */
+@media (max-width: 600px) {
+  .home-hero-text {
+    padding: 28px var(--page-padding);
+  }
+  .hero-slogan {
+    font-size: 1.35rem;         /* down from 2.1rem */
+  }
+  .hero-title {
+    font-size: 1.9rem;          /* tighter headline on phones */
+  }
+  .hero-desc {
+    width: auto;                 /* override fixed width */
+    max-width: 100%;
+    font-size: 1.05rem;          /* easier reading */
+    line-height: 1.7;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-slogan { font-size: 1.2rem; }
+  .hero-title  { font-size: 1.7rem; }
+  .hero-desc   { font-size: 1rem; }
 }
 
 

@@ -33,6 +33,7 @@ import heroVideoMp4 from "./videos/olivefarm.mp4";
 // Product / care
 import care from "./care.png";
 import product from "./product.png";
+import nutri from "./nutri.png";
 
 export const assets = {
   // core
@@ -49,6 +50,7 @@ export const assets = {
   anas,
   lea,
   marouane,
+  nutri,
 
   // misc
   life,

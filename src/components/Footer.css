@@ -1,5 +1,3 @@
-/* Footer.css — neat layout, no negative margins, responsive & a11y */
-
 :root {
   --footer-pad-x: clamp(16px, 5vw, 56px);
   --footer-gap: 16px;
@@ -25,46 +23,24 @@
   justify-content: space-between;
   gap: var(--footer-gap);
   flex-wrap: wrap;
-  margin-bottom: 10px;
 }
 
-/* Brand */
+/* Logo */
 .footer-brand { display: inline-flex; align-items: center; }
 .footer-logo {
-  height: clamp(64px, 12vw, 120px);
+  height: clamp(80px, 14vw, 140px);  /* ✅ bigger logo */
   width: auto;
   object-fit: contain;
   display: block;
 }
 
-/* Socials (right) */
-.footer-right {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-}
-.footer-socials { display: flex; align-items: center; gap: 10px; }
-.footer-social {
-  color: #000000;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;            /* comfortable tap target */
-  height: 42px;
-  border-radius: 10px;
-  transition: background .15s ease, transform .12s ease;
-}
-.footer-social:hover { background: #f4f7ec; transform: translateY(-1px); }
-
 /* Legal row (centered) */
 .footer-legal-row {
   display: flex;
-  justify-content: center;
+  justify-content: center;   /* ✅ center horizontally */
   align-items: center;
-  flex-wrap: wrap;
   gap: 10px;
-  width: 100%;
-  margin: 8px 0 8px;
+  flex: 1;                   /* take space so it stays centered */
 }
 
 .footer-sep { color: #98a38b; }
@@ -84,34 +60,80 @@
   transform: translateY(-1px);
 }
 
-/* Bottom lines */
-.footer-copy {
-  margin-top: 6px;
-  font-size: 0.95rem;
-  color: #6e7966;
-  text-align: center;
+/* Socials (right) */
+.footer-right {
+  display: flex;
+  align-items: center;
 }
-.footer-tagline {
-  font-size: 0.9rem;
-  margin-top: 6px;
-  color: #888;
-  text-align: center;
+.footer-socials { display: flex; align-items: center; gap: 10px; }
+.footer-social {
+  color: #000000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  transition: background .15s ease, transform .12s ease;
 }
+.footer-social:hover { background: #f4f7ec; transform: translateY(-1px); }
 
 /* Responsive tweaks */
 @media (max-width: 900px) {
   .footer-inner {
+    flex-direction: column;
     justify-content: center;
     text-align: center;
+    gap: 12px;
   }
-  .footer-right {
-    margin-left: 0;              /* center the socials on mobile */
+  .footer-legal-row {
+    flex: unset;
+    margin-left: 0;
+    justify-content: center;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .footer-social, .footer-link { transition: none; }
 }
+/* ---------- Footer mobile readability ---------- */
+@media (max-width: 600px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .footer-logo {
+    height: 100px;   /* slightly larger but scales nicely */
+  }
+
+  .footer-legal-row {
+    flex-wrap: wrap;           /* ✅ allow wrapping */
+    justify-content: center;
+    gap: 8px 14px;             /* balanced spacing for multiple rows */
+    margin: 0;
+  }
+
+  .footer-link {
+    font-size: 0.95rem;         /* comfortable size */
+    padding: 4px 6px;
+  }
+
+  .footer-right {
+    justify-content: center;    /* socials centered below links */
+  }
+}
+
+@media (max-width: 380px) {
+  .footer-legal-row {
+    flex-direction: column;     /* ✅ stack links vertically on very small phones */
+    gap: 6px;
+  }
+}
+
+
 
 
 
