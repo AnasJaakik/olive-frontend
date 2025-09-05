@@ -1,11 +1,14 @@
 /* ============ ProductDetail.css (updated) ============ */
 
+:root { --nav-height: 80px; } /* adjust to your real fixed navbar height */
+
 .product-detail {
   background: #fff;
   font-family: 'Tinos', serif;
-  color: rgb(76, 76, 30);   /* ✅ Global text color */
+  color: rgb(76, 76, 30);
   padding: 40px clamp(16px, 5vw, 56px);
   font-size: larger;
+  overflow: visible; /* protect sticky */
 }
 
 /* Top layout: CENTERED GRID so right panel starts mid-screen */
@@ -16,11 +19,12 @@
   align-items: start;
   max-width: 1200px;
   margin: 0 auto;
+  overflow: visible; /* protect sticky */
 }
 
 .highlight {
-  font-weight: 800;          /* bold */
-  color: var(--olive-text);  /* or keep default color */
+  font-weight: 800;
+  color: var(--olive-text);
 }
 
 /* LEFT column: images */
@@ -53,15 +57,18 @@
 
 /* RIGHT column is static; inner wrapper becomes sticky */
 .pd-right {
-  position: static;
+  position: relative;
   align-self: start;
   margin-left: clamp(0px, 1vw, 12px);
+  height: fit-content;
+  overflow: visible; /* protect sticky */
 }
 
-/* Sticky wrapper for the whole text (title → buy) */
+/* Sticky wrapper for the whole text (title → buy → desc) */
 .pd-right-sticky {
   position: sticky;
-  top: 100px; /* adjust to your header height */
+  top: calc(var(--nav-height) + 16px); /* sits below fixed navbar */
+  will-change: transform; /* Safari smoothness */
 }
 
 /* Title & pricing */
@@ -76,26 +83,26 @@
   font-size: clamp(1.05rem, 2.4vw, 1.3rem);
   font-weight: 700;
   margin-bottom: 4px;
-  color: rgb(76, 76, 30);  /* ✅ */
+  color: rgb(76, 76, 30);
 }
 
 .pd-size {
   font-size: clamp(0.95rem, 2vw, 1rem);
-  color: rgb(76, 76, 30);  /* ✅ */
+  color: rgb(76, 76, 30);
   margin-bottom: 16px;
 }
 
 .pd-desc p {
   margin-bottom: 12px;
   line-height: 1.6;
-  color: rgb(76, 76, 30);  /* ✅ */
+  color: rgb(76, 76, 30);
 }
 
 /* Actions */
 .pd-actions {
   display: flex;
   gap: 10px;
-  margin-top: 10px;
+  margin: 10px 0 16px;
 }
 .pd-add,
 .pd-buy {
@@ -105,17 +112,13 @@
   font-weight: 800;
   cursor: pointer;
   font-size: 1rem;
-
-  background: #6f993e;              /* ✅ solid olive green */
+  background: #6f993e; /* solid olive green */
   color: #fff;
   box-shadow: 0 10px 24px rgba(111,153,62,.18);
 }
+.pd-buy:hover { filter: brightness(1.05); }
 
-.pd-buy:hover {
-  filter: brightness(1.05);
-}
-
-/* Toggle */
+/* Toggle sample (if used) */
 .pd-toggle {
   margin-top: 14px;
   padding: 12px 20px;
@@ -131,17 +134,17 @@
 
 /* Process section */
 .pd-process {
-  margin: 40px auto 0;
+  margin: 140px auto 0; /* moved further down */
   max-width: 1200px;
   padding: 0;
-  color: rgb(76, 76, 30);  /* ✅ all process text */
+  color: rgb(76, 76, 30);
 }
 .pd-process h2 {
   font-size: clamp(1.2rem, 3vw, 1.6rem);
   font-weight: 800;
   margin-bottom: 30px;
-  text-align: center;
-  color: rgb(76, 76, 30);  /* ✅ */
+  text-align: left; /* left-aligned heading */
+  color: rgb(76, 76, 30);
 }
 
 .pd-step {
@@ -149,7 +152,7 @@
   align-items: center;
   gap: 24px;
   margin-bottom: 40px;
-  color: rgb(76, 76, 30);  /* ✅ */
+  color: rgb(76, 76, 30);
 }
 .pd-step img {
   width: 340px;
@@ -163,9 +166,9 @@
   font-size: clamp(1rem, 2.6vw, 1.2rem);
   font-weight: 700;
   margin-bottom: 8px;
-  color: rgb(76, 76, 30);  /* ✅ */
+  color: rgb(76, 76, 30);
 }
-.pd-step p { line-height: 1.6; color: rgb(76, 76, 30); } /* ✅ */
+.pd-step p { line-height: 1.6; color: rgb(76, 76, 30); }
 
 /* Alternate step alignment */
 .pd-step.left { flex-direction: row; }
@@ -184,7 +187,7 @@
     gap: 22px;
   }
   .pd-right-sticky {
-    position: static;
+    position: static; /* disable sticky on small screens for nicer UX */
     top: auto;
   }
   .pd-actions { flex-direction: column; }
@@ -201,9 +204,12 @@
 
   .pd-bottle { max-width: 100%; height: 520px; }
   .pd-nutrition { width: 100%; max-width: 380px; height: 200px; }
+
+  .pd-process { margin-top: 64px; }
 }
 
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+

@@ -8,6 +8,8 @@ import About from "./pages/About";
 import Products from "./pages/Products";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
+import Privacy from "./pages/privacy";  
+
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -49,6 +51,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route
             path="*"
             element={

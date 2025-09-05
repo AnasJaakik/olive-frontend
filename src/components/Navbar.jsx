@@ -46,9 +46,9 @@ const Navbar = () => {
           {/* Desktop links */}
           <div className="navbar-links" role="menubar">
             <NavLink to="/" className="navbar-link" onClick={closeMobile}>HOME</NavLink>
-            <NavLink to="/products" className="navbar-link" onClick={closeMobile}>PRODUCTS &amp; PROCESS</NavLink>
+            <NavLink to="/products" className="navbar-link" onClick={closeMobile}>PRODUCT</NavLink>
             <NavLink to="/about" className="navbar-link" onClick={closeMobile}>ABOUT US</NavLink>
-            <NavLink to="/contact" className="navbar-link" onClick={closeMobile}>CONTACT</NavLink>
+            <NavLink to="/faq" className="navbar-link" onClick={closeMobile}>FAQ</NavLink>
           </div>
 
           {/* Mobile toggler */}
@@ -74,7 +74,7 @@ const Navbar = () => {
           <NavLink to="/" className="mobile-link tile" onClick={closeMobile}>Home</NavLink>
           <NavLink to="/products" className="mobile-link tile" onClick={closeMobile}>Product</NavLink>
           <NavLink to="/about" className="mobile-link tile" onClick={closeMobile}>About Us</NavLink>
-          <NavLink to="/contact" className="mobile-link tile" onClick={closeMobile}>Contact</NavLink>
+          <NavLink to="/faq" className="mobile-link tile" onClick={closeMobile}>FAQ</NavLink>
         </div>
       </header>
 
@@ -85,4 +85,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 

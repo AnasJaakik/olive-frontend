@@ -24,11 +24,9 @@ const Footer = () => {
           <nav className="footer-legal-row" aria-label="Legal navigation">
             <Link to="/impressum" className="footer-link">Impressum</Link>
             <span className="footer-sep">•</span>
-            <Link to="/privacy" className="footer-link">Privacy-Policy</Link>
+            <Link to="/privacy" className="footer-link">Privacy Policy</Link>
             <span className="footer-sep">•</span>
             <Link to="/terms" className="footer-link">Terms &amp; Conditions</Link>
-            <span className="footer-sep">•</span>
-            <Link to="/contact" className="footer-link">FAQ</Link>
           </nav>
 
           {/* Socials */}
@@ -59,4 +57,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

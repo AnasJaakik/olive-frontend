@@ -34,6 +34,10 @@ import heroVideoMp4 from "./videos/olivefarm.mp4";
 import care from "./care.png";
 import product from "./product.png";
 import nutri from "./nutri.png";
+import extraction from "./extraction.png";
+import tank from "./tank.png";
+import result from "./result.png";
+
 
 export const assets = {
   // core
@@ -51,6 +55,9 @@ export const assets = {
   lea,
   marouane,
   nutri,
+  extraction,
+  tank,
+  result,
 
   // misc
   life,
