@@ -260,7 +260,7 @@ export default function Home() {
           transition={{ duration: 0.9, ease: "easeOut" }}
         >
           <div className="hero-slogan-row">
-            <span className="hero-slogan">When quality has a face.</span>
+            <span className="hero-slogan">When Quality Has a Face.</span>
           </div>
           <h1 className="hero-title">Moroccan Extra Virgin Olive Oil</h1>
           <p className="hero-desc">

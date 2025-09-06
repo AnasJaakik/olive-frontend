@@ -76,21 +76,18 @@ export default function About() {
 
           <div className="about-gallery">
             <div className="gallery-card">
-              <img src="" alt="Team member 1" className="gallery-img" />
+              <img src={assets.abdeljalil} alt="Team member 1" className="gallery-img" />
               
             </div>
             <div className="gallery-card">
-              <img src="" alt="Team member 2" className="gallery-img" />
+              <img src={assets.anas} alt="Team member 2" className="gallery-img" />
               
             </div>
             <div className="gallery-card">
               <img src="" alt="Team member 3" className="gallery-img" />
               
             </div>
-            <div className="gallery-card">
-              <img src="" alt="Team member 4" className="gallery-img" />
-              
-            </div>
+            
           </div>
         </div>
       </section>

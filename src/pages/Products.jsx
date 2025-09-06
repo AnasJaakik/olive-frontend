@@ -68,13 +68,8 @@ export default function Products() {
         <motion.aside className="pd-right" variants={rightCol} aria-label="Product details">
           <div className="pd-right-sticky">
             <h1 className="pd-title">Abdeljalil Olive Oil</h1>
-            <div className="pd-price">€29.00</div>
+            <div className="pd-price">€28.00</div>
             <div className="pd-size">750ml</div>
-
-            <div className="pd-actions" aria-label="Purchase actions">
-              <button onClick={handleBuy} className="pd-buy">Buy Now</button>
-              {/* If you later add a cart, keep this: <button className="pd-add">Add to Cart</button> */}
-            </div>
 
             <div className="pd-desc">
               <p>
@@ -87,6 +82,10 @@ export default function Products() {
                 Due to its high concentration of polyphenols and monounsaturated fats, our olive oil is not only ideal
                 for finishing, but it can also be used for cooking, frying, and marinating.
               </p>
+              <div className="pd-actions" aria-label="Purchase actions">
+              <button onClick={handleBuy} className="pd-buy">Buy Now</button>
+              {/* If you later add a cart, keep this: <button className="pd-add">Add to Cart</button> */}
+            </div>
             </div>
           </div>
         </motion.aside>
