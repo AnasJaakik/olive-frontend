@@ -62,9 +62,9 @@ export default function About() {
             What began as a family tradition—sharing oil with friends—has blossomed into a mission: bringing authentic Haouzia olive oil from Marrakesh to tables around the world, without ever losing the purity and heart that define it.
           </motion.p>
 
-          {/* TEAM IMAGES PLACEHOLDER */}
+          {/* MEET THE TEAM */}
           <motion.h3
-            className="gallery-title"
+            className="team-title"
             custom={7}
             variants={fadeUp}
             initial="hidden"
@@ -74,21 +74,69 @@ export default function About() {
             Meet the Team
           </motion.h3>
 
-          <div className="about-gallery">
-            <div className="gallery-card">
-              <img src={assets.abdeljalil} alt="Team member 1" className="gallery-img" />
-              
+          <section className="team-section">
+            <div className="team-grid">
+              {/* 1) Abdeljalil */}
+              <motion.article
+                className="team-card"
+                custom={8}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                <img
+                  src={assets.abdeljalil}
+                  alt="Abdeljalil"
+                  className="team-img"
+                />
+                <div className="team-info">
+                  <h3>Abdeljalil</h3>
+                  <p>Founder • Steward of the Grove</p>
+                </div>
+              </motion.article>
+
+              {/* 2) Anas */}
+              <motion.article
+                className="team-card"
+                custom={9}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                <img
+                  src={assets.anas}
+                  alt="Anas"
+                  className="team-img"
+                />
+                <div className="team-info">
+                  <h3>Anas - Son of Abdeljalil</h3>
+                  <p>Operations • Craft & Care</p>
+                </div>
+              </motion.article>
+
+              {/* 3) Lea */}
+              <motion.article
+                className="team-card"
+                custom={10}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                <img
+                  src={assets.lea}
+                  alt="Lea"
+                  className="team-img"
+                />
+                <div className="team-info">
+                  <h3>Lea</h3>
+                  <p>Brand • Community</p>
+                </div>
+              </motion.article>
             </div>
-            <div className="gallery-card">
-              <img src={assets.anas} alt="Team member 2" className="gallery-img" />
-              
-            </div>
-            <div className="gallery-card">
-              <img src="" alt="Team member 3" className="gallery-img" />
-              
-            </div>
-            
-          </div>
+          </section>
         </div>
       </section>
     </main>
