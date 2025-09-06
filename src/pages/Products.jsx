@@ -32,7 +32,7 @@ const fadeStep = {
 };
 
 // Stripe Payment Link (test mode)
-const STRIPE_LINK = "https://buy.stripe.com/test_28EaEYb5n2aH6oHexUak000";
+const STRIPE_LINK = "https://buy.stripe.com/8x27sM6IF7O04kh85j3Nm00";
 
 export default function Products() {
   const handleBuy = () => {
