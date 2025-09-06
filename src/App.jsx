@@ -8,7 +8,7 @@ import About from "./pages/About";
 import Products from "./pages/Products";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
-import Privacy from "./pages/privacy";   
+import Privacy from "./pages/Privacy";   
 
 
 import ScrollToTop from "./components/ScrollToTop";
