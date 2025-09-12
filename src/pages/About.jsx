@@ -16,7 +16,7 @@ const fadeUp = {
 export default function About() {
   return (
     <main className="about-page">
-      {/* LONGER HERO IMAGE */}
+      {/* HERO IMAGE */}
       <section className="about-hero">
         <img
           className="about-hero-img"
@@ -25,8 +25,9 @@ export default function About() {
         />
       </section>
 
-      {/* MAIN STORY */}
-      <section className="about-body-single">
+      {/* STORY + GALLERY (2 columns) */}
+      <section className="about-body">
+        {/* LEFT: STORY */}
         <div className="about-content">
           <motion.h2
             custom={0}
@@ -61,87 +62,33 @@ export default function About() {
           <motion.p custom={6} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             What began as a family tradition—sharing oil with friends—has blossomed into a mission: bringing authentic Haouzia olive oil from Marrakesh to tables around the world, without ever losing the purity and heart that define it.
           </motion.p>
+        </div>
 
-          {/* MEET THE TEAM */}
-          <motion.h3
-            className="team-title"
-            custom={7}
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            Meet the Team
-          </motion.h3>
-
-          <section className="team-section">
-            <div className="team-grid">
-              {/* 1) Abdeljalil */}
-              <motion.article
-                className="team-card"
-                custom={8}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                <img
-                  src={assets.abdeljalil}
-                  alt="Abdeljalil"
-                  className="team-img"
-                />
-                <div className="team-info">
-                  <h3>Abdeljalil</h3>
-                  <p>Founder • Steward of the Grove</p>
-                </div>
-              </motion.article>
-
-              {/* 2) Anas */}
-              <motion.article
-                className="team-card"
-                custom={9}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                <img
-                  src={assets.anas}
-                  alt="Anas"
-                  className="team-img"
-                />
-                <div className="team-info">
-                  <h3>Anas - Son of Abdeljalil</h3>
-                  <p>Operations • Craft & Care</p>
-                </div>
-              </motion.article>
-
-              {/* 3) Lea */}
-              <motion.article
-                className="team-card"
-                custom={10}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                <img
-                  src={assets.lea}
-                  alt="Lea"
-                  className="team-img"
-                />
-                <div className="team-info">
-                  <h3>Lea</h3>
-                  <p>Brand • Community</p>
-                </div>
-              </motion.article>
+        {/* RIGHT: BIG TEAM GALLERY */}
+        <div className="about-gallery-col">
+          <h2 className="gallery-header">Meet the Team</h2>
+          <div className="gallery-top">
+            <div className="gallery-ph">
+              <img src={assets.abdeljalil} alt="Abdeljalil" className="gallery-img" />
+              <div className="gallery-caption">Abdeljalil</div>
             </div>
-          </section>
+            <div className="gallery-ph">
+              <img src={assets.anas} alt="Anas" className="gallery-img" />
+              <div className="gallery-caption">Anas</div>
+            </div>
+            <div className="gallery-ph">
+              <img src={assets.lea} alt="Lea" className="gallery-img" />
+              <div className="gallery-caption">Lea</div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
 
 
 
