@@ -8,13 +8,22 @@ const pageVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { duration: 0.5, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.08 }
-  }
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+      when: "beforeChildren",
+      staggerChildren: 0.08,
+    },
+  },
 };
 
 const leftCol = {
   hidden: { opacity: 0, x: -24 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } }
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
 };
 
 /**
@@ -23,20 +32,27 @@ const leftCol = {
  */
 const rightCol = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.7, ease: "easeOut", delay: 0.05 } }
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.7, ease: "easeOut", delay: 0.05 },
+  },
 };
 
 const fadeStep = {
   hidden: { opacity: 0, y: 22 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } }
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: "easeOut" },
+  },
 };
 
-// Stripe Payment Link (test mode)
-const STRIPE_LINK = "https://buy.stripe.com/8x27sM6IF7O04kh85j3Nm00";
+// Google Form Link (pre-order)
+const PREORDER_LINK = "https://forms.gle/NCd8m2HVoQ851BDf7";
 
 export default function Products() {
   const handleBuy = () => {
-    window.location.href = STRIPE_LINK;
+    window.open(PREORDER_LINK, "_blank");
   };
 
   return (
@@ -65,33 +81,72 @@ export default function Products() {
         </motion.div>
 
         {/* RIGHT: sticky card with details and actions */}
-        <motion.aside className="pd-right" variants={rightCol} aria-label="Product details">
+        <motion.aside
+          className="pd-right"
+          variants={rightCol}
+          aria-label="Product details"
+        >
           <div className="pd-right-sticky">
             <h1 className="pd-title">Abdeljalil Olive Oil</h1>
-            <div className="pd-price">€28.00</div>
+            <div className="pd-price">€29.00</div>
             <div className="pd-size">750ml</div>
 
             <div className="pd-desc">
               <p>
                 Our extra virgin olive oil is a true single-origin product from
-                <span className="highlight"> Morocco</span>. While Moroccan tradition often calls for serving olive oil
-                with warm bread or as a final flourish on soups and other dishes, we encourage you to use our oil in any
-                way you desire. Its complex flavor profile makes it suitable for a wide range of culinary applications.
+                <span className="highlight"> Morocco</span>. While Moroccan
+                tradition often calls for serving olive oil with warm bread or
+                as a final flourish on soups and other dishes, we encourage you
+                to use our oil in any way you desire. Its complex flavor profile
+                makes it suitable for a wide range of culinary applications.
               </p>
               <p>
-                Due to its high concentration of polyphenols and monounsaturated fats, our olive oil is not only ideal
-                for finishing, but it can also be used for cooking, frying, and marinating.
+                Due to its high concentration of polyphenols and monounsaturated
+                fats, our olive oil is not only ideal for finishing, but it can
+                also be used for cooking, frying, and marinating.
               </p>
+
               <div className="pd-actions" aria-label="Purchase actions">
-              <button onClick={handleBuy} className="pd-buy">Buy Now</button>
-              {/* If you later add a cart, keep this: <button className="pd-add">Add to Cart</button> */}
-            </div>
+                <button onClick={handleBuy} className="pd-buy">
+                  Pre-order Now!
+                </button>
+              </div>
+
+              {/* NEW SECTION */}
+              <div className="pd-special">
+                <h3>What is special about our oil?</h3>
+                <p>
+                  Our Extra Virgin Olive Oil is a testament to quality, with
+                  this year’s harvest aiming for an acidity level of less than{" "}
+                  <strong>0.4%</strong>. This estimation is based on our
+                  extensive experience in producing olive oil from our family’s
+                  farm and distributing it to family and friends inside and
+                  outside Morocco. The consistency of our process and the health
+                  of our olive trees contribute to this result. Our previous
+                  harvests have undergone rigorous testing, confirming our
+                  ability to produce an oil that far exceeds the strict criteria
+                  for extra virgin which requires an acidity level of{" "}
+                  <strong>0.8%</strong> or less.
+                </p>
+                <p>
+                  This low acidity level is a key indicator of olive oil
+                  quality. It measures the amount of free fatty acids present in
+                  the oil, expressed as a percentage of oleic acid. Contrary to
+                  its name, this acidity does not affect the oil’s taste. A
+                  lower acidity indicates that the oil was produced from
+                  healthy, undamaged olives with minimal processing time. When
+                  the olive fruits are damaged or processing is delayed, fatty
+                  acids are released, which increases the acidity. Our careful
+                  production process ensures a low acidity, reflecting our
+                  commitment to quality.
+                </p>
+              </div>
             </div>
           </div>
         </motion.aside>
       </section>
 
-      {/* ORIGIN & PROCESS — always visible now */}
+      {/* ORIGIN & PROCESS */}
       <section className="pd-process">
         <motion.h2
           variants={fadeStep}
@@ -122,11 +177,14 @@ export default function Products() {
           <div>
             <h3>The Haouzia Olive’s Journey</h3>
             <p>
-              Our olive oil begins its life each spring when our Haouzia olive trees awaken with their first blossoms,
-              usually around <strong>late April to early May</strong>. These delicate white flowers mark the start of the
-              season and rely heavily on wind pollination—a process that our dry Marrakech climate uniquely supports.
-              Haouzia, a variety native to our region, thrives in hot, dry summers and produces olives with high oil content
-              and exceptional flavor.
+              Our olive oil begins its life each spring when our Haouzia olive
+              trees awaken with their first blossoms, usually around{" "}
+              <strong>late April to early May</strong>. These delicate white
+              flowers mark the start of the season and rely heavily on wind
+              pollination—a process that our dry Marrakech climate uniquely
+              supports. Haouzia, a variety native to our region, thrives in hot,
+              dry summers and produces olives with high oil content and
+              exceptional flavor.
             </p>
           </div>
         </motion.div>
@@ -143,10 +201,13 @@ export default function Products() {
           <div>
             <h3>Sustainable by Nature</h3>
             <p>
-              Though Haouzia trees are <strong>naturally drought-adapted</strong>, we choose to support them with moderate
-              watering during the peak summer months. This isn’t industrial irrigation—just a respectful gesture to help
-              the trees cope with the extreme Moroccan heat. This balance ensures strong, healthy fruit without sacrificing
-              the concentrated flavors that come from the tree’s natural stress response.
+              Though Haouzia trees are{" "}
+              <strong>naturally drought-adapted</strong>, we choose to support
+              them with moderate watering during the peak summer months. This
+              isn’t industrial irrigation—just a respectful gesture to help the
+              trees cope with the extreme Moroccan heat. This balance ensures
+              strong, healthy fruit without sacrificing the concentrated flavors
+              that come from the tree’s natural stress response.
             </p>
           </div>
         </motion.div>
@@ -163,13 +224,17 @@ export default function Products() {
           <div>
             <h3>Picked Green, Pressed Swiftly</h3>
             <p>
-              Our harvest begins in <strong>late October</strong>, when the olives are still green—early in their ripening
-              cycle. This timing results in lower yield, but a <strong>richer concentration of polyphenols</strong>, giving
-              the oil its peppery bite, bitterness, and long shelf life.
+              Our harvest begins in <strong>late October</strong>, when the
+              olives are still green—early in their ripening cycle. This timing
+              results in lower yield, but a{" "}
+              <strong>richer concentration of polyphenols</strong>, giving the
+              oil its peppery bite, bitterness, and long shelf life.
             </p>
             <p>
-              Within <strong>less than 24 hours</strong>, we transport olives from tree to mill—no delays, no storage.
-              Every batch is <strong>pressed fresh</strong> in small quantities to preserve aroma, antioxidants, and nutrients.
+              Within <strong>less than 24 hours</strong>, we transport olives
+              from tree to mill—no delays, no storage. Every batch is{" "}
+              <strong>pressed fresh</strong> in small quantities to preserve
+              aroma, antioxidants, and nutrients.
             </p>
           </div>
         </motion.div>
@@ -186,13 +251,16 @@ export default function Products() {
           <div>
             <h3>Cold Extraction, No Additives</h3>
             <p>
-              We never add water, and we never heat the paste. Our olives are cold-extracted under <strong>27°C</strong> in
-              stainless steel equipment. After gentle crushing, <strong>malaxation</strong> slowly coalesces oil droplets
-              for about 30 minutes under precise temperature control.
+              We never add water, and we never heat the paste. Our olives are
+              cold-extracted under <strong>27°C</strong> in stainless steel
+              equipment. After gentle crushing, <strong>malaxation</strong>{" "}
+              slowly coalesces oil droplets for about 30 minutes under precise
+              temperature control.
             </p>
             <p>
-              We <strong>do not dilute</strong> the paste and avoid chemical aids. Separation uses a
-              <strong> two-phase centrifugal system</strong>, retaining more polyphenols and aromatic compounds.
+              We <strong>do not dilute</strong> the paste and avoid chemical
+              aids. Separation uses a<strong> two-phase centrifugal system</strong>,
+              retaining more polyphenols and aromatic compounds.
             </p>
           </div>
         </motion.div>
@@ -209,11 +277,16 @@ export default function Products() {
           <div>
             <h3>Unfiltered Purity, Naturally Settled</h3>
             <p>
-              Right after pressing, the oil is vivid green and cloudy—a sign of freshness. Rather than filter it mechanically,
-              we let the oil <strong>settle naturally</strong> in stainless steel tanks for several days. The sediment
-              sinks, and we carefully decant only the purest top layer.
+              Right after pressing, the oil is vivid green and cloudy—a sign of
+              freshness. Rather than filter it mechanically, we let the oil{" "}
+              <strong>settle naturally</strong> in stainless steel tanks for
+              several days. The sediment sinks, and we carefully decant only the
+              purest top layer.
             </p>
-            <p>This method respects the oil’s natural structure while enhancing stability and flavor.</p>
+            <p>
+              This method respects the oil’s natural structure while enhancing
+              stability and flavor.
+            </p>
           </div>
         </motion.div>
 
@@ -229,11 +302,13 @@ export default function Products() {
           <div>
             <h3>The Final Result</h3>
             <p>
-              A <strong>deep golden-green olive oil</strong> with fresh grass, green almond, and a hint of artichoke.
-              Robust yet balanced, with a peppery finish—signature of early-harvest Haouzia olives.
+              A <strong>deep golden-green olive oil</strong> with fresh grass,
+              green almond, and a hint of artichoke. Robust yet balanced, with a
+              peppery finish—signature of early-harvest Haouzia olives.
             </p>
             <p>
-              Every drop traces a story from Marrakech’s red earth and our family’s care to your table.
+              Every drop traces a story from Marrakech’s red earth and our
+              family’s care to your table.
             </p>
           </div>
         </motion.div>
@@ -249,7 +324,6 @@ export default function Products() {
     </motion.main>
   );
 }
-
 
 
 

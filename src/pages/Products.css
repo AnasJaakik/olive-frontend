@@ -112,11 +112,32 @@
   font-weight: 800;
   cursor: pointer;
   font-size: 1rem;
-  background: #6f993e; /* solid olive green */
+  background: rgb(76, 76, 30); /* solid olive green */
   color: #fff;
   box-shadow: 0 10px 24px rgba(111,153,62,.18);
 }
 .pd-buy:hover { filter: brightness(1.05); }
+
+/* SPECIAL SECTION — pushed further down & bigger header */
+.pd-special {
+  margin-top: 220px; /* pushed further down */
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+
+}
+.pd-special h3 {
+  font-size: clamp(1.2rem, 3vw, 1.6rem); /* bigger heading */
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: rgb(76, 76, 30);
+}
+.pd-special p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: rgb(76, 76, 30);
+}
 
 /* Toggle sample (if used) */
 .pd-toggle {
@@ -134,7 +155,7 @@
 
 /* Process section */
 .pd-process {
-  margin: 140px auto 0; /* moved further down */
+  margin: 140px auto 0;
   max-width: 1200px;
   padding: 0;
   color: rgb(76, 76, 30);
@@ -143,7 +164,7 @@
   font-size: clamp(1.2rem, 3vw, 1.6rem);
   font-weight: 800;
   margin-bottom: 30px;
-  text-align: left; /* left-aligned heading */
+  text-align: left;
   color: rgb(76, 76, 30);
 }
 
@@ -187,7 +208,7 @@
     gap: 22px;
   }
   .pd-right-sticky {
-    position: static; /* disable sticky on small screens for nicer UX */
+    position: static;
     top: auto;
   }
   .pd-actions { flex-direction: column; }
@@ -205,6 +226,8 @@
   .pd-bottle { max-width: 100%; height: 520px; }
   .pd-nutrition { width: 100%; max-width: 380px; height: 200px; }
 
+  /* keep special text closer on mobile */
+  .pd-special { margin-top: 20px; }
   .pd-process { margin-top: 64px; }
 }
 

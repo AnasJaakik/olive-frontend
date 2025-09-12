@@ -1,0 +1,41 @@
+.faq-page {
+    background: #fff;
+    color: rgb(76, 76, 30);
+    min-height: 60vh;
+    padding: 40px clamp(16px, 5vw, 56px);
+    font-family: 'Tinos', serif;
+  }
+  
+  .faq-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .faq-title {
+    font-weight: 800;
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    margin-bottom: 6px;
+  }
+  
+  .faq-sub {
+    opacity: .9;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  
+  .faq-block {
+    margin-bottom: 28px;
+  }
+  
+  .faq-block h2 {
+    font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: rgb(76, 76, 30);
+  }
+  
+  .faq-block p {
+    line-height: 1.6;
+    margin: 0;
+  }
+  
