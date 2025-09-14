@@ -105,7 +105,7 @@
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 18px;
+  
   box-shadow: 0 12px 28px rgba(0,0,0,0.1);
 }
 .team-caption {
