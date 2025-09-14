@@ -63,7 +63,8 @@
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* ✅ 3 per row */
-  gap: clamp(20px, 3vw, 32px);
+  gap: clamp(28px, 4vw, 40px);
+
 }
 .gallery-ph {
   display: flex;
@@ -73,7 +74,7 @@
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 18px;
+  
   box-shadow: 0 12px 28px rgba(0,0,0,0.1);
 }
 
