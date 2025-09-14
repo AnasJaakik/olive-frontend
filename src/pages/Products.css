@@ -1,6 +1,6 @@
-/* ============ ProductDetail.css (updated) ============ */
+/* ============ ProductDetail.css (updated for bigger process font) ============ */
 
-:root { --nav-height: 80px; } /* adjust to your real fixed navbar height */
+:root { --nav-height: 80px; }
 
 .product-detail {
   background: #fff;
@@ -8,10 +8,10 @@
   color: rgb(76, 76, 30);
   padding: 40px clamp(16px, 5vw, 56px);
   font-size: larger;
-  overflow: visible; /* protect sticky */
+  overflow: visible;
 }
 
-/* Top layout: CENTERED GRID so right panel starts mid-screen */
+/* Top layout */
 .pd-hero {
   display: grid;
   grid-template-columns: minmax(280px, 38vw) minmax(360px, 560px);
@@ -19,7 +19,7 @@
   align-items: start;
   max-width: 1200px;
   margin: 0 auto;
-  overflow: visible; /* protect sticky */
+  overflow: visible;
 }
 
 .highlight {
@@ -27,7 +27,7 @@
   color: var(--olive-text);
 }
 
-/* LEFT column: images */
+/* LEFT column */
 .pd-left {
   display: flex;
   flex-direction: column;
@@ -55,20 +55,19 @@
   box-shadow: 0 10px 24px rgba(0,0,0,.05);
 }
 
-/* RIGHT column is static; inner wrapper becomes sticky */
+/* RIGHT column sticky */
 .pd-right {
   position: relative;
   align-self: start;
   margin-left: clamp(0px, 1vw, 12px);
   height: fit-content;
-  overflow: visible; /* protect sticky */
+  overflow: visible;
 }
 
-/* Sticky wrapper for the whole text (title → buy → desc) */
 .pd-right-sticky {
   position: sticky;
-  top: calc(var(--nav-height) + 16px); /* sits below fixed navbar */
-  will-change: transform; /* Safari smoothness */
+  top: calc(var(--nav-height) + 16px);
+  will-change: transform;
 }
 
 /* Title & pricing */
@@ -112,23 +111,19 @@
   font-weight: 800;
   cursor: pointer;
   font-size: 1rem;
-  background: rgb(76, 76, 30); /* solid olive green */
+  background: rgb(76, 76, 30);
   color: #fff;
   box-shadow: 0 10px 24px rgba(111,153,62,.18);
 }
 .pd-buy:hover { filter: brightness(1.05); }
 
-/* SPECIAL SECTION — pushed further down & bigger header */
+/* SPECIAL SECTION */
 .pd-special {
-  margin-top: 220px; /* pushed further down */
-  padding: 0;
+  margin-top: 220px;
   background: transparent;
-  border-radius: 0;
-  box-shadow: none;
-
 }
 .pd-special h3 {
-  font-size: clamp(1.2rem, 3vw, 1.6rem); /* bigger heading */
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
   font-weight: 800;
   margin-bottom: 14px;
   color: rgb(76, 76, 30);
@@ -136,64 +131,23 @@
 .pd-special p {
   margin-bottom: 12px;
   line-height: 1.6;
-  color: rgb(76, 76, 30);
 }
 
-/* Toggle sample (if used) */
-.pd-toggle {
-  margin-top: 14px;
-  padding: 12px 20px;
-  border: none;
-  background: linear-gradient(90deg, #6f993e, #b2bf77);
-  color: #fff;
-  font-weight: 700;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: filter 0.2s ease;
-}
-.pd-toggle:hover { filter: brightness(1.05); }
-
-/* Process section */
+/* PROCESS SECTION — bigger font */
 .pd-process {
   margin: 140px auto 0;
-  max-width: 1200px;
-  padding: 0;
+  max-width: 900px;
+  padding: 0 clamp(16px, 5vw, 40px);
   color: rgb(76, 76, 30);
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem); /* ✅ Bigger font */
+  line-height: 1.8;
 }
 .pd-process h2 {
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-size: clamp(1.6rem, 3vw, 2.2rem); /* ✅ Bigger heading */
   font-weight: 800;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
   text-align: left;
-  color: rgb(76, 76, 30);
 }
-
-.pd-step {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  margin-bottom: 40px;
-  color: rgb(76, 76, 30);
-}
-.pd-step img {
-  width: 340px;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-.pd-step div { flex: 1; }
-.pd-step h3 {
-  font-size: clamp(1rem, 2.6vw, 1.2rem);
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: rgb(76, 76, 30);
-}
-.pd-step p { line-height: 1.6; color: rgb(76, 76, 30); }
-
-/* Alternate step alignment */
-.pd-step.left { flex-direction: row; }
-.pd-step.right { flex-direction: row-reverse; }
 
 /* ---------- Mobile adjustments ---------- */
 @media (max-width: 1024px) {
@@ -214,25 +168,10 @@
   .pd-actions { flex-direction: column; }
   .pd-add, .pd-buy { width: 100%; }
 
-  .pd-step {
-    flex-direction: column !important;
-    text-align: center;
-  }
-  .pd-step img {
-    width: 100%;
-    height: auto;
-  }
-
   .pd-bottle { max-width: 100%; height: 520px; }
   .pd-nutrition { width: 100%; max-width: 380px; height: 200px; }
 
-  /* keep special text closer on mobile */
   .pd-special { margin-top: 20px; }
-  .pd-process { margin-top: 64px; }
-}
-
-/* Reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
+  .pd-process { margin-top: 64px; font-size: 1.05rem; }
 }
 

@@ -37,6 +37,12 @@ import nutri from "./nutri.png";
 import extraction from "./extraction.png";
 import tank from "./tank.png";
 import result from "./result.png";
+import gallery1 from "./gallery1.png";
+import gallery2 from "./gallery2.png";
+import gallery3 from "./gallery3.png";
+import gallery4 from "./gallery4.png";
+import gallery5 from "./gallery5.png";
+import gallery6 from "./gallery6.png";
 
 
 export const assets = {
@@ -79,6 +85,14 @@ export const assets = {
 
   // video
   heroVideoMp4,
+  gallery1,
+  gallery2,
+  gallery3,
+  gallery4,
+  gallery5,
+  gallery6,
+  
+
 };
 
 // Optional named exports for convenience

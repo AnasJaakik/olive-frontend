@@ -44,7 +44,7 @@ export default function About() {
           </motion.p>
 
           <motion.p custom={2} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            Abdeljalil spent much of his free time on the family farm, teaching his children to care for their <strong>century-old Haouzia olive trees</strong>. These trees, unique to Marrakesh’s Haouz province, thrive only in this land’s particular climate—producing olives with an intense, unmistakable flavor.
+            Abdeljalil spent much of his free time on the family farm, teaching his children to care for their <strong>century-old Haouzia olive trees</strong>. These trees, unique to Marrakesh’s Haouz province, thrive only in this land’s particular climate, producing olives with an intense, unmistakable flavor.
           </motion.p>
 
           <motion.p custom={3} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -64,28 +64,56 @@ export default function About() {
           </motion.p>
         </div>
 
-        {/* RIGHT: BIG TEAM GALLERY */}
+        {/* RIGHT: GALLERY */}
         <div className="about-gallery-col">
-          <h2 className="gallery-header">Meet the Team</h2>
-          <div className="gallery-top">
+          <h2 className="gallery-header">Gallery</h2>
+          <div className="gallery-grid">
             <div className="gallery-ph">
-              <img src={assets.abdeljalil} alt="Abdeljalil" className="gallery-img" />
-              <div className="gallery-caption">Abdeljalil</div>
+              <img src={assets.gallery1} alt="Gallery placeholder" className="gallery-img" />
             </div>
             <div className="gallery-ph">
-              <img src={assets.anas} alt="Anas" className="gallery-img" />
-              <div className="gallery-caption">Anas</div>
+              <img src={assets.gallery2}  alt="Gallery placeholder" className="gallery-img" />
             </div>
             <div className="gallery-ph">
-              <img src={assets.lea} alt="Lea" className="gallery-img" />
-              <div className="gallery-caption">Lea</div>
+              <img src={assets.gallery3}  alt="Gallery placeholder" className="gallery-img" />
             </div>
+            <div className="gallery-ph">
+              <img src={assets.gallery4}  alt="Gallery placeholder" className="gallery-img" />
+            </div>
+            <div className="gallery-ph">
+              <img src={assets.gallery5}  alt="Gallery placeholder" className="gallery-img" />
+            </div>
+            <div className="gallery-ph">
+              <img src={assets.gallery6}  alt="Gallery placeholder" className="gallery-img" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MEET THE TEAM (full width) */}
+      <section className="team-section">
+        <h2 className="team-header">Meet the Team</h2>
+        <div className="team-gallery">
+          <div className="team-ph">
+            <img src={assets.abdeljalil} alt="Team member" className="team-img" />
+            <div className="team-caption">Name</div>
+          </div>
+          <div className="team-ph">
+            <img src={assets.anas} alt="Team member" className="team-img" />
+            <div className="team-caption">Name</div>
+          </div>
+          <div className="team-ph">
+            <img src={assets.lea} alt="Team member" className="team-img" />
+            <div className="team-caption">Name</div>
           </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
 
 
 

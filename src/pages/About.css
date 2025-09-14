@@ -1,5 +1,3 @@
-/* src/pages/About.css */
-
 .about-page {
   background: #fff;
   color: rgb(76, 76, 30);
@@ -14,7 +12,6 @@
   height: calc(100vh - 40px);
   overflow: hidden;
 }
-
 .about-hero-img {
   width: 100%;
   height: 100%;
@@ -23,7 +20,7 @@
   display: block;
 }
 
-/* ---------- Story + Gallery in 2 Columns ---------- */
+/* ---------- Story + Gallery ---------- */
 .about-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -32,76 +29,87 @@
   margin: 0 auto;
   padding: clamp(48px, 8vw, 88px) clamp(24px, 6vw, 56px);
   align-items: start;
+  
 }
 
-/* LEFT = text */
+/* Story text */
 .about-content h2 {
   font-weight: 800;
-  font-size: clamp(1.6rem, 3vw, 2rem); /* ✅ match Meet the Team */
+  font-size: clamp(1.6rem, 3vw, 2rem);
   margin: 0 0 1.8rem;
-  letter-spacing: 0.01em;
-  text-align: center; /* ✅ align style with gallery header */
+  text-align: center;
+  text-align: left;
 }
-
 .about-content p {
   margin: 0 0 1.6rem;
   line-height: 1.9;
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-  letter-spacing: 0.01em;
 }
 
-/* RIGHT = gallery column */
+/* Gallery */
 .about-gallery-col {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
-
-/* Gallery header */
 .gallery-header {
   font-weight: 800;
-  font-size: clamp(1.6rem, 3vw, 2rem); /* ✅ same as Our Story */
+  font-size: clamp(1.6rem, 3vw, 2rem);
   margin-bottom: 1.4rem;
-  margin-top: 5px;
-  color: rgb(76, 76, 30);
   text-align: center;
+  margin-top: -1px;
+  text-align: left;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ✅ 3 per row */
+  gap: clamp(20px, 3vw, 32px);
+}
+.gallery-ph {
+  display: flex;
+  justify-content: center;
+}
+.gallery-img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.1);
 }
 
-/* Top row: team members (big images) */
-.gallery-top {
+/* ---------- Meet the Team ---------- */
+.team-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 72px) clamp(24px, 6vw, 56px);
+  text-align: center;
+}
+.team-header {
+  font-weight: 800;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  margin-bottom: 2rem;
+}
+.team-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(20px, 3vw, 32px);
 }
-
-/* Each gallery card */
-.gallery-ph {
+.team-ph {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
 }
-
-.gallery-img {
+.team-img {
   width: 100%;
-  aspect-ratio: 4 / 5; /* portrait-style, larger images */
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: center;
   border-radius: 18px;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.1);
 }
-
-.gallery-ph:hover .gallery-img {
-  transform: scale(1.05);
-}
-
-/* Caption under image */
-.gallery-caption {
-  margin-top: 12px;
+.team-caption {
+  margin-top: 10px;
   font-size: 1.05rem;
   font-weight: 600;
-  color: rgb(76, 76, 30);
 }
 
 /* ---------- Responsive ---------- */
@@ -109,22 +117,24 @@
   .about-body {
     grid-template-columns: 1fr;
   }
-  .about-gallery-col {
-    order: -1; /* gallery above story */
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr; /* 2 per row on tablets */
   }
-  .gallery-top {
+  .team-gallery {
     grid-template-columns: 1fr 1fr;
   }
 }
-
-@media (max-width: 520px) {
-  .about-hero {
-    height: calc(100vh - 40px);
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; /* 1 per row on mobile */
   }
-  .gallery-top {
+  .team-gallery {
     grid-template-columns: 1fr;
   }
 }
+
+
+
 
 
 

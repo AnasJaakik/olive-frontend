@@ -146,7 +146,7 @@ export default function Products() {
         </motion.aside>
       </section>
 
-      {/* ORIGIN & PROCESS */}
+      {/* ORIGIN & PROCESS — text-only section */}
       <section className="pd-process">
         <motion.h2
           variants={fadeStep}
@@ -154,7 +154,7 @@ export default function Products() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          Our Process: From Flower to Fresh Press
+          From Tree to Bottle
         </motion.h2>
 
         <motion.div
@@ -163,167 +163,59 @@ export default function Products() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-        />
-
-        {/* 1 */}
-        <motion.div
-          className="pd-step left"
-          variants={fadeStep}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
         >
-          <img src={assets.flowering} alt="Haouzia Blossoms" />
-          <div>
-            <h3>The Haouzia Olive’s Journey</h3>
-            <p>
-              Our olive oil begins its life each spring when our Haouzia olive
-              trees awaken with their first blossoms, usually around{" "}
-              <strong>late April to early May</strong>. These delicate white
-              flowers mark the start of the season and rely heavily on wind
-              pollination—a process that our dry Marrakech climate uniquely
-              supports. Haouzia, a variety native to our region, thrives in hot,
-              dry summers and produces olives with high oil content and
-              exceptional flavor.
-            </p>
-          </div>
+          <p>
+            We begin our harvest in late October and early November, when the
+            olives are still green and early in their ripening cycle. While this
+            results in a lower yield, it ensures a richer concentration of
+            polyphenols, which are responsible for the oil&apos;s distinctive
+            peppery and bitter notes. We hand-pick all our olives. The olives
+            get collected in a big open pick-up truck which then transports them
+            to our partner in Sidi Bou Othmane for processing and bottling. To
+            ensure the best quality and make sure the olives get processed in 24
+            hours, we chose a partner that is only two hours drive from our
+            farm.
+          </p>
+          <p>
+            Once arrived, all our olives will be added to the processing
+            machine. This machine can process up to ten tonnes of olives and
+            takes care of all the following steps. The final product is the
+            freshly pressed oil in the end. First, they are stripped of any
+            leaves and branches, then carefully washed and rinsed with cold
+            water to remove any dirt. After cleaning, the olives are crushed and
+            kneaded for at least 40 minutes, a process that gently releases all
+            their oil. We handle the olives in small quantities to preserve
+            their delicate aroma, antioxidants, and nutrients. This step creates
+            a paste, a mixture of oil, water, and olive pulp.
+          </p>
+          <p>
+            Following the mixing phase is the separation &amp; extraction of the
+            pure oil. This crucial step is purely mechanical, using no
+            chemicals, heat, or solvents. The olive paste is fed into a large,
+            high-speed centrifuge, a horizontal separator, also called decanter.
+            The machine spins the paste with incredible force, and because oil,
+            water, and solids have different densities, the centrifugal force
+            separates them into distinct layers. The heaviest materials, which
+            is the solid pulp, pits, and skins, known as &quot;pomace&quot;,
+            are forced to the outer wall. The lighter vegetable water is held in
+            the middle, and the lightest component, the pure olive oil,
+            collects at the center. The separated oil, which still contains a
+            small amount of residual water and tiny solid particles, is then fed
+            into a vertical centrifuge. This machine spins even faster,
+            polishing the oil and separating the remaining water and
+            micro-impurities from the pure, final product.
+          </p>
+          <p>
+            The fresh oil is stored in stainless steel vats for about four days
+            so that any remaining sediment can settle before it gets bottled for
+            your delivery.
+          </p>
         </motion.div>
-
-        {/* 2 */}
-        <motion.div
-          className="pd-step right"
-          variants={fadeStep}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <img src={assets.care} alt="Sustainable Care" />
-          <div>
-            <h3>Sustainable by Nature</h3>
-            <p>
-              Though Haouzia trees are{" "}
-              <strong>naturally drought-adapted</strong>, we choose to support
-              them with moderate watering during the peak summer months. This
-              isn’t industrial irrigation—just a respectful gesture to help the
-              trees cope with the extreme Moroccan heat. This balance ensures
-              strong, healthy fruit without sacrificing the concentrated flavors
-              that come from the tree’s natural stress response.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* 3 */}
-        <motion.div
-          className="pd-step left"
-          variants={fadeStep}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <img src={assets.maturation} alt="Early Harvest" />
-          <div>
-            <h3>Picked Green, Pressed Swiftly</h3>
-            <p>
-              Our harvest begins in <strong>late October</strong>, when the
-              olives are still green—early in their ripening cycle. This timing
-              results in lower yield, but a{" "}
-              <strong>richer concentration of polyphenols</strong>, giving the
-              oil its peppery bite, bitterness, and long shelf life.
-            </p>
-            <p>
-              Within <strong>less than 24 hours</strong>, we transport olives
-              from tree to mill—no delays, no storage. Every batch is{" "}
-              <strong>pressed fresh</strong> in small quantities to preserve
-              aroma, antioxidants, and nutrients.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* 4 */}
-        <motion.div
-          className="pd-step right"
-          variants={fadeStep}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <img src={assets.extraction} alt="Cold Extraction" />
-          <div>
-            <h3>Cold Extraction, No Additives</h3>
-            <p>
-              We never add water, and we never heat the paste. Our olives are
-              cold-extracted under <strong>27°C</strong> in stainless steel
-              equipment. After gentle crushing, <strong>malaxation</strong>{" "}
-              slowly coalesces oil droplets for about 30 minutes under precise
-              temperature control.
-            </p>
-            <p>
-              We <strong>do not dilute</strong> the paste and avoid chemical
-              aids. Separation uses a<strong> two-phase centrifugal system</strong>,
-              retaining more polyphenols and aromatic compounds.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* 5 */}
-        <motion.div
-          className="pd-step left"
-          variants={fadeStep}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <img src={assets.tank} alt="Natural Settling" />
-          <div>
-            <h3>Unfiltered Purity, Naturally Settled</h3>
-            <p>
-              Right after pressing, the oil is vivid green and cloudy—a sign of
-              freshness. Rather than filter it mechanically, we let the oil{" "}
-              <strong>settle naturally</strong> in stainless steel tanks for
-              several days. The sediment sinks, and we carefully decant only the
-              purest top layer.
-            </p>
-            <p>
-              This method respects the oil’s natural structure while enhancing
-              stability and flavor.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* 6 */}
-        <motion.div
-          className="pd-step right"
-          variants={fadeStep}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <img src={assets.result} alt="Final Result" />
-          <div>
-            <h3>The Final Result</h3>
-            <p>
-              A <strong>deep golden-green olive oil</strong> with fresh grass,
-              green almond, and a hint of artichoke. Robust yet balanced, with a
-              peppery finish—signature of early-harvest Haouzia olives.
-            </p>
-            <p>
-              Every drop traces a story from Marrakech’s red earth and our
-              family’s care to your table.
-            </p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="pd-process-cta"
-          variants={fadeStep}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        />
       </section>
     </motion.main>
   );
 }
+
 
 
 
