@@ -44,23 +44,23 @@ export default function About() {
           </motion.p>
 
           <motion.p custom={2} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            Abdeljalil spent much of his free time on the family farm, teaching his children to care for their <strong>century-old Haouzia olive trees</strong>. These trees, unique to Marrakesh’s Haouz province, thrive only in this land’s particular climate, producing olives with an intense, unmistakable flavor.
+            Abdeljalil spent much of his free time on the family farm, teaching his children to care for their <strong>century old Haouzia olive trees</strong>. These trees, unique to Marrakesh’s Haouz province, thrive only in this land’s particular climate, producing olives with an intense, unmistakable flavor.
           </motion.p>
 
           <motion.p custom={3} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            Our approach is simple: a <strong>regenerative ecosystem</strong>. No chemicals, just a diverse balance of plants, animals, and olive trees coexisting. It’s farming as it was meant to be—alive, sustainable, and deeply respectful of the land.
+            Our approach is simple: a <strong>regenerative ecosystem</strong>. No chemicals, just a diverse balance of plants, animals, and olive trees coexisting. It’s farming as it was meant to be, alive, sustainable, and deeply respectful of the land.
           </motion.p>
 
           <motion.p custom={4} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            When harvest arrives, it’s more than work—it’s celebration. Every olive is hand-picked under the Moroccan sun and pressed within 24 hours. The first drop of oil each season carries a joy you can taste: fresh, pure, alive.
+            When harvest arrives, it’s more than work, it’s celebration. Every olive is hand picked under the Moroccan sun and pressed within 24 hours. The first drop of oil each season carries a joy you can taste: fresh, pure, alive.
           </motion.p>
 
           <motion.p custom={5} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            This is what sets us apart. For us, <strong>quality has a face</strong>—and it’s Abdeljalil’s. His legacy of knowledge, care, and passion lives in every bottle we produce.
+            This is what sets us apart. For us, <strong>quality has a face</strong> and it’s Abdeljalil’s. His legacy of knowledge, care, and passion lives in every bottle we produce.
           </motion.p>
 
           <motion.p custom={6} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            What began as a family tradition—sharing oil with friends—has blossomed into a mission: bringing authentic Haouzia olive oil from Marrakesh to tables around the world, without ever losing the purity and heart that define it.
+            What began as a family tradition, sharing oil with friends, has blossomed into a mission: bringing authentic Haouzia olive oil from Marrakesh to tables around the world, without ever losing the purity and heart that define it.
           </motion.p>
         </div>
 
@@ -111,14 +111,3 @@ export default function About() {
     </main>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
