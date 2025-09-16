@@ -187,6 +187,8 @@
   color: var(--olive-text);
   opacity: 0.95;
   margin: 0 0 1rem;
+  text-align: justify;
+  text-align-last: left;
 }
 
 .teaser-link {

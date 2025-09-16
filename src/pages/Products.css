@@ -53,6 +53,7 @@
   background: #f7f8f3;
   border-radius: 12px;
   box-shadow: 0 10px 24px rgba(0,0,0,.05);
+  margin-top: 50px;
 }
 
 /* RIGHT column sticky */
@@ -64,11 +65,7 @@
   overflow: visible;
 }
 
-.pd-right-sticky {
-  position: sticky;
-  top: calc(var(--nav-height) + 16px);
-  will-change: transform;
-}
+
 
 /* Title & pricing */
 .pd-title {
@@ -95,6 +92,8 @@
   margin-bottom: 12px;
   line-height: 1.6;
   color: rgb(76, 76, 30);
+  text-align: justify;
+  text-align-last: left;
 }
 
 /* Actions */
@@ -114,6 +113,7 @@
   background: rgb(76, 76, 30);
   color: #fff;
   box-shadow: 0 10px 24px rgba(111,153,62,.18);
+  margin-top: 40px;
 }
 .pd-buy:hover { filter: brightness(1.05); }
 
@@ -131,6 +131,9 @@
 .pd-special p {
   margin-bottom: 12px;
   line-height: 1.6;
+  text-align: justify;
+  text-align-last: left;
+  margin-top: 20px;
 }
 
 /* PROCESS SECTION — bigger font */
@@ -139,8 +142,11 @@
   max-width: 900px;
   padding: 0 clamp(16px, 5vw, 40px);
   color: rgb(76, 76, 30);
-  font-size: clamp(1.1rem, 2.2vw, 1.35rem); /* ✅ Bigger font */
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+ /* ✅ Bigger font */
   line-height: 1.8;
+  text-align: justify;
+  text-align-last: left;
 }
 .pd-process h2 {
   font-size: clamp(1.6rem, 3vw, 2.2rem); /* ✅ Bigger heading */
